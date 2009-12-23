@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Vladiyork - Louis VICAINNE</author>
+ <class>FenPrincipale</class>
+ <widget class="QMainWindow" name="FenPrincipale">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>751</width>
+    <height>504</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>VladiConnect v1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icone.png</normaloff>../icone.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>700</width>
+     <height>450</height>
+    </size>
+   </property>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>190</y>
+      <width>281</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Paramètres d'arrêt à distance</string>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>211</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QComboBox" name="os"/>
+      </item>
+      <item>
+       <layout class="QFormLayout" name="formLayout_3">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Nom d'utilisateur</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>Mot de passe</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit_2">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <zorder>verticalLayoutWidget_2</zorder>
+    <zorder>formLayoutWidget_2</zorder>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>3</y>
+      <width>171</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="layout_liste_serveurs">
+     <item>
+      <widget class="QListWidget" name="liste_serveur"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bouton_ajouter_serveur">
+       <property name="text">
+        <string>Ajouter un serveur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bouton_configuration_importer">
+       <property name="text">
+        <string>Importer la configuration</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bouton_configuration_exporter">
+       <property name="text">
+        <string>Exporter la configuration</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>0</y>
+      <width>521</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Propriétés du serveur</string>
+    </property>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>501</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Nom du serveur</string>
+          </property>
+          <property name="buddy">
+           <cstring>serveur_nom</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="serveur_nom">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Adresse IP</string>
+          </property>
+          <property name="buddy">
+           <cstring>serveur_ip</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="serveur_ip">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="inputMask">
+           <string>999.999.999.999; </string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Adresse MAC</string>
+          </property>
+          <property name="buddy">
+           <cstring>serveur_mac</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="serveur_mac">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="inputMask">
+           <string>&gt;HH:HH:HH:HH:HH:HH; </string>
+          </property>
+          <property name="text">
+           <string>:::::</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Masque de 
+sous-réseau</string>
+          </property>
+          <property name="buddy">
+           <cstring>serveur_sousReseau</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="serveur_sousReseau">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="inputMask">
+           <string>999.999.999.999; </string>
+          </property>
+          <property name="text">
+           <string>1...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QCheckBox" name="activer_arret_machine">
+          <property name="text">
+           <string>Activer l'arrêt de la machine</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Description</string>
+          </property>
+          <property name="buddy">
+           <cstring>serveur_description</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="serveur_description">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QPushButton" name="bouton_editer">
+          <property name="text">
+           <string>Editer les 
+paramètres
+ du serveur</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>debug/images/document-edit.png</normaloff>debug/images/document-edit.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="bouton_serveur_valider_modifications">
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+            <kerning>true</kerning>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>Valider les
+ modifications
+ du serveur</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>debug/images/dialog-ok.png</normaloff>debug/images/dialog-ok.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="autoRepeat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="bouton_supprimer_serveur">
+          <property name="text">
+           <string>Supprimer 
+ le serveur</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../delete.png</normaloff>../delete.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>190</y>
+      <width>151</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Actions</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>131</width>
+       <height>152</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="_2">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="bouton_demarrer">
+        <property name="text">
+         <string>Démarrer</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="bouton_arreter">
+        <property name="text">
+         <string>Arrêter à distance</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="bouton_ping">
+        <property name="text">
+         <string>Tester le ping</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+P</string>
+        </property>
+        <property name="autoRepeat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="bouton_redemarrer">
+        <property name="text">
+         <string>Redémarrer à distance</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Ouvrir la console 
+ du serveur</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>310</y>
+      <width>281</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Progression de la dernière action</string>
+    </property>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>261</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="action_nom">
+          <property name="text">
+           <string>Connexion </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="action_etat">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="cursor">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="action_progression">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="value">
+           <number>24</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="action_etat_pixmap">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../network-offline.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>751</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionSauver_la_configuration"/>
+    <addaction name="actionCharger_une_configuration"/>
+    <addaction name="actionImprimer_la_configuration"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuOutils">
+    <property name="title">
+     <string>Outils</string>
+    </property>
+    <addaction name="actionOptions"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>?</string>
+    </property>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuOutils"/>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="cursor">
+    <cursorShape>BlankCursor</cursorShape>
+   </property>
+  </widget>
+  <action name="actionOptions">
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSauver_la_configuration">
+   <property name="text">
+    <string>Sauver la configuration</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionCharger_une_configuration">
+   <property name="text">
+    <string>Charger une configuration</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionImprimer_la_configuration">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Imprimer la configuration</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>serveur_nom</tabstop>
+  <tabstop>serveur_ip</tabstop>
+  <tabstop>bouton_demarrer</tabstop>
+  <tabstop>bouton_arreter</tabstop>
+  <tabstop>bouton_ping</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>serveur_ip</sender>
+   <signal>lostFocus()</signal>
+   <receiver>FenPrincipale</receiver>
+   <slot>miseAJourItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>725</x>
+     <y>31</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>serveur_nom</sender>
+   <signal>lostFocus()</signal>
+   <receiver>FenPrincipale</receiver>
+   <slot>miseAJourItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>355</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>721</x>
+     <y>32</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>serveur_mac</sender>
+   <signal>lostFocus()</signal>
+   <receiver>FenPrincipale</receiver>
+   <slot>miseAJourItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>725</x>
+     <y>31</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>serveur_sousReseau</sender>
+   <signal>lostFocus()</signal>
+   <receiver>FenPrincipale</receiver>
+   <slot>miseAJourItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>715</x>
+     <y>29</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>serveur_description</sender>
+   <signal>textChanged()</signal>
+   <receiver>FenPrincipale</receiver>
+   <slot>miseAJourItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>548</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>718</x>
+     <y>31</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>miseAJourItem()</slot>
+ </slots>
+</ui>
