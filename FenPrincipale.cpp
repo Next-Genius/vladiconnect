@@ -23,7 +23,7 @@ FenPrincipale::FenPrincipale() {
     QObject::connect(actionCharger_une_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_importer_clicked()));
     QObject::connect(actionSauver_la_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_exporter_clicked()));
     QObject::connect(actionQuitter, SIGNAL(triggered()), this, SLOT(close()));
-    QObject::connect(&processus, SIGNAL(finished(int, QProcess::ExitStatus )), this, SLOT(fin_processus(int,QProcess::ExitStatus)));
+    //QObject::connect(&processus, SIGNAL(finished(int, QProcess::ExitStatus )), this, SLOT(fin_processus(int,QProcess::ExitStatus)));
 
 
 //définir fichier de conf courant pour pouvoir sauvegarder
@@ -118,23 +118,30 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
 
 
 int FenPrincipale::ping(QString ip) {
-    QStringList arguments(ip);
-
-
+    /*static*/ int numero_processus = 0;
+/*
+    m_liste_processus.insert(numero_processus, processus());
+    m_liste_processus[numero_processus].processus2();*/
+           //    m_liste_processus.append(processus());
+    /*processus pro();
+    pro.processus2();*/
+   /* QString arguments();
     //Limiter à un ping
     if(ENVIRONNEMENT == 1) {    //Windows
-        arguments.append("-n 1");
+        arguments = "ping "+ip+" -n 1 -w 1";
     } else {
-        arguments.append("-c 1");   //Linux
-    }
-    arguments.append("-w 1");
-processus.start("ping "+ip+" -w 1 -n 1");
-
+        arguments = "ping "+ip+" -c 1 -w 1";   //Linux
+    }*/
+/*
+    QObject::connect(&m_liste_processus[numero_processus], SIGNAL(signal_fini(int, QProcess::ExitStatus,int )), this, SLOT(fin_processus(int,QProcess::ExitStatus,int)));
+    m_liste_processus[numero_processus].start("ping "+ip+" -w 1 -n 1");
+*/
    /* if(processus->execute("ping "+ip+" -w 1 -n 1") == 0) {
         return true;
     } else {
         return false;
     }*/
+        numero_processus++; //préparation pour le prochian ping
 return true;
 
 }
@@ -504,11 +511,11 @@ void FenPrincipale::chargement_arriere_plan_slot() {
     QMessageBox::critical(this, "Elément sélectionné", "Arrière plan");
 }*/
 
-void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus statut) {
+void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus statut, int numero) {
     if(exitCode == 0) {
-       // QMessageBox::information(this, "Ti","PC Allumé\nFin processus : \n"+QString::number(exitCode)+"\nStatut :"+QString::number(statut));
+        QMessageBox::information(this, "Ti","Ping n°"+QString::number(numero)+"\nPC Allumé\nFin processus : \n"+QString::number(exitCode)+"\nStatut :"+QString::number(statut));
     } else {
-       // QMessageBox::information(this, "Ti","PC Etaint \nFin processus : \n"+QString::number(exitCode)+"\nStatut :"+QString::number(statut));
+        QMessageBox::information(this, "Ti","Ping n°"+QString::number(numero)+"PC Eteint \nFin processus : \n"+QString::number(exitCode)+"\nStatut :"+QString::number(statut));
     }
     //QMessageBox::information(this, "Ti","Fin processus : \n"+QString::number(i)+"\nStatut :"+QString::number(statut));
 }

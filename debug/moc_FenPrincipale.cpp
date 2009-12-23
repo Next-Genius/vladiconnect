@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'FenPrincipale.h'
 **
-** Created: Wed 23. Dec 10:52:32 2009
+** Created: Wed 23. Dec 19:30:02 2009
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -42,7 +42,7 @@ static const uint qt_meta_data_FenPrincipale[] = {
      305,   14,   14,   14, 0x0a,
      345,   14,   14,   14, 0x0a,
      378,   14,  374,   14, 0x0a,
-     396,  394,   14,   14, 0x0a,
+     417,  394,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -58,8 +58,8 @@ static const char qt_meta_stringdata_FenPrincipale[] = {
     "on_bouton_configuration_exporter_clicked()\0"
     "on_liste_serveur_itemSelectionChanged()\0"
     "on_bouton_demarrer_clicked()\0int\0"
-    "miseAJourItem()\0,\0"
-    "fin_processus(int,QProcess::ExitStatus)\0"
+    "miseAJourItem()\0exitCode,statut,numero\0"
+    "fin_processus(int,QProcess::ExitStatus,int)\0"
 };
 
 const QMetaObject FenPrincipale::staticMetaObject = {
@@ -103,7 +103,7 @@ int FenPrincipale::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 9: on_bouton_demarrer_clicked(); break;
         case 10: { int _r = miseAJourItem();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 11: fin_processus((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QProcess::ExitStatus(*)>(_a[2]))); break;
+        case 11: fin_processus((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QProcess::ExitStatus(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         default: ;
         }
         _id -= 12;

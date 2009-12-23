@@ -4,15 +4,16 @@
 #include <QtNetwork>
 #include <QtXml>
 //#include <winsock2.h>  //Linker ws2_32.lib
-//#include <icmpapi.h>   //Linker iphlpapi.lib
-#include <winsock2.h>
+//#include <winsock2.h>
 #include "ui_FenPrincipale.h"
 #include "serveur.h"
+#include "processus.h"
 #define NOM_AUTEUR Vladiyork
 #define NOM_LOGICIEL() "VladiConnect"
 #define VERSION_LOGICIEL() 0.474
 #define ENVIRONNEMENT 1
 //Environnement : 1 = Win ; 2 Linux
+
 class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
 {
     Q_OBJECT
@@ -37,12 +38,13 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         void on_liste_serveur_itemSelectionChanged();
         void on_bouton_demarrer_clicked();
         int miseAJourItem();
-        void fin_processus(int,QProcess::ExitStatus);
+        void fin_processus(int exitCode,QProcess::ExitStatus statut, int numero);
 
 
     private:
         QList<serveur> m_liste;
-        QProcess processus;
+        QList<processus> m_liste_processus;
+        //QProcess processus;
 };
 
 #endif // FENPRINCIPALE_H
