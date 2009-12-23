@@ -1,0 +1,12 @@
+<!DOCTYPE Configuration_vladiconnect>
+<!--Configuration NOM_LOGICIEL() VERSION_LOGICIEL()-->
+<!--Créé le lun. déc. 21 2009
+by NOM_AUTEUR()-->
+<racine version="0.11" nom="configuration">
+ <serveur sousReseau="454" nom="nomtest" ip="192.5" mac="mac">
+  <decription>NomTesdescrption</decription>
+ </serveur>
+ <geometry>
+  <quad>x0 0 1 1 0 1 1 1 1 0 1 1</quad>
+ </geometry>
+</racine>
