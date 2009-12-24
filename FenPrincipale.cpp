@@ -26,6 +26,7 @@ FenPrincipale::FenPrincipale() {
     //QObject::connect(&processus, SIGNAL(finished(int, QProcess::ExitStatus )), this, SLOT(fin_processus(int,QProcess::ExitStatus)));
 
 
+
 //définir fichier de conf courant pour pouvoir sauvegarder
 
 }
@@ -93,19 +94,18 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
         liste_serveur->addItem(m_liste[i].getNom());
 
     }
-    //emit chargement_arriere_plan();
+
 
     for(int i=0 ; i<liste_serveur->count() ; i++) {
         //QListWidgetItem item(m_liste[i].getNom());
         //item.setFlags(Qt::ItemIsSelectable|Qt::ItemIsEditable|Qt::ItemIsUserCheckable);
         (*(liste_serveur->item(i))).setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
+        int numero = ping(m_liste[i].getIp());
         if(ping(m_liste[i].getIp()) == true) {
             (*(liste_serveur->item(i))).setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-transmit-receive.png"));
         }
 
     }
-
-    //chargement_arriere_plan_slot();
 
 
     //liste_serveur->sortItems();
@@ -117,33 +117,29 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
 
 
 
-int FenPrincipale::ping(QString ip) {
-    /*static*/ int numero_processus = 0;
-/*
-    m_liste_processus.insert(numero_processus, processus());
-    m_liste_processus[numero_processus].processus2();*/
-           //    m_liste_processus.append(processus());
-    /*processus pro();
-    pro.processus2();*/
-   /* QString arguments();
+int FenPrincipale::ping(QString ip, int parametre = 0) {
+    static int numero = 0;
+    QProcess *process = new QProcess;
+    QString arguments;
+
     //Limiter à un ping
     if(ENVIRONNEMENT == 1) {    //Windows
-        arguments = "ping "+ip+" -n 1 -w 1";
+        arguments="ping "+ip+" -n 1 -w 1";
     } else {
-        arguments = "ping "+ip+" -c 1 -w 1";   //Linux
-    }*/
-/*
-    QObject::connect(&m_liste_processus[numero_processus], SIGNAL(signal_fini(int, QProcess::ExitStatus,int )), this, SLOT(fin_processus(int,QProcess::ExitStatus,int)));
-    m_liste_processus[numero_processus].start("ping "+ip+" -w 1 -n 1");
-*/
-   /* if(processus->execute("ping "+ip+" -w 1 -n 1") == 0) {
-        return true;
-    } else {
-        return false;
-    }*/
-        numero_processus++; //préparation pour le prochian ping
-return true;
+        arguments="ping "+ip+" -c 1 -w 1";   //Linux
+    }
 
+    process->start("ping "+ip+" -n 1 -w 1");
+    process->setObjectName(QString::number(numero));
+    process->setProperty("termine",false);
+//    process->setProperty("numero",test);
+
+    m_liste_processus.insert(numero,process);
+
+    QObject::connect(m_liste_processus[numero], SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(fin_processus(int,QProcess::ExitStatus)));
+
+    numero++;
+    return numero;
 }
 
 int FenPrincipale::EnregistrerConfiguration(QString chemin_fichier) {   //vérifié 1
@@ -505,18 +501,61 @@ int FenPrincipale::miseAJourItem() {    //vérifié 1
     //MAJ form->QList
     if(miseAJour_formulaire_vers_QList(liste_serveur->currentRow()) == 0)
         return true;
+    //sinon
+    return false;
 }
 /*
 void FenPrincipale::chargement_arriere_plan_slot() {
     QMessageBox::critical(this, "Elément sélectionné", "Arrière plan");
 }*/
 
-void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus statut, int numero) {
-    if(exitCode == 0) {
-        QMessageBox::information(this, "Ti","Ping n°"+QString::number(numero)+"\nPC Allumé\nFin processus : \n"+QString::number(exitCode)+"\nStatut :"+QString::number(statut));
-    } else {
-        QMessageBox::information(this, "Ti","Ping n°"+QString::number(numero)+"PC Eteint \nFin processus : \n"+QString::number(exitCode)+"\nStatut :"+QString::number(statut));
+void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) {
+
+    QObject *monObjet = sender();
+    QString nom(monObjet->objectName());
+    QProcess *monProcessus = new QProcess;
+    int trouve = 0;
+    for(int i=0 ; i<m_liste_processus.count() ; i++) {
+        if(nom == m_liste_processus[i]->objectName()) {
+            monProcessus = m_liste_processus[i];
+            trouve = 1;
+            i = m_liste_processus.count(); //fin de la boucle
+        }
     }
-    //QMessageBox::information(this, "Ti","Fin processus : \n"+QString::number(i)+"\nStatut :"+QString::number(statut));
+
+    if(trouve == 0) {
+        QMessageBox::critical(this, "Fin de processus", "Le processus n'a pas été retrouvé");
+
+    } else {
+        monProcessus->setProperty("termine",true);
+        int numero = nom.toInt();
+        if(exitCode == 0) {
+           // m_liste[numero].setConnecte(true);
+            //(*(liste_serveur->item(numero))).setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-transmit-receive.png"));
+            QMessageBox::information(this, "Ti","Ping n°"+QString::number(numero)+"\n Code :"+QString::number(monProcessus->exitCode())+"\nPC Allumé\nStatut :"+QString::number(monProcessus->exitStatus()));
+        } else {
+           // m_liste[numero].setConnecte(false);
+            //(*(liste_serveur->item(numero))).setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
+            QMessageBox::information(this, "Ti","Ping n°"+QString::number(numero)+"\n Code :"+QString::number(monProcessus->exitCode())+"\nPC Eteint\nStatut :"+QString::number(monProcessus->exitStatus())+"\nNbre processus :"+QString::number(m_liste_processus.count()));
+        }
+        //monProcessus->close();
+        //QMessageBox::information(this, "Ti","Fin processus : \n"+QString::number(i)+"\nStatut :"+QString::number(statut));
+
+
+    }
+}
+
+void FenPrincipale::on_bouton_maj_auto_clicked() {
+    QMessageBox::information(this, "Ti","Repeat");
+    int nombreServeurs = m_liste.count();
+    for (int i=0; i<nombreServeurs; i++) {
+        ping(m_liste[i].getIp());
+
+
+    }
+
+
+
+
 }
 

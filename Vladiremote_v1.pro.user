@@ -406,7 +406,7 @@
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -422,6 +422,7 @@
     <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
     <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
     <value type="QString">SESSIONNAME=Console</value>
+    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
     <value type="QString">SYSTEMDRIVE=C:</value>
     <value type="QString">SYSTEMROOT=C:\Windows</value>
     <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
@@ -464,7 +465,7 @@
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -480,6 +481,7 @@
     <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
     <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
     <value type="QString">SESSIONNAME=Console</value>
+    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
     <value type="QString">SYSTEMDRIVE=C:</value>
     <value type="QString">SYSTEMROOT=C:\Windows</value>
     <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>

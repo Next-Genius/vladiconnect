@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Tue 22. Dec 20:18:26 2009
+** Created: Thu 24. Dec 14:40:25 2009
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -96,6 +96,7 @@ public:
     QLineEdit *action_etat;
     QProgressBar *action_progression;
     QLabel *action_etat_pixmap;
+    QPushButton *bouton_maj_auto;
     QMenuBar *menubar;
     QMenu *menuFichier;
     QMenu *menuOutils;
@@ -169,7 +170,6 @@ public:
 
         verticalLayout->addLayout(formLayout_3);
 
-        verticalLayoutWidget_2->raise();
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(10, 3, 171, 301));
@@ -396,6 +396,10 @@ public:
 
         horizontalLayout->addWidget(action_etat_pixmap);
 
+        bouton_maj_auto = new QPushButton(centralwidget);
+        bouton_maj_auto->setObjectName(QString::fromUtf8("bouton_maj_auto"));
+        bouton_maj_auto->setGeometry(QRect(30, 360, 101, 51));
+        bouton_maj_auto->setAutoRepeat(true);
         FenPrincipale->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FenPrincipale);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -493,6 +497,9 @@ public:
         groupBox_4->setTitle(QApplication::translate("FenPrincipale", "Progression de la derni\303\250re action", 0, QApplication::UnicodeUTF8));
         action_nom->setText(QApplication::translate("FenPrincipale", "Connexion ", 0, QApplication::UnicodeUTF8));
         action_etat_pixmap->setText(QString());
+        bouton_maj_auto->setText(QApplication::translate("FenPrincipale", "Mise \303\240 jour\n"
+" de l'\303\251tat \n"
+"des serveurs", 0, QApplication::UnicodeUTF8));
         menuFichier->setTitle(QApplication::translate("FenPrincipale", "Fichier", 0, QApplication::UnicodeUTF8));
         menuOutils->setTitle(QApplication::translate("FenPrincipale", "Outils", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("FenPrincipale", "?", 0, QApplication::UnicodeUTF8));

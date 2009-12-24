@@ -3,8 +3,6 @@
 #include <QtGui>
 #include <QtNetwork>
 #include <QtXml>
-//#include <winsock2.h>  //Linker ws2_32.lib
-//#include <winsock2.h>
 #include "ui_FenPrincipale.h"
 #include "serveur.h"
 #include "processus.h"
@@ -38,13 +36,16 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         void on_liste_serveur_itemSelectionChanged();
         void on_bouton_demarrer_clicked();
         int miseAJourItem();
-        void fin_processus(int exitCode,QProcess::ExitStatus statut, int numero);
+        void fin_processus(int exitCode,QProcess::ExitStatus statut);
+        void on_bouton_maj_auto_clicked();
 
 
     private:
         QList<serveur> m_liste;
-        QList<processus> m_liste_processus;
+        //QList<processus> m_liste_processusm_liste_processus;
         //QProcess processus;
+        //processus pro10;
+        QList<QProcess*> m_liste_processus;
 };
 
 #endif // FENPRINCIPALE_H

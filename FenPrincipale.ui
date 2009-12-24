@@ -92,8 +92,6 @@
       </item>
      </layout>
     </widget>
-    <zorder>verticalLayoutWidget_2</zorder>
-    <zorder>formLayoutWidget_2</zorder>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -507,6 +505,24 @@ paramètres
       </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="bouton_maj_auto">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>360</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mise à jour
+ de l'état 
+des serveurs</string>
+    </property>
+    <property name="autoRepeat">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

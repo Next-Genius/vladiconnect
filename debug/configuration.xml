@@ -1,17 +1,8 @@
 <!--Configuration VladiConnect version 0.474 -->
-<!--Créé le mer. déc. 23 2009
+<!--Créé le jeu. déc. 24 2009
 by #NOM_AUTEUR()-->
 <racine version="0.474" nom="configuration">
  <serveur sousReseau="..." nom="nomtest" ip="127.0.0.1" mac=":::::">
-  <decription></decription>
- </serveur>
- <serveur sousReseau="" nom="Nouveau serveur" ip="192.168.1.2" mac=":::::">
-  <decription></decription>
- </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (1)" ip="128.0.0.1" mac=":::::">
-  <decription></decription>
- </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (2)" ip="192.168.1.1" mac=":::::">
   <decription></decription>
  </serveur>
 </racine>
