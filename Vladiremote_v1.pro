@@ -8,10 +8,8 @@ INCLUDEPATH += .
 # Input
 SOURCES += main.cpp \
     FenPrincipale.cpp \
-    serveur.cpp \
-    processus.cpp
+    serveur.cpp
 FORMS += FenPrincipale.ui
 HEADERS += FenPrincipale.h \
-    serveur.h \
-    processus.h
+    serveur.h
 OTHER_FILES += 

@@ -8,7 +8,7 @@
 #include "processus.h"
 #define NOM_AUTEUR Vladiyork
 #define NOM_LOGICIEL() "VladiConnect"
-#define VERSION_LOGICIEL() 0.474
+#define VERSION_LOGICIEL() 0.475
 #define ENVIRONNEMENT 1
 //Environnement : 1 = Win ; 2 Linux
 
@@ -22,7 +22,8 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         int chargerConfiguration(QString chemin_fichier =QFileDialog::getOpenFileName(0, "Ouvrir un fichier de configuration", QString(), "Fichier de configuration xml (*.xml)"));
         int miseAJour_QList_vers_formulaire(int numero_serveur);
         int miseAJour_formulaire_vers_QList(int numero_serveur);
-        int ping(QString ip);
+        int ping(QString ip, int numero_m_liste =0, int parametre = 0);
+        void maj_formulaire_action(QString titre, QString etat, int progression, QString icone);
 
     public slots:
         void on_bouton_ping_clicked();
