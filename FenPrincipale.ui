@@ -10,8 +10,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
-    <height>504</height>
+    <width>706</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>190</x>
       <y>190</y>
       <width>281</width>
       <height>111</height>
@@ -51,13 +51,13 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>211</width>
+       <width>261</width>
        <height>81</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QComboBox" name="os"/>
+       <widget class="QComboBox" name="serveur_os"/>
       </item>
       <item>
        <layout class="QFormLayout" name="formLayout_3">
@@ -72,7 +72,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="serveur_utilisateur"/>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_10">
@@ -82,7 +82,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="serveur_mdp">
           <property name="echoMode">
            <enum>QLineEdit::Password</enum>
           </property>
@@ -254,7 +254,10 @@ sous-réseau</string>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QCheckBox" name="activer_arret_machine">
+         <widget class="QCheckBox" name="serveur_activerArret">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="text">
            <string>Activer l'arrêt de la machine</string>
           </property>
@@ -361,14 +364,14 @@ paramètres
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>560</x>
       <y>190</y>
       <width>151</width>
-      <height>221</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="title">
-     <string>Actions</string>
+     <string>Actions à distance</string>
     </property>
     <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
@@ -387,14 +390,7 @@ paramètres
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="bouton_arreter">
-        <property name="text">
-         <string>Arrêter à distance</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
+      <item row="5" column="0">
        <widget class="QPushButton" name="bouton_ping">
         <property name="text">
          <string>Tester le ping</string>
@@ -407,18 +403,25 @@ paramètres
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="bouton_redemarrer">
-        <property name="text">
-         <string>Redémarrer à distance</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
+      <item row="6" column="0">
        <widget class="QPushButton" name="pushButton_3">
         <property name="text">
          <string>Ouvrir la console 
  du serveur</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="bouton_arreter">
+        <property name="text">
+         <string>Arrêter</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="bouton_redemarrer">
+        <property name="text">
+         <string>Redémarrer</string>
         </property>
        </widget>
       </item>
@@ -428,7 +431,7 @@ paramètres
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>190</x>
       <y>310</y>
       <width>281</width>
       <height>111</height>
@@ -509,9 +512,9 @@ paramètres
    <widget class="QPushButton" name="bouton_maj_auto">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>360</y>
-      <width>101</width>
+      <x>10</x>
+      <y>370</y>
+      <width>171</width>
       <height>51</height>
      </rect>
     </property>
@@ -530,7 +533,7 @@ des serveurs</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>751</width>
+     <width>706</width>
      <height>21</height>
     </rect>
    </property>
@@ -612,7 +615,6 @@ des serveurs</string>
   <tabstop>serveur_nom</tabstop>
   <tabstop>serveur_ip</tabstop>
   <tabstop>bouton_demarrer</tabstop>
-  <tabstop>bouton_arreter</tabstop>
   <tabstop>bouton_ping</tabstop>
  </tabstops>
  <resources/>

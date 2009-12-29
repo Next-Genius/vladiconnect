@@ -1,14 +1,24 @@
-<!--Configuration VladiConnect version 0.475 -->
-<!--Créé le jeu. déc. 24 2009
-by #NOM_AUTEUR()-->
-<racine version="0.475" nom="configuration">
- <serveur sousReseau="..." nom="nomtest" ip="127.0.0.1" mac=":::::">
+<!--Configuration VladiConnect version 0.476 
+ Créé le mar. déc. 29 2009
+ par Vladiyork
+ Ce document est au format "xml". -->
+<racine version="0.476" nom="configuration">
+ <serveur sousReseau="..." nom="nomtest" ip="127.0.0.1" mac="00:30:BD:B4:BF:37">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur" ip="192.168.1.1" mac="1:::::">
+ <serveur sousReseau="" nom="Nouveau serveur" ip="192.168.1.1" mac="00:30:BD:B4:BF:37">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (1)" ip="192.168.1.20" mac=":::::">
+ <serveur sousReseau="" nom="Nouveau serveur (1)" ip="192.168.1.20" mac="00:30:BD:B4:BF:37">
+  <decription></decription>
+ </serveur>
+ <serveur sousReseau="" nom="Nouveau serveur (2)" ip="192.168.001.003" mac="00:30:BD:B4:BF:37">
+  <decription></decription>
+ </serveur>
+ <serveur sousReseau="" nom="Nouveau serveur (3)" ip="192.168.1.6" mac=":::::">
+  <decription></decription>
+ </serveur>
+ <serveur sousReseau="" nom="Nouveau serveur (4)" ip="127.0.0.1" mac=":::::">
   <decription></decription>
  </serveur>
 </racine>

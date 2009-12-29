@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Thu 24. Dec 14:40:25 2009
+** Created: Sat 26. Dec 20:06:18 2009
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -48,12 +48,12 @@ public:
     QGroupBox *groupBox;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout;
-    QComboBox *os;
+    QComboBox *serveur_os;
     QFormLayout *formLayout_3;
     QLabel *label_9;
-    QLineEdit *lineEdit;
+    QLineEdit *serveur_utilisateur;
     QLabel *label_10;
-    QLineEdit *lineEdit_2;
+    QLineEdit *serveur_mdp;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *layout_liste_serveurs;
     QListWidget *liste_serveur;
@@ -73,7 +73,7 @@ public:
     QLabel *label_3;
     QLineEdit *serveur_sousReseau;
     QVBoxLayout *verticalLayout_2;
-    QCheckBox *activer_arret_machine;
+    QCheckBox *serveur_activerArret;
     QLabel *label_2;
     QTextEdit *serveur_description;
     QVBoxLayout *verticalLayout_3;
@@ -84,10 +84,10 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *_2;
     QPushButton *bouton_demarrer;
-    QPushButton *bouton_arreter;
     QPushButton *bouton_ping;
-    QPushButton *bouton_redemarrer;
     QPushButton *pushButton_3;
+    QPushButton *bouton_arreter;
+    QPushButton *bouton_redemarrer;
     QGroupBox *groupBox_4;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
@@ -108,7 +108,7 @@ public:
         if (FenPrincipale->objectName().isEmpty())
             FenPrincipale->setObjectName(QString::fromUtf8("FenPrincipale"));
         FenPrincipale->setEnabled(true);
-        FenPrincipale->resize(751, 504);
+        FenPrincipale->resize(706, 491);
         QIcon icon;
         icon.addFile(QString::fromUtf8("../icone.png"), QSize(), QIcon::Normal, QIcon::Off);
         FenPrincipale->setWindowIcon(icon);
@@ -131,17 +131,17 @@ public:
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setEnabled(true);
-        groupBox->setGeometry(QRect(430, 190, 281, 111));
+        groupBox->setGeometry(QRect(190, 190, 281, 111));
         verticalLayoutWidget_2 = new QWidget(groupBox);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(10, 20, 211, 81));
+        verticalLayoutWidget_2->setGeometry(QRect(10, 20, 261, 81));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        os = new QComboBox(verticalLayoutWidget_2);
-        os->setObjectName(QString::fromUtf8("os"));
+        serveur_os = new QComboBox(verticalLayoutWidget_2);
+        serveur_os->setObjectName(QString::fromUtf8("serveur_os"));
 
-        verticalLayout->addWidget(os);
+        verticalLayout->addWidget(serveur_os);
 
         formLayout_3 = new QFormLayout();
         formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
@@ -151,21 +151,21 @@ public:
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, label_9);
 
-        lineEdit = new QLineEdit(verticalLayoutWidget_2);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        serveur_utilisateur = new QLineEdit(verticalLayoutWidget_2);
+        serveur_utilisateur->setObjectName(QString::fromUtf8("serveur_utilisateur"));
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, lineEdit);
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, serveur_utilisateur);
 
         label_10 = new QLabel(verticalLayoutWidget_2);
         label_10->setObjectName(QString::fromUtf8("label_10"));
 
         formLayout_3->setWidget(1, QFormLayout::LabelRole, label_10);
 
-        lineEdit_2 = new QLineEdit(verticalLayoutWidget_2);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setEchoMode(QLineEdit::Password);
+        serveur_mdp = new QLineEdit(verticalLayoutWidget_2);
+        serveur_mdp->setObjectName(QString::fromUtf8("serveur_mdp"));
+        serveur_mdp->setEchoMode(QLineEdit::Password);
 
-        formLayout_3->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, serveur_mdp);
 
 
         verticalLayout->addLayout(formLayout_3);
@@ -259,11 +259,12 @@ public:
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        activer_arret_machine = new QCheckBox(horizontalLayoutWidget);
-        activer_arret_machine->setObjectName(QString::fromUtf8("activer_arret_machine"));
-        activer_arret_machine->setChecked(false);
+        serveur_activerArret = new QCheckBox(horizontalLayoutWidget);
+        serveur_activerArret->setObjectName(QString::fromUtf8("serveur_activerArret"));
+        serveur_activerArret->setEnabled(true);
+        serveur_activerArret->setChecked(false);
 
-        verticalLayout_2->addWidget(activer_arret_machine);
+        verticalLayout_2->addWidget(serveur_activerArret);
 
         label_2 = new QLabel(horizontalLayoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -320,7 +321,7 @@ public:
 
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(190, 190, 151, 221));
+        groupBox_3->setGeometry(QRect(560, 190, 151, 181));
         gridLayoutWidget = new QWidget(groupBox_3);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(10, 20, 131, 152));
@@ -332,30 +333,30 @@ public:
 
         _2->addWidget(bouton_demarrer, 0, 0, 1, 1);
 
-        bouton_arreter = new QPushButton(gridLayoutWidget);
-        bouton_arreter->setObjectName(QString::fromUtf8("bouton_arreter"));
-
-        _2->addWidget(bouton_arreter, 1, 0, 1, 1);
-
         bouton_ping = new QPushButton(gridLayoutWidget);
         bouton_ping->setObjectName(QString::fromUtf8("bouton_ping"));
         bouton_ping->setAutoRepeat(true);
 
-        _2->addWidget(bouton_ping, 3, 0, 1, 1);
+        _2->addWidget(bouton_ping, 5, 0, 1, 1);
+
+        pushButton_3 = new QPushButton(gridLayoutWidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        _2->addWidget(pushButton_3, 6, 0, 1, 1);
+
+        bouton_arreter = new QPushButton(gridLayoutWidget);
+        bouton_arreter->setObjectName(QString::fromUtf8("bouton_arreter"));
+
+        _2->addWidget(bouton_arreter, 1, 0, 1, 1);
 
         bouton_redemarrer = new QPushButton(gridLayoutWidget);
         bouton_redemarrer->setObjectName(QString::fromUtf8("bouton_redemarrer"));
 
         _2->addWidget(bouton_redemarrer, 2, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(gridLayoutWidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        _2->addWidget(pushButton_3, 4, 0, 1, 1);
-
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(430, 310, 281, 111));
+        groupBox_4->setGeometry(QRect(190, 310, 281, 111));
         layoutWidget = new QWidget(groupBox_4);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 20, 261, 70));
@@ -398,12 +399,12 @@ public:
 
         bouton_maj_auto = new QPushButton(centralwidget);
         bouton_maj_auto->setObjectName(QString::fromUtf8("bouton_maj_auto"));
-        bouton_maj_auto->setGeometry(QRect(30, 360, 101, 51));
+        bouton_maj_auto->setGeometry(QRect(10, 370, 171, 51));
         bouton_maj_auto->setAutoRepeat(true);
         FenPrincipale->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FenPrincipale);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 751, 21));
+        menubar->setGeometry(QRect(0, 0, 706, 21));
         menuFichier = new QMenu(menubar);
         menuFichier->setObjectName(QString::fromUtf8("menuFichier"));
         menuOutils = new QMenu(menubar);
@@ -424,8 +425,7 @@ public:
 #endif // QT_NO_SHORTCUT
         QWidget::setTabOrder(serveur_nom, serveur_ip);
         QWidget::setTabOrder(serveur_ip, bouton_demarrer);
-        QWidget::setTabOrder(bouton_demarrer, bouton_arreter);
-        QWidget::setTabOrder(bouton_arreter, bouton_ping);
+        QWidget::setTabOrder(bouton_demarrer, bouton_ping);
 
         menubar->addAction(menuFichier->menuAction());
         menubar->addAction(menuOutils->menuAction());
@@ -476,7 +476,7 @@ public:
 "sous-r\303\251seau", 0, QApplication::UnicodeUTF8));
         serveur_sousReseau->setInputMask(QApplication::translate("FenPrincipale", "999.999.999.999; ", 0, QApplication::UnicodeUTF8));
         serveur_sousReseau->setText(QApplication::translate("FenPrincipale", "1...", 0, QApplication::UnicodeUTF8));
-        activer_arret_machine->setText(QApplication::translate("FenPrincipale", "Activer l'arr\303\252t de la machine", 0, QApplication::UnicodeUTF8));
+        serveur_activerArret->setText(QApplication::translate("FenPrincipale", "Activer l'arr\303\252t de la machine", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("FenPrincipale", "Description", 0, QApplication::UnicodeUTF8));
         bouton_editer->setText(QApplication::translate("FenPrincipale", "Editer les \n"
 "param\303\250tres\n"
@@ -486,14 +486,14 @@ public:
 " du serveur", 0, QApplication::UnicodeUTF8));
         bouton_supprimer_serveur->setText(QApplication::translate("FenPrincipale", "Supprimer \n"
 " le serveur", 0, QApplication::UnicodeUTF8));
-        groupBox_3->setTitle(QApplication::translate("FenPrincipale", "Actions", 0, QApplication::UnicodeUTF8));
+        groupBox_3->setTitle(QApplication::translate("FenPrincipale", "Actions \303\240 distance", 0, QApplication::UnicodeUTF8));
         bouton_demarrer->setText(QApplication::translate("FenPrincipale", "D\303\251marrer", 0, QApplication::UnicodeUTF8));
-        bouton_arreter->setText(QApplication::translate("FenPrincipale", "Arr\303\252ter \303\240 distance", 0, QApplication::UnicodeUTF8));
         bouton_ping->setText(QApplication::translate("FenPrincipale", "Tester le ping", 0, QApplication::UnicodeUTF8));
         bouton_ping->setShortcut(QApplication::translate("FenPrincipale", "Ctrl+P", 0, QApplication::UnicodeUTF8));
-        bouton_redemarrer->setText(QApplication::translate("FenPrincipale", "Red\303\251marrer \303\240 distance", 0, QApplication::UnicodeUTF8));
         pushButton_3->setText(QApplication::translate("FenPrincipale", "Ouvrir la console \n"
 " du serveur", 0, QApplication::UnicodeUTF8));
+        bouton_arreter->setText(QApplication::translate("FenPrincipale", "Arr\303\252ter", 0, QApplication::UnicodeUTF8));
+        bouton_redemarrer->setText(QApplication::translate("FenPrincipale", "Red\303\251marrer", 0, QApplication::UnicodeUTF8));
         groupBox_4->setTitle(QApplication::translate("FenPrincipale", "Progression de la derni\303\250re action", 0, QApplication::UnicodeUTF8));
         action_nom->setText(QApplication::translate("FenPrincipale", "Connexion ", 0, QApplication::UnicodeUTF8));
         action_etat_pixmap->setText(QString());

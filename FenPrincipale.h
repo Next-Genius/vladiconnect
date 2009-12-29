@@ -6,9 +6,9 @@
 #include "ui_FenPrincipale.h"
 #include "serveur.h"
 #include "processus.h"
-#define NOM_AUTEUR Vladiyork
+#define NOM_AUTEUR() "Vladiyork"
 #define NOM_LOGICIEL() "VladiConnect"
-#define VERSION_LOGICIEL() 0.475
+#define VERSION_LOGICIEL() 0.476
 #define ENVIRONNEMENT 1
 //Environnement : 1 = Win ; 2 Linux
 
@@ -24,6 +24,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         int miseAJour_formulaire_vers_QList(int numero_serveur);
         int ping(QString ip, int numero_m_liste =0, int parametre = 0);
         void maj_formulaire_action(QString titre, QString etat, int progression, QString icone);
+        void activer_formulaire(bool activer);
 
     public slots:
         void on_bouton_ping_clicked();
@@ -39,7 +40,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         int miseAJourItem();
         void fin_processus(int exitCode,QProcess::ExitStatus statut);
         void on_bouton_maj_auto_clicked();
-
+        void on_serveur_activerArret_stateChanged(Qt::CheckState state);
 
     private:
         QList<serveur> m_liste;
