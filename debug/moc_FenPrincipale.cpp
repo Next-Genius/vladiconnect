@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'FenPrincipale.h'
 **
-** Created: Sat 26. Dec 22:26:00 2009
+** Created: Wed 10. Feb 18:53:09 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_FenPrincipale[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -44,7 +44,8 @@ static const uint qt_meta_data_FenPrincipale[] = {
      378,   14,  374,   14, 0x0a,
      410,  394,   14,   14, 0x0a,
      450,   14,   14,   14, 0x0a,
-     485,  479,   14,   14, 0x0a,
+     469,   14,   14,   14, 0x0a,
+     504,  498,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -62,8 +63,8 @@ static const char qt_meta_stringdata_FenPrincipale[] = {
     "on_bouton_demarrer_clicked()\0int\0"
     "miseAJourItem()\0exitCode,statut\0"
     "fin_processus(int,QProcess::ExitStatus)\0"
-    "on_bouton_maj_auto_clicked()\0state\0"
-    "on_serveur_activerArret_stateChanged(Qt::CheckState)\0"
+    "sortie_processus()\0on_bouton_maj_auto_clicked()\0"
+    "state\0on_serveur_activerArret_stateChanged(Qt::CheckState)\0"
 };
 
 const QMetaObject FenPrincipale::staticMetaObject = {
@@ -108,11 +109,12 @@ int FenPrincipale::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 10: { int _r = miseAJourItem();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         case 11: fin_processus((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QProcess::ExitStatus(*)>(_a[2]))); break;
-        case 12: on_bouton_maj_auto_clicked(); break;
-        case 13: on_serveur_activerArret_stateChanged((*reinterpret_cast< Qt::CheckState(*)>(_a[1]))); break;
+        case 12: sortie_processus(); break;
+        case 13: on_bouton_maj_auto_clicked(); break;
+        case 14: on_serveur_activerArret_stateChanged((*reinterpret_cast< Qt::CheckState(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

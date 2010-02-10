@@ -116,6 +116,67 @@ int FenPrincipale::ping(QString ip, int numero_m_liste, int parametre) {
     return numero_ping;
 }
 
+int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste, int parametre) {
+    static int numero_ping = 0;
+    QProcess *process = new QProcess;
+
+    if(ENVIRONNEMENT == 1) {    //Windows
+    } else {
+        return -1;        //Linux
+    }
+
+    QString chemin_executable(QCoreApplication::applicationDirPath()+"/rw.exe");
+    QFile file(chemin_executable);
+    if(!file.exists()) {
+        QMessageBox::warning(this, "WOL", "L'executable qui permet le démarrage à distance n'a pas été trouvé.\n Vérifiez la présence du fichier : \n"+chemin_executable+"\n Le  démarrage à distance de la machine a été arrêtée." );
+        return -2;
+    }
+
+    QRegExp regExp("^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$");
+    if(!mac.contains(regExp)) {
+        QMessageBox::warning(this, "WOL", "L'adresse MAC ne convient pas.\n Veuillez revérifier la synthaxe puis recommencez." );
+        return -3;
+    }
+
+    mac.remove(QRegExp(":")); //remise ne forme de la synthaxe pour l'executable
+    process->start(chemin_executable+" /m:"+mac+" ");
+    process->setObjectName(QString::number(numero_ping));
+    process->setProperty("termine",false);
+    process->setProperty("parametre",parametre);
+    process->setProperty("numero_m_liste", numero_m_liste);
+    m_liste_processus.insert(numero_ping,process);
+    QObject::connect(m_liste_processus[numero_ping], SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(fin_processus(int,QProcess::ExitStatus)));
+    QObject::connect(m_liste_processus[numero_ping], SIGNAL(readyReadStandardOutput()), this, SLOT(sortie_processus()));
+    numero_ping++;
+    return 0;
+}
+
+void FenPrincipale::sortie_processus() {
+    QObject *monObjet = sender();
+    QString nom(monObjet->objectName());
+    QProcess *monProcessus = new QProcess;
+    int trouve = 0;
+    for(int i=0 ; i<m_liste_processus.count() ; i++) {
+        if(nom == m_liste_processus[i]->objectName()) {
+            monProcessus = m_liste_processus[i];
+            trouve = 1;
+            i = m_liste_processus.count(); //fin de la boucle
+        }
+    }
+
+    if(trouve == 0) {
+        QMessageBox::critical(this, "Fin de processus", "Le processus n'a pas été retrouvé");
+
+    } else {
+        QString retour;
+        retour = monProcessus->readAllStandardOutput();
+        QMessageBox::warning(this, "WOL", "Affichage en sortie de console !"+retour );
+    }
+
+
+
+}
+
 void FenPrincipale::maj_formulaire_action(QString titre, QString etat, int progression, QString icone) {
     action_nom->setText(titre);
     action_etat->setText(etat);
@@ -368,7 +429,10 @@ void FenPrincipale::on_liste_serveur_itemSelectionChanged() {
 void FenPrincipale::on_bouton_demarrer_clicked() {
     maj_formulaire_action("Démarrage à distance", "Lancement de la procédure.", 5, QCoreApplication::applicationDirPath() + "/images/network-offline.png");
     QMessageBox::information(this, "Elément sélectionné", "Lancement démarrage");
-    QUdpSocket socket1;
+
+
+    wol(serveur_sousReseau->text(), serveur_mac->text(), liste_serveur->currentRow(),0);
+    //QUdpSocket socket1;
     //socket.bind(QHostAdress("255.255.255.0"),9,QUdpSocket::ShareAddress);
     //connect(udpSocket, SIGNAL(readyRead()), socket, SLOT(readPendingDatagrams()));
     /*
@@ -391,7 +455,7 @@ void FenPrincipale::on_bouton_demarrer_clicked() {
 
     //    char chaine3[13] = "0016EAC06C5A";
 
-    char chaine3[13] = "012345678901";
+    //char chaine3[13] = "012345678901";
     /*QByteArray paquet_mac(chaine3);
         QDataStream out(&paquet_mac, QIODevice::WriteOnly);
 
@@ -415,7 +479,7 @@ a8f2c0a80106c0a801ffe3db0009006e23c2ffffffffffff0016eac06c5a0016eac06c5a0016eac0
 */
 
     // Préparation du paquet1
-
+/*
     QByteArray paquet;
     paquet.fromHex("FFFFFFFFFF");
 
@@ -425,15 +489,15 @@ a8f2c0a80106c0a801ffe3db0009006e23c2ffffffffffff0016eac06c5a0016eac06c5a0016eac0
     out << chaine3; // On ajoute le message à la suite
     out.device()->seek(0); // On se replace au début du paquet
     out << (quint16) (paquet.size() - sizeof(quint16)); // On écrase le 0 qu'on avait réservé par la longueur du message
-    QHostAddress adresse("192.168.1.255");
+    //QHostAddress adresse("192.168.1.255");
     //socket1.writeDatagram(chaine, adresse,9);
 
 
-    socket1.writeDatagram(paquet, adresse, 9);
+    //socket1.writeDatagram(paquet, adresse, 9);
 
     // Préparation du paquet2
-    QByteArray paquet2;
-    paquet2.fromHex("000000000000");
+    //QByteArray paquet2;
+    //paquet2.fromHex("000000000000");
     /*
         QDataStream out2(&paquet2, QIODevice::WriteOnly);
 
@@ -451,11 +515,11 @@ a8f2c0a80106c0a801ffe3db0009006e23c2ffffffffffff0016eac06c5a0016eac06c5a0016eac0
 
         out.device()->seek(0); // On se replac  au début du paquet
         out << (quint16) (paquet_mac.size() - sizeof(quint16)); // On écrase le 0 qu'on avait réservé par la longueur du message*/
-QByteArray test;
-test = "123456789000";
-        for(int i=0; i<16;i++) {
-            test += "0123456789000";
-        }
+//QByteArray test;
+//test = "123456789000";
+        //for(int i=0; i<16;i++) {
+            //test += "0123456789000";
+        //}
         /*
 ffffffffffff0016eac06c5a0800450000820a0d00008011ac08c0a80106c0a801fff4880009006e1315ffffffffffff0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a0016eac06c5a
 908	88.386137	192.168.1.6	192.168.1.255	WOL	MagicPacket for Intel_c0:6c:5a (00:16:ea:c0:6c:5a)
@@ -477,17 +541,17 @@ ffffffffffff0016eac06c5a0800450000820a0d00008011ac08c0a80106c0a801fff4880009006e
 0060   00 16 ea c0 6c 5a 00 16 ea c0 6c 5a 00 16 ea c0
 0070   6c 5a 00 16 ea c0 6c 5a 00 16 ea c0 6c 5a 00 16
 0080   ea c0 6c 5a 00 16 ea c0 6c 5a 00 16 ea c0 6c 5a*/
-    bool ok;
-    QByteArray temp;
+    //bool ok;
+    //QByteArray temp;
     /*
     temp = QByteArray::toInt(&ok, "0123456789000");
     socket1.writeDatagram(temp, adresse,9);
     */
-    QByteArray donnees;
+   // QByteArray donnees;
     //donnees = QString(QByteArray::fromHex(QDataStream::readBytes(&out, 200)));
-    socket1.writeDatagram("0000000000", adresse, 9);
+  //  socket1.writeDatagram("0000000000", adresse, 9);
 
-    QString louis;
+   // QString louis;
     //test en hexa
     //louis = test.toInt(&ok, 2);
 

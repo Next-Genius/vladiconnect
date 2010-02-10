@@ -23,6 +23,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         int miseAJour_QList_vers_formulaire(int numero_serveur);
         int miseAJour_formulaire_vers_QList(int numero_serveur);
         int ping(QString ip, int numero_m_liste =0, int parametre = 0);
+        int wol(QString sousReseau, QString mac, int numero_m_liste, int parametre);
         void maj_formulaire_action(QString titre, QString etat, int progression, QString icone);
         void activer_formulaire(bool activer);
 
@@ -39,6 +40,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         void on_bouton_demarrer_clicked();
         int miseAJourItem();
         void fin_processus(int exitCode,QProcess::ExitStatus statut);
+        void sortie_processus();
         void on_bouton_maj_auto_clicked();
         void on_serveur_activerArret_stateChanged(Qt::CheckState state);
 
