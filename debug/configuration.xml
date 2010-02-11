@@ -1,33 +1,33 @@
-<!--Configuration VladiConnect version 0.476 
- Créé le mer. févr. 10 2010
+<!--Configuration VladiConnect version 0.48 
+ Créé le jeu. févr. 11 2010
  par Vladiyork
  Ce document est au format "xml". -->
-<racine version="0.476" nom="configuration">
- <serveur sousReseau="..." nom="nomtest" ip="127.0.0.1" mac="00:30:BD:B4:BF:37">
+<racine version="0.48" nom="configuration">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="localhost" ip="127.0.0.1" mac="00:30:BD:B4:BF:37">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur" ip="192.168.1.1" mac="00:30:BD:B4:BF:37">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Nouveau serveur" ip="192.168.1.1" mac="00:30:BD:B4:BF:37">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (1)" ip="192.168.1.20" mac="00:30:BD:B4:BF:37">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Nouveau serveur (1)" ip="192.168.1.20" mac="00:30:BD:B4:BF:37">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (2)" ip="192.168.001.003" mac="00:30:BD:B4:BF:37">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Nouveau serv" ip="192.168.001.003" mac="00:30:BD:B4:BF:37">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (3)" ip="192.168.1.6" mac=":::::">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Nouveau serveur (3)" ip="192.168.1.6" mac=":::::">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (4)" ip="127.0.0.1" mac=":::::">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Le super serveur qui a un jom super long !!! $$£kj" ip="127.0.0.1" mac=":::::">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (5)" ip="192.168.1.2" mac=":::::">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Imprimante" ip="192.168.1.2" mac=":::::">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (6)" ip="192.168.6.5" mac="AB:CD:EF:FD:FD:FD">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Nouveau serveur (6)" ip="192.168.6.5" mac="AB:CD:EF:FD:FD:FD">
   <decription></decription>
  </serveur>
- <serveur sousReseau="" nom="Nouveau serveur (7)" ip="127.0.0.1" mac=":::::">
+ <serveur sousReseau="..." mdp="f" os="Windows 7" utilisateur="f" nom="Nouveau serveur (7)" ip="127.0.0.1" mac=":::::">
   <decription></decription>
  </serveur>
 </racine>

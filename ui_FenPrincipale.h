@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Sat 26. Dec 20:06:18 2009
+** Created: Thu 11. Feb 19:37:36 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -27,6 +27,7 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
+#include <QtGui/QPlainTextEdit>
 #include <QtGui/QProgressBar>
 #include <QtGui/QPushButton>
 #include <QtGui/QStatusBar>
@@ -60,6 +61,7 @@ public:
     QPushButton *bouton_ajouter_serveur;
     QPushButton *bouton_configuration_importer;
     QPushButton *bouton_configuration_exporter;
+    QPushButton *bouton_maj_auto;
     QGroupBox *groupBox_2;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_2;
@@ -72,8 +74,8 @@ public:
     QLineEdit *serveur_mac;
     QLabel *label_3;
     QLineEdit *serveur_sousReseau;
-    QVBoxLayout *verticalLayout_2;
     QCheckBox *serveur_activerArret;
+    QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
     QTextEdit *serveur_description;
     QVBoxLayout *verticalLayout_3;
@@ -96,7 +98,7 @@ public:
     QLineEdit *action_etat;
     QProgressBar *action_progression;
     QLabel *action_etat_pixmap;
-    QPushButton *bouton_maj_auto;
+    QPlainTextEdit *console;
     QMenuBar *menubar;
     QMenu *menuFichier;
     QMenu *menuOutils;
@@ -108,7 +110,7 @@ public:
         if (FenPrincipale->objectName().isEmpty())
             FenPrincipale->setObjectName(QString::fromUtf8("FenPrincipale"));
         FenPrincipale->setEnabled(true);
-        FenPrincipale->resize(706, 491);
+        FenPrincipale->resize(721, 539);
         QIcon icon;
         icon.addFile(QString::fromUtf8("../icone.png"), QSize(), QIcon::Normal, QIcon::Off);
         FenPrincipale->setWindowIcon(icon);
@@ -131,10 +133,10 @@ public:
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setEnabled(true);
-        groupBox->setGeometry(QRect(190, 190, 281, 111));
+        groupBox->setGeometry(QRect(190, 190, 231, 111));
         verticalLayoutWidget_2 = new QWidget(groupBox);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(10, 20, 261, 81));
+        verticalLayoutWidget_2->setGeometry(QRect(10, 20, 211, 82));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -172,7 +174,7 @@ public:
 
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 3, 171, 301));
+        verticalLayoutWidget->setGeometry(QRect(10, 3, 171, 351));
         layout_liste_serveurs = new QVBoxLayout(verticalLayoutWidget);
         layout_liste_serveurs->setObjectName(QString::fromUtf8("layout_liste_serveurs"));
         layout_liste_serveurs->setContentsMargins(0, 0, 0, 0);
@@ -196,12 +198,18 @@ public:
 
         layout_liste_serveurs->addWidget(bouton_configuration_exporter);
 
+        bouton_maj_auto = new QPushButton(verticalLayoutWidget);
+        bouton_maj_auto->setObjectName(QString::fromUtf8("bouton_maj_auto"));
+        bouton_maj_auto->setAutoRepeat(true);
+
+        layout_liste_serveurs->addWidget(bouton_maj_auto);
+
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(190, 0, 521, 181));
+        groupBox_2->setGeometry(QRect(190, 0, 531, 181));
         horizontalLayoutWidget = new QWidget(groupBox_2);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 20, 501, 151));
+        horizontalLayoutWidget->setGeometry(QRect(10, 20, 511, 151));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -250,22 +258,22 @@ public:
         serveur_sousReseau = new QLineEdit(horizontalLayoutWidget);
         serveur_sousReseau->setObjectName(QString::fromUtf8("serveur_sousReseau"));
         serveur_sousReseau->setEnabled(false);
-        serveur_sousReseau->setMinimumSize(QSize(100, 0));
+        serveur_sousReseau->setMinimumSize(QSize(110, 0));
 
         formLayout->setWidget(3, QFormLayout::FieldRole, serveur_sousReseau);
+
+        serveur_activerArret = new QCheckBox(horizontalLayoutWidget);
+        serveur_activerArret->setObjectName(QString::fromUtf8("serveur_activerArret"));
+        serveur_activerArret->setEnabled(true);
+        serveur_activerArret->setChecked(false);
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, serveur_activerArret);
 
 
         horizontalLayout_2->addLayout(formLayout);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        serveur_activerArret = new QCheckBox(horizontalLayoutWidget);
-        serveur_activerArret->setObjectName(QString::fromUtf8("serveur_activerArret"));
-        serveur_activerArret->setEnabled(true);
-        serveur_activerArret->setChecked(false);
-
-        verticalLayout_2->addWidget(serveur_activerArret);
-
         label_2 = new QLabel(horizontalLayoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
@@ -321,7 +329,7 @@ public:
 
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(560, 190, 151, 181));
+        groupBox_3->setGeometry(QRect(560, 310, 151, 181));
         gridLayoutWidget = new QWidget(groupBox_3);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(10, 20, 131, 152));
@@ -356,10 +364,10 @@ public:
 
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(190, 310, 281, 111));
+        groupBox_4->setGeometry(QRect(430, 190, 281, 111));
         layoutWidget = new QWidget(groupBox_4);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 20, 261, 70));
+        layoutWidget->setGeometry(QRect(10, 20, 261, 81));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -397,14 +405,13 @@ public:
 
         horizontalLayout->addWidget(action_etat_pixmap);
 
-        bouton_maj_auto = new QPushButton(centralwidget);
-        bouton_maj_auto->setObjectName(QString::fromUtf8("bouton_maj_auto"));
-        bouton_maj_auto->setGeometry(QRect(10, 370, 171, 51));
-        bouton_maj_auto->setAutoRepeat(true);
+        console = new QPlainTextEdit(centralwidget);
+        console->setObjectName(QString::fromUtf8("console"));
+        console->setGeometry(QRect(190, 310, 361, 171));
         FenPrincipale->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FenPrincipale);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 706, 21));
+        menubar->setGeometry(QRect(0, 0, 721, 21));
         menuFichier = new QMenu(menubar);
         menuFichier->setObjectName(QString::fromUtf8("menuFichier"));
         menuOutils = new QMenu(menubar);
@@ -465,6 +472,8 @@ public:
         bouton_ajouter_serveur->setText(QApplication::translate("FenPrincipale", "Ajouter un serveur", 0, QApplication::UnicodeUTF8));
         bouton_configuration_importer->setText(QApplication::translate("FenPrincipale", "Importer la configuration", 0, QApplication::UnicodeUTF8));
         bouton_configuration_exporter->setText(QApplication::translate("FenPrincipale", "Exporter la configuration", 0, QApplication::UnicodeUTF8));
+        bouton_maj_auto->setText(QApplication::translate("FenPrincipale", "Mise \303\240 jour de l'\303\251tat \n"
+"des serveurs", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("FenPrincipale", "Propri\303\251t\303\251s du serveur", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("FenPrincipale", "Nom du serveur", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("FenPrincipale", "Adresse IP", 0, QApplication::UnicodeUTF8));
@@ -476,7 +485,8 @@ public:
 "sous-r\303\251seau", 0, QApplication::UnicodeUTF8));
         serveur_sousReseau->setInputMask(QApplication::translate("FenPrincipale", "999.999.999.999; ", 0, QApplication::UnicodeUTF8));
         serveur_sousReseau->setText(QApplication::translate("FenPrincipale", "1...", 0, QApplication::UnicodeUTF8));
-        serveur_activerArret->setText(QApplication::translate("FenPrincipale", "Activer l'arr\303\252t de la machine", 0, QApplication::UnicodeUTF8));
+        serveur_activerArret->setText(QApplication::translate("FenPrincipale", "Activer l'arr\303\252t \n"
+"de la machine", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("FenPrincipale", "Description", 0, QApplication::UnicodeUTF8));
         bouton_editer->setText(QApplication::translate("FenPrincipale", "Editer les \n"
 "param\303\250tres\n"
@@ -497,9 +507,7 @@ public:
         groupBox_4->setTitle(QApplication::translate("FenPrincipale", "Progression de la derni\303\250re action", 0, QApplication::UnicodeUTF8));
         action_nom->setText(QApplication::translate("FenPrincipale", "Connexion ", 0, QApplication::UnicodeUTF8));
         action_etat_pixmap->setText(QString());
-        bouton_maj_auto->setText(QApplication::translate("FenPrincipale", "Mise \303\240 jour\n"
-" de l'\303\251tat \n"
-"des serveurs", 0, QApplication::UnicodeUTF8));
+        console->setPlainText(QApplication::translate("FenPrincipale", "Console", 0, QApplication::UnicodeUTF8));
         menuFichier->setTitle(QApplication::translate("FenPrincipale", "Fichier", 0, QApplication::UnicodeUTF8));
         menuOutils->setTitle(QApplication::translate("FenPrincipale", "Outils", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("FenPrincipale", "?", 0, QApplication::UnicodeUTF8));

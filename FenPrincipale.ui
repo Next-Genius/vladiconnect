@@ -10,8 +10,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>706</width>
-    <height>491</height>
+    <width>721</width>
+    <height>539</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
      <rect>
       <x>190</x>
       <y>190</y>
-      <width>281</width>
+      <width>231</width>
       <height>111</height>
      </rect>
     </property>
@@ -51,8 +51,8 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>261</width>
-       <height>81</height>
+       <width>211</width>
+       <height>82</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -99,7 +99,7 @@
       <x>10</x>
       <y>3</y>
       <width>171</width>
-      <height>301</height>
+      <height>351</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="layout_liste_serveurs">
@@ -127,6 +127,17 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="bouton_maj_auto">
+       <property name="text">
+        <string>Mise à jour de l'état 
+des serveurs</string>
+       </property>
+       <property name="autoRepeat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
@@ -134,7 +145,7 @@
      <rect>
       <x>190</x>
       <y>0</y>
-      <width>521</width>
+      <width>531</width>
       <height>181</height>
      </rect>
     </property>
@@ -146,7 +157,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>501</width>
+       <width>511</width>
        <height>151</height>
       </rect>
      </property>
@@ -237,7 +248,7 @@ sous-réseau</string>
           </property>
           <property name="minimumSize">
            <size>
-            <width>100</width>
+            <width>110</width>
             <height>0</height>
            </size>
           </property>
@@ -249,23 +260,24 @@ sous-réseau</string>
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
+        <item row="4" column="1">
          <widget class="QCheckBox" name="serveur_activerArret">
           <property name="enabled">
            <bool>true</bool>
           </property>
           <property name="text">
-           <string>Activer l'arrêt de la machine</string>
+           <string>Activer l'arrêt 
+de la machine</string>
           </property>
           <property name="checked">
            <bool>false</bool>
           </property>
          </widget>
         </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
@@ -365,7 +377,7 @@ paramètres
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>190</y>
+      <y>310</y>
       <width>151</width>
       <height>181</height>
      </rect>
@@ -431,8 +443,8 @@ paramètres
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>310</y>
+      <x>430</x>
+      <y>190</y>
       <width>281</width>
       <height>111</height>
      </rect>
@@ -446,7 +458,7 @@ paramètres
        <x>10</x>
        <y>20</y>
        <width>261</width>
-       <height>70</height>
+       <height>81</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -509,22 +521,17 @@ paramètres
      </layout>
     </widget>
    </widget>
-   <widget class="QPushButton" name="bouton_maj_auto">
+   <widget class="QPlainTextEdit" name="console">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>370</y>
-      <width>171</width>
-      <height>51</height>
+      <x>190</x>
+      <y>310</y>
+      <width>361</width>
+      <height>171</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Mise à jour
- de l'état 
-des serveurs</string>
-    </property>
-    <property name="autoRepeat">
-     <bool>true</bool>
+    <property name="plainText">
+     <string>Console</string>
     </property>
    </widget>
   </widget>
@@ -533,7 +540,7 @@ des serveurs</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>706</width>
+     <width>721</width>
      <height>21</height>
     </rect>
    </property>

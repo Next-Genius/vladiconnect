@@ -5,10 +5,9 @@
 #include <QtXml>
 #include "ui_FenPrincipale.h"
 #include "serveur.h"
-#include "processus.h"
 #define NOM_AUTEUR() "Vladiyork"
 #define NOM_LOGICIEL() "VladiConnect"
-#define VERSION_LOGICIEL() 0.476
+#define VERSION_LOGICIEL() 0.48
 #define ENVIRONNEMENT 1
 //Environnement : 1 = Win ; 2 Linux
 
@@ -18,7 +17,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
 
     public:
         FenPrincipale();
-        int EnregistrerConfiguration(QString chemin_fichier=QFileDialog::getSaveFileName(0, "Enregistrer", QString("configuration"), "Fichier de configuration xml (*.xml"));
+        int enregistrerConfiguration(QString chemin_fichier=QFileDialog::getSaveFileName(0, "Enregistrer", QString("configuration"), "Fichier de configuration xml (*.xml"));
         int chargerConfiguration(QString chemin_fichier =QFileDialog::getOpenFileName(0, "Ouvrir un fichier de configuration", QString(), "Fichier de configuration xml (*.xml)"));
         int miseAJour_QList_vers_formulaire(int numero_serveur);
         int miseAJour_formulaire_vers_QList(int numero_serveur);
@@ -40,15 +39,12 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         void on_bouton_demarrer_clicked();
         int miseAJourItem();
         void fin_processus(int exitCode,QProcess::ExitStatus statut);
-        void sortie_processus();
+        void sortie_processus_wol();
         void on_bouton_maj_auto_clicked();
         void on_serveur_activerArret_stateChanged(Qt::CheckState state);
 
     private:
         QList<serveur> m_liste;
-        //QList<processus> m_liste_processusm_liste_processus;
-        //QProcess processus;
-        //processus pro10;
         QList<QProcess*> m_liste_processus;
 };
 

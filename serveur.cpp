@@ -1,6 +1,6 @@
 #include "serveur.h"
 
-serveur::serveur(QString nom, QString ip, QString mac, QString sousReseau) {
+serveur::serveur(QString nom, QString ip, QString mac, QString sousReseau, QString os, QString utilisateur, QString mdp) {
     //vérfier format ip, mac et sous reseau
     m_nom = nom;
     m_ip = ip;
@@ -8,6 +8,9 @@ serveur::serveur(QString nom, QString ip, QString mac, QString sousReseau) {
     m_sousReseau = sousReseau;
     m_description = "";
     m_connecte = false;
+    m_os = os;
+    m_utilisateur = utilisateur;
+    m_mdp = mdp;
 
 }
 
@@ -40,6 +43,21 @@ bool serveur::setConnecte(bool connecte) {
     return true;
 }
 
+bool serveur::setOs(QString os) {
+    m_os = os;
+    return true;
+}
+
+bool serveur::setUtilisateur(QString utilisateur) {
+    m_utilisateur = utilisateur;
+    return true;
+}
+
+bool serveur::setMdp(QString mdp) {
+    m_mdp = mdp;
+    return true;
+}
+
 QString serveur::getNom() {
     return m_nom;
 }
@@ -55,6 +73,15 @@ QString serveur::getSousReseau() {
 }
 QString serveur::getDescription() {
     return m_description;
+}
+QString serveur::getOs() {
+    return m_os;
+}
+QString serveur::getUtilisateur() {
+    return m_utilisateur;
+}
+QString serveur::getMdp() {
+    return m_mdp;
 }
 bool serveur::getConnecte() {
     return m_connecte;

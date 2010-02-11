@@ -5,11 +5,12 @@
 #include "FenPrincipale.h"
 
 /*
-  Clic sur ping -> appartition fenetre jusue retour de ping
+  Clic sur ping -> appartition fenetre juste retour de ping
 
 
 
   */
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
