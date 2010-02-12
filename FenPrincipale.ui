@@ -10,8 +10,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>721</width>
-    <height>539</height>
+    <width>742</width>
+    <height>601</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,34 +57,66 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QComboBox" name="serveur_os"/>
-      </item>
-      <item>
        <layout class="QFormLayout" name="formLayout_3">
         <property name="fieldGrowthPolicy">
          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
         </property>
-        <item row="0" column="0">
+        <item row="1" column="0">
          <widget class="QLabel" name="label_9">
           <property name="text">
            <string>Nom d'utilisateur</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="1" column="1">
          <widget class="QLineEdit" name="serveur_utilisateur"/>
         </item>
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QLabel" name="label_10">
           <property name="text">
            <string>Mot de passe</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
+        <item row="2" column="1">
          <widget class="QLineEdit" name="serveur_mdp">
           <property name="echoMode">
            <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="serveur_os">
+          <property name="toolTip">
+           <string>Choisissez le système d'exploitation de la machine</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Windows XP</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Windows 7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Linux</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Autre</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Système 
+d'exploitation</string>
           </property>
          </widget>
         </item>
@@ -99,17 +131,31 @@
       <x>10</x>
       <y>3</y>
       <width>171</width>
-      <height>351</height>
+      <height>371</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="layout_liste_serveurs">
      <item>
-      <widget class="QListWidget" name="liste_serveur"/>
+      <widget class="qlistewidget_serveur" name="liste_serveur"/>
      </item>
      <item>
       <widget class="QPushButton" name="bouton_ajouter_serveur">
        <property name="text">
         <string>Ajouter un serveur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bouton_supprimer_serveur2">
+       <property name="text">
+        <string>Supprimer le serveur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bouton_trier_serveur">
+       <property name="text">
+        <string>Trier les serveurs</string>
        </property>
       </widget>
      </item>
@@ -145,7 +191,7 @@ des serveurs</string>
      <rect>
       <x>190</x>
       <y>0</y>
-      <width>531</width>
+      <width>541</width>
       <height>181</height>
      </rect>
     </property>
@@ -157,7 +203,7 @@ des serveurs</string>
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>511</width>
+       <width>521</width>
        <height>151</height>
       </rect>
      </property>
@@ -261,7 +307,7 @@ sous-réseau</string>
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QCheckBox" name="serveur_activerArret">
+         <widget class="QCheckBox" name="serveurActiverArret">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -270,7 +316,7 @@ sous-réseau</string>
 de la machine</string>
           </property>
           <property name="checked">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -376,10 +422,10 @@ paramètres
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>310</y>
-      <width>151</width>
-      <height>181</height>
+      <x>10</x>
+      <y>380</y>
+      <width>131</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="title">
@@ -390,8 +436,8 @@ paramètres
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>131</width>
-       <height>152</height>
+       <width>111</width>
+       <height>141</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="_2">
@@ -415,14 +461,6 @@ paramètres
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>Ouvrir la console 
- du serveur</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="bouton_arreter">
         <property name="text">
@@ -437,6 +475,13 @@ paramètres
         </property>
        </widget>
       </item>
+      <item row="6" column="0">
+       <widget class="QPushButton" name="bouton_ouvrir_putty">
+        <property name="text">
+         <string>Ouvrir Putty</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </widget>
@@ -445,7 +490,7 @@ paramètres
      <rect>
       <x>430</x>
       <y>190</y>
-      <width>281</width>
+      <width>301</width>
       <height>111</height>
      </rect>
     </property>
@@ -457,8 +502,8 @@ paramètres
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>261</width>
-       <height>81</height>
+       <width>281</width>
+       <height>75</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -466,8 +511,11 @@ paramètres
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QLabel" name="action_nom">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Comic Sans MS&quot;;</string>
+          </property>
           <property name="text">
-           <string>Connexion </string>
+           <string>Nom de l'action</string>
           </property>
          </widget>
         </item>
@@ -490,7 +538,7 @@ paramètres
            <bool>true</bool>
           </property>
           <property name="value">
-           <number>24</number>
+           <number>0</number>
           </property>
          </widget>
         </item>
@@ -500,8 +548,8 @@ paramètres
        <widget class="QLabel" name="action_etat_pixmap">
         <property name="maximumSize">
          <size>
-          <width>50</width>
-          <height>50</height>
+          <width>60</width>
+          <height>60</height>
          </size>
         </property>
         <property name="text">
@@ -524,14 +572,99 @@ paramètres
    <widget class="QPlainTextEdit" name="console">
     <property name="geometry">
      <rect>
+      <x>150</x>
+      <y>390</y>
+      <width>581</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 8pt &quot;Courier New&quot;;</string>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>370</y>
+      <width>46</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Console :</string>
+    </property>
+    <property name="buddy">
+     <cstring>console</cstring>
+    </property>
+   </widget>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
       <x>190</x>
       <y>310</y>
       <width>361</width>
-      <height>171</height>
+      <height>73</height>
      </rect>
     </property>
-    <property name="plainText">
-     <string>Console</string>
+    <layout class="QFormLayout" name="formLayout_2">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Commande :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPlainTextEdit" name="serveur_commande"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="bouton_console">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>310</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Executer
+ la commande 
+ à distance</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>634</x>
+      <y>360</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vider l'écran</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>634</x>
+      <y>310</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bouton</string>
     </property>
    </widget>
   </widget>
@@ -540,7 +673,7 @@ paramètres
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>721</width>
+     <width>742</width>
      <height>21</height>
     </rect>
    </property>
@@ -551,6 +684,8 @@ paramètres
     <addaction name="actionSauver_la_configuration"/>
     <addaction name="actionCharger_une_configuration"/>
     <addaction name="actionImprimer_la_configuration"/>
+    <addaction name="separator"/>
+    <addaction name="actionOuvrir_Putty"/>
     <addaction name="separator"/>
     <addaction name="actionQuitter"/>
    </widget>
@@ -576,7 +711,13 @@ paramètres
   </widget>
   <action name="actionOptions">
    <property name="text">
-    <string>Options</string>
+    <string>Préférences</string>
+   </property>
+   <property name="toolTip">
+    <string>Préférences</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
   </action>
   <action name="actionQuitter">
@@ -603,7 +744,7 @@ paramètres
     <string>Charger une configuration</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+O</string>
+    <string>Ctrl+C</string>
    </property>
   </action>
   <action name="actionImprimer_la_configuration">
@@ -614,10 +755,28 @@ paramètres
     <string>Imprimer la configuration</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+P</string>
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionOuvrir_Putty">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Ouvrir Putty</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qlistewidget_serveur</class>
+   <extends>QListWidget</extends>
+   <header>qlistewidget_serveur.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>serveur_nom</tabstop>
   <tabstop>serveur_ip</tabstop>
@@ -691,18 +850,34 @@ paramètres
    </hints>
   </connection>
   <connection>
-   <sender>serveur_description</sender>
-   <signal>textChanged()</signal>
-   <receiver>FenPrincipale</receiver>
-   <slot>miseAJourItem()</slot>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>console</receiver>
+   <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>128</y>
+     <x>689</x>
+     <y>390</y>
     </hint>
     <hint type="destinationlabel">
-     <x>718</x>
-     <y>31</y>
+     <x>652</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOuvrir_Putty</sender>
+   <signal>activated()</signal>
+   <receiver>FenPrincipale</receiver>
+   <slot>lower()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>370</x>
+     <y>300</y>
     </hint>
    </hints>
   </connection>

@@ -9,7 +9,7 @@
 
 
 
-  */
+*/
 
 int main(int argc, char *argv[])
 {
@@ -20,11 +20,9 @@ int main(int argc, char *argv[])
     translator.load(QString("qt_") + locale, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     app.installTranslator(&translator);
     app.setApplicationName("VladiConnect");
-    app.setApplicationVersion("v 0.0001");
+    app.setApplicationVersion("v 0.4800");
     FenPrincipale fenetre;
     fenetre.show();
-
-
 
     return app.exec();
 }

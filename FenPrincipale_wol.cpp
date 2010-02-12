@@ -1,7 +1,9 @@
 #include "FenPrincipale.h"
 
 int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste, int parametre) {
-    maj_formulaire_action("Démarrage à distance", "Procédure lancée.", 30, QCoreApplication::applicationDirPath() + "/images/utilities-system-monitor.png");
+    maj_formulaire_action("Démarrage à distance", "Procédure lancée.", 30,
+                          QCoreApplication::applicationDirPath()
+                          + "/images/utilities-system-monitor.png");
     static int numero_ping = 0;
     QProcess *process = new QProcess;
 
@@ -52,24 +54,16 @@ void FenPrincipale::sortie_processus_wol() {
 
     if(trouve == 0) {
         QMessageBox::critical(this, "Fin de processus", "Le processus n'a pas été retrouvé");
+        maj_formulaire_action("Démarrage à distance", "Le processus n'a pas été retrouvé.", 0, QCoreApplication::applicationDirPath() + "/images/delete.png");
 
     } else {
-        QString retour;
-        retour = monProcessus->readAllStandardOutput();
-        console->appendPlainText("Retour \n<br />\n"+retour);
-        //console->setPlainText(console"Retour \n<br />\n"+retour);
-        if(retour == "\nRW.EXE - v1.3.2\nCopyright (c) 2002 by Patrick Garnier\n\nThis program is freeware - http://www.sysworksoft.net\nFeel free to send any comments to patrick.garnier@sysworksoft.net\n\nTrying to wake-up remote host: 0030BDB4BF37") {
-            maj_formulaire_action("Démarrage à distance", "La procédure de lancement est terminée.", 100, QCoreApplication::applicationDirPath() + "/images/utilities-system-monitor.png");
-            QMessageBox::information(this, "WOL", "La procédure de lancement est terminée. \nVeuillez désormais vérifier que la machine est bien réveillée. \n  Si dans 4 minutes, la machine ne répond pas, cela signifie qu'elle est peut être débranche, mal configurée ou <b>mal arrêtée</b>.");
-        } else if(retour == "\nRW.EXE - v1.3.2\nCopyright (c) 2002 by Patrick Garnier\n\nThis program is freeware - http://www.sysworksoft.net\nFeel free to ") {
-                //si on récupère 1/2 du texte de retour (1ere partie) alors on fait rien
-            QMessageBox::warning(this, "WOL", "moitié 1"+retour );
+        console->appendPlainText(monProcessus->readAllStandardOutput());    //insère le retour de console
 
-        } else if(retour == "") {
+        QScrollBar *sb = console->verticalScrollBar();
+        sb->setValue(sb->maximum());
 
-        }
         maj_formulaire_action("Démarrage à distance", "La procédure de lancement est terminée.", 100, QCoreApplication::applicationDirPath() + "/images/utilities-system-monitor.png");
-        QMessageBox::warning(this, "WOL", "La réponse du programmee n'est pas correcte. Il s'est peut être produit une erreur. \n Voici la réponse du programme :\n"+retour );
+        //QMessageBox::information(this, "WOL", "La procédure de lancement est terminée. \nVeuillez désormais vérifier que la machine est bien réveillée. \nSi dans 4 minutes, la machine ne répond pas, cela signifie qu'elle est peut être débranche, mal configurée ou mal arrêtée.\nVous pouvez vérifier dans la console le retour du programme pour déceler les éventuelles erreurs.");
     }
 }
 

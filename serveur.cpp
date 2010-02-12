@@ -9,7 +9,7 @@ serveur::serveur(QString nom, QString ip, QString mac, QString sousReseau, QStri
     m_description = "";
     m_connecte = false;
     m_os = os;
-    m_utilisateur = utilisateur;
+    m_utilisateur = utilisateur+"1";
     m_mdp = mdp;
 
 }
@@ -90,4 +90,5 @@ bool serveur::getConnecte() {
 void serveur::out() {
     QMessageBox::information(0, "Fichier", "Serveur : \n nom : " +m_nom+ "\n ip : " + m_ip+"\n mac :"+m_mac+" ous avez sélectionné :\n");
 }
+
 

@@ -1,12 +1,15 @@
-<!DOCTYPE Configuration_vladiconnect>
-<!--Configuration NOM_LOGICIEL() VERSION_LOGICIEL()-->
-<!--Créé le lun. déc. 21 2009
-by NOM_AUTEUR()-->
-<racine version="0.11" nom="configuration">
- <serveur sousReseau="454" nom="nomtest" ip="192.5" mac="mac">
-  <decription>NomTesdescrption</decription>
+<!--Configuration VladiConnect version 0.485 
+ Créé le ven. févr. 12 2010
+ par Vladiyork
+ Ce document est au format "xml". -->
+<racine version="0.485" nom="configuration">
+ <serveur sousReseau="..." mdp="" os="Windows XP" utilisateur="" nom="nomtest" ip="192.5.." mac="AC:::::">
+  <decription></decription>
  </serveur>
- <geometry>
-  <quad>x0 0 1 1 0 1 1 1 1 0 1 1</quad>
- </geometry>
+ <serveur sousReseau="" mdp="" os="Windows XP" utilisateur="1" nom="Nouveau serveur" ip="192.168.." mac=":::::">
+  <decription></decription>
+ </serveur>
+ <serveur sousReseau="" mdp="" os="Windows XP" utilisateur="1" nom="Nouveau serveur (1)" ip="192.168.." mac="AE:45:24:72:54:05">
+  <decription></decription>
+ </serveur>
 </racine>

@@ -5,7 +5,9 @@
 int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
     if(chemin_fichier == "defaut") {
         chemin_fichier = QCoreApplication::applicationDirPath() + "/configuration.xml";
+
     }
+    statusBar()->showMessage("Chargement de la configuration...", 2000);
 
     QFile file(chemin_fichier);
     QDomDocument doc("Configuration" );
@@ -30,7 +32,10 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
     QString Qversion = dom_racine.attribute("version");
     double version = Qversion.toDouble();
     if(version > VERSION_LOGICIEL()) {
-        QMessageBox::warning(this, "Importation d'une configuration", "Le fichier de configuration est trop récent par rapport au programme executé. Mettez à jour"+QString(NOM_LOGICIEL())+"" );
+        QMessageBox::warning(this, "Importation d'une configuration",
+                             "Le fichier de configuration est trop récent par"
+                             "rapport au programme executé.\n"
+                             "Mettez à jour "+QString(NOM_LOGICIEL())+" vers la version "+version+" !");
     }
 
     m_liste.clear(); //clear du Qlist donnees
@@ -41,7 +46,12 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
         if( !dom_serveur_Element.isNull() ) {
             if(dom_serveur_Element.tagName() == "serveur" ) {
                 QString nom = dom_serveur_Element.attribute("nom");
-                m_liste.append(serveur(nom, dom_serveur_Element.attribute("ip"), dom_serveur_Element.attribute("mac"), dom_serveur_Element.attribute("sousreseau"), dom_serveur_Element.attribute("os"), dom_serveur_Element.attribute("utilisateur"), dom_serveur_Element.attribute("mdp")));
+                m_liste.append(serveur(nom, dom_serveur_Element.attribute("ip"),
+                                       dom_serveur_Element.attribute("mac"),
+                                       dom_serveur_Element.attribute("sousreseau"),
+                                       dom_serveur_Element.attribute("os"),
+                                       dom_serveur_Element.attribute("utilisateur"),
+                                       dom_serveur_Element.attribute("mdp")));
             }
         }
 
@@ -50,17 +60,28 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
 
     //Transfert de QList vers le widget Vue MVC
     for(int i=0 ; i<m_liste.size() ; i++) {
-        liste_serveur->addItem(m_liste[i].getNom());
-    }
-
-    for(int i=0 ; i<liste_serveur->count() ; i++) {
-        (*(liste_serveur->item(i))).setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
+        //liste_serveur->addItem(m_liste[i].getNom());
+        //m_liste.append(serveur(nom, "192.168..", "", "192.168.1.255", "Windows 7", "", ""));
+        item_serveur *item2 = new item_serveur(liste_serveur,
+                                               m_liste[i].getNom(),
+                                               m_liste[i].getIp(),
+                                               m_liste[i].getMac(),
+                                               m_liste[i].getSousReseau(),
+                                               m_liste[i].getOs(),
+                                               m_liste[i].getUtilisateur(),
+                                               m_liste[i].getMdp());
+        item2->setIcon(QIcon(QCoreApplication::applicationDirPath() +
+                             "/images/network-offline.png"));
+        liste_serveur->addItem(item2);
         ping(m_liste[i].getIp(), i, 2); //i au lieu de numero_m_liste
     }
+/*
+    for(int i=0 ; i<liste_serveur->count() ; i++) {
+        //(*(liste_serveur->item(i))).setIcon();
+        ping(m_liste[i].getIp(), i, 2); //i au lieu de numero_m_liste
+    }*/
 
-    //liste_serveur->sortItems();
     liste_serveur->setCurrentRow(0); //sélectionne le 1er enregistrement
-    enregistrerConfiguration("defaut");
     return true;
 }
 
@@ -68,6 +89,7 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
 int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {   //vérifié 1
     if(chemin_fichier == "defaut") {
         chemin_fichier = QCoreApplication::applicationDirPath() + "/configuration.xml";
+        statusBar()->showMessage("Enregistrement automatique de la configuration...", 2000);
     }
     /*QDomImplementation impl = QDomDocument().implementation();
     // document with document type
@@ -79,7 +101,8 @@ int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {   //vérifi
     //QDomDocument doc(impl.createDocumentType(name,publicId,systemId));
 
     // add some XML comment at the beginning
-    doc.appendChild(doc.createComment("Configuration "+QString(NOM_LOGICIEL())+" version "+QString::number(VERSION_LOGICIEL())+" \n "
+    doc.appendChild(doc.createComment("Configuration "+QString(NOM_LOGICIEL())
+                                      +" version "+QString::number(VERSION_LOGICIEL())+" \n "
                                       +"Créé le "+QDate::currentDate().toString()+"\n par "+NOM_AUTEUR()
                                       +"\n Ce document est au format \"xml\". "));
     doc.appendChild(doc.createTextNode("\n")); // for nicer output
