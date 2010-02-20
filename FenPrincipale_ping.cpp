@@ -13,8 +13,9 @@ int FenPrincipale::ping(QString ip, int numero_m_liste, int parametre) {
     }
 
     process->start(arguments);
-    process->setObjectName(QString::number(numero_ping));
 
+    //pour retrouver le processus apres
+    process->setObjectName(QString::number(numero_ping));
     process->setProperty("parametre",parametre);
     process->setProperty("numero_m_liste", numero_m_liste);
 
@@ -43,15 +44,20 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
     }
 
     if(trouve == 0) {
-        QMessageBox::critical(this, "Fin de processus", "Le processus n'a pas été retrouvé");
+        QMessageBox::critical(this, "Fin de processus",
+                              "Le processus n'a pas été retrouvé");
+        exit(-1);
+    }
 
-    } else {
         int numero_m_liste = monProcessus->property("numero_m_liste").toInt();
         int parametre = monProcessus->property("parametre").toInt();
         if(exitCode == 0) {
             m_liste[numero_m_liste].setConnecte(true);
+
+            //mise en forme dans le QListWidget
             liste_serveur->item(numero_m_liste)->setIcon(QIcon(
-                    QCoreApplication::applicationDirPath() + "/images/network-transmit-receive.png"));
+                    QCoreApplication::applicationDirPath() +
+                    "/images/network-transmit-receive.png"));
 
             if(parametre == 1) {
                 //mise en forme des données pour le fomulaire
@@ -64,8 +70,9 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
                 m_liste[numero_m_liste].setConnecte(true);
                 action_etat->setText("Connecté");
                 action_nom->setText("Vérification de connexion");
-                action_etat_pixmap->setPixmap(QPixmap(QCoreApplication::applicationDirPath()
-                                                      + "/images/network-transmit-receive.png"));
+                action_etat_pixmap->setPixmap(
+                        QPixmap(QCoreApplication::applicationDirPath()
+                                + "/images/network-transmit-receive.png"));
                 action_progression->setValue(100);
                 bouton_arreter->setEnabled(true);
                 bouton_redemarrer->setEnabled(true);
@@ -74,8 +81,11 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
 
         } else {
             m_liste[numero_m_liste].setConnecte(false);
-            (*(liste_serveur->item(numero_m_liste))).setIcon(QIcon(
-                    QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
+
+            //mise en forme dans le QListWidget
+            liste_serveur->item(numero_m_liste)->setIcon(QIcon(
+                    QCoreApplication::applicationDirPath()
+                    + "/images/network-offline.png"));
 
             if(parametre == 1) {
                 //mise en forme des données pour le fomulaire
@@ -89,7 +99,7 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
             }
         }
         monProcessus->close();
-    }
+
 }
 
 

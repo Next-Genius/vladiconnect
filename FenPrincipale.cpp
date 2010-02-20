@@ -52,13 +52,15 @@ int FenPrincipale::miseAJour_QList_vers_formulaire(int numero_serveur) {
         serveur_os->setCurrentIndex(1);
     } else if (m_liste[numero_serveur].getOs() == "Windows XP") {
         serveur_os->setCurrentIndex(0);
-    } else {
+    } else if (m_liste[numero_serveur].getOs() == "Linux") {
         serveur_os->setCurrentIndex(2);
+    } else {    //Autre
+        serveur_os->setCurrentIndex(3);
     }
 
     serveur_utilisateur->setText(m_liste[numero_serveur].getUtilisateur());
     serveur_mdp->setText(m_liste[numero_serveur].getMdp());
-
+/*
     if(m_liste[numero_serveur].getConnecte() == true) {
         //serveur connecté
         action_etat->setText("Connecté");
@@ -69,8 +71,8 @@ int FenPrincipale::miseAJour_QList_vers_formulaire(int numero_serveur) {
         action_etat->setText("Déconnecté");
         action_etat_pixmap->setPixmap(QPixmap(QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
         //(*(liste_serveur->item(numero_serveur))).setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
-    }
-    return 0;
+    }*/
+    return true;
 }
 
 int FenPrincipale::miseAJour_formulaire_vers_QList(int numero_serveur) {
@@ -302,7 +304,7 @@ void FenPrincipale::on_serveurActiverArret_stateChanged(int state) {
 
 void FenPrincipale::on_bouton_console_clicked() {
     putty_commande("192.168.1.5","vladiyork","danton",liste_serveur->currentRow(),Putty::EXECUTER);
-    QMessageBox::critical(this, "Test", "Sortie d'un elelement :\n nom="
+    QMessageBox::critical(this, "Test", "Sortie d'un elelement :\nnom="
                           +liste_serveur->currentItem_serveur()->getNom()
                           +"\nip="+liste_serveur->currentItem_serveur()->getIp()
                           +"\nmac="+liste_serveur->currentItem_serveur()->getMac());

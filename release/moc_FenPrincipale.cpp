@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'FenPrincipale.h'
 **
-** Created: Fri 12. Feb 15:25:50 2010
+** Created: Sat 13. Feb 09:59:30 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_FenPrincipale[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -44,11 +44,14 @@ static const uint qt_meta_data_FenPrincipale[] = {
      363,   14,   14,   14, 0x0a,
      406,   14,   14,   14, 0x0a,
      446,   14,   14,   14, 0x0a,
-     479,   14,  475,   14, 0x0a,
-     511,  495,   14,   14, 0x0a,
-     551,   14,   14,   14, 0x0a,
-     574,   14,   14,   14, 0x0a,
-     609,  603,   14,   14, 0x0a,
+     475,   14,   14,   14, 0x0a,
+     504,   14,   14,   14, 0x0a,
+     543,  537,   14,   14, 0x0a,
+     588,   14,  584,   14, 0x0a,
+     620,  604,   14,   14, 0x0a,
+     660,   14,   14,   14, 0x0a,
+     683,   14,   14,   14, 0x0a,
+     718,  698,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -66,12 +69,15 @@ static const char qt_meta_stringdata_FenPrincipale[] = {
     "on_bouton_configuration_importer_clicked()\0"
     "on_bouton_configuration_exporter_clicked()\0"
     "on_liste_serveur_itemSelectionChanged()\0"
-    "on_bouton_demarrer_clicked()\0int\0"
-    "miseAJourItem()\0exitCode,statut\0"
+    "on_bouton_demarrer_clicked()\0"
+    "on_bouton_maj_auto_clicked()\0"
+    "on_bouton_ouvrir_putty_clicked()\0state\0"
+    "on_serveurActiverArret_stateChanged(int)\0"
+    "int\0miseAJourItem()\0exitCode,statut\0"
     "fin_processus(int,QProcess::ExitStatus)\0"
-    "sortie_processus_wol()\0"
-    "on_bouton_maj_auto_clicked()\0state\0"
-    "on_serveurActiverArret_stateChanged(Qt::CheckState)\0"
+    "sortie_processus_wol()\0putty_retour()\0"
+    "exitCode,exitStatus\0"
+    "putty_fin(int,QProcess::ExitStatus)\0"
 };
 
 const QMetaObject FenPrincipale::staticMetaObject = {
@@ -116,15 +122,18 @@ int FenPrincipale::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 10: on_bouton_configuration_exporter_clicked(); break;
         case 11: on_liste_serveur_itemSelectionChanged(); break;
         case 12: on_bouton_demarrer_clicked(); break;
-        case 13: { int _r = miseAJourItem();
+        case 13: on_bouton_maj_auto_clicked(); break;
+        case 14: on_bouton_ouvrir_putty_clicked(); break;
+        case 15: on_serveurActiverArret_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 16: { int _r = miseAJourItem();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 14: fin_processus((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QProcess::ExitStatus(*)>(_a[2]))); break;
-        case 15: sortie_processus_wol(); break;
-        case 16: on_bouton_maj_auto_clicked(); break;
-        case 17: on_serveurActiverArret_stateChanged((*reinterpret_cast< Qt::CheckState(*)>(_a[1]))); break;
+        case 17: fin_processus((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QProcess::ExitStatus(*)>(_a[2]))); break;
+        case 18: sortie_processus_wol(); break;
+        case 19: putty_retour(); break;
+        case 20: putty_fin((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QProcess::ExitStatus(*)>(_a[2]))); break;
         default: ;
         }
-        _id -= 18;
+        _id -= 21;
     }
     return _id;
 }

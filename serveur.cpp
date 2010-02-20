@@ -9,7 +9,7 @@ serveur::serveur(QString nom, QString ip, QString mac, QString sousReseau, QStri
     m_description = "";
     m_connecte = false;
     m_os = os;
-    m_utilisateur = utilisateur+"1";
+    m_utilisateur = utilisateur;
     m_mdp = mdp;
 
 }

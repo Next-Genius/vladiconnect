@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Fri 12. Feb 20:32:16 2010
+** Created: Sat 13. Feb 11:03:48 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -493,8 +493,34 @@ public:
         label_4->setBuddy(console);
 #endif // QT_NO_SHORTCUT
         QWidget::setTabOrder(serveur_nom, serveur_ip);
-        QWidget::setTabOrder(serveur_ip, bouton_demarrer);
-        QWidget::setTabOrder(bouton_demarrer, bouton_ping);
+        QWidget::setTabOrder(serveur_ip, serveur_mac);
+        QWidget::setTabOrder(serveur_mac, serveur_sousReseau);
+        QWidget::setTabOrder(serveur_sousReseau, serveurActiverArret);
+        QWidget::setTabOrder(serveurActiverArret, serveur_description);
+        QWidget::setTabOrder(serveur_description, serveur_os);
+        QWidget::setTabOrder(serveur_os, serveur_utilisateur);
+        QWidget::setTabOrder(serveur_utilisateur, serveur_mdp);
+        QWidget::setTabOrder(serveur_mdp, bouton_editer);
+        QWidget::setTabOrder(bouton_editer, bouton_serveur_valider_modifications);
+        QWidget::setTabOrder(bouton_serveur_valider_modifications, bouton_supprimer_serveur);
+        QWidget::setTabOrder(bouton_supprimer_serveur, serveur_commande);
+        QWidget::setTabOrder(serveur_commande, bouton_console);
+        QWidget::setTabOrder(bouton_console, pushButton);
+        QWidget::setTabOrder(pushButton, console);
+        QWidget::setTabOrder(console, bouton_demarrer);
+        QWidget::setTabOrder(bouton_demarrer, bouton_arreter);
+        QWidget::setTabOrder(bouton_arreter, bouton_redemarrer);
+        QWidget::setTabOrder(bouton_redemarrer, action_etat);
+        QWidget::setTabOrder(action_etat, bouton_ping);
+        QWidget::setTabOrder(bouton_ping, bouton_ouvrir_putty);
+        QWidget::setTabOrder(bouton_ouvrir_putty, liste_serveur);
+        QWidget::setTabOrder(liste_serveur, bouton_ajouter_serveur);
+        QWidget::setTabOrder(bouton_ajouter_serveur, bouton_supprimer_serveur2);
+        QWidget::setTabOrder(bouton_supprimer_serveur2, bouton_trier_serveur);
+        QWidget::setTabOrder(bouton_trier_serveur, bouton_configuration_importer);
+        QWidget::setTabOrder(bouton_configuration_importer, bouton_configuration_exporter);
+        QWidget::setTabOrder(bouton_configuration_exporter, bouton_maj_auto);
+        QWidget::setTabOrder(bouton_maj_auto, pushButton_2);
 
         menubar->addAction(menuFichier->menuAction());
         menubar->addAction(menuOutils->menuAction());

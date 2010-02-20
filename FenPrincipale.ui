@@ -780,8 +780,34 @@ paramètres
  <tabstops>
   <tabstop>serveur_nom</tabstop>
   <tabstop>serveur_ip</tabstop>
+  <tabstop>serveur_mac</tabstop>
+  <tabstop>serveur_sousReseau</tabstop>
+  <tabstop>serveurActiverArret</tabstop>
+  <tabstop>serveur_description</tabstop>
+  <tabstop>serveur_os</tabstop>
+  <tabstop>serveur_utilisateur</tabstop>
+  <tabstop>serveur_mdp</tabstop>
+  <tabstop>bouton_editer</tabstop>
+  <tabstop>bouton_serveur_valider_modifications</tabstop>
+  <tabstop>bouton_supprimer_serveur</tabstop>
+  <tabstop>serveur_commande</tabstop>
+  <tabstop>bouton_console</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>console</tabstop>
   <tabstop>bouton_demarrer</tabstop>
+  <tabstop>bouton_arreter</tabstop>
+  <tabstop>bouton_redemarrer</tabstop>
+  <tabstop>action_etat</tabstop>
   <tabstop>bouton_ping</tabstop>
+  <tabstop>bouton_ouvrir_putty</tabstop>
+  <tabstop>liste_serveur</tabstop>
+  <tabstop>bouton_ajouter_serveur</tabstop>
+  <tabstop>bouton_supprimer_serveur2</tabstop>
+  <tabstop>bouton_trier_serveur</tabstop>
+  <tabstop>bouton_configuration_importer</tabstop>
+  <tabstop>bouton_configuration_exporter</tabstop>
+  <tabstop>bouton_maj_auto</tabstop>
+  <tabstop>pushButton_2</tabstop>
  </tabstops>
  <resources/>
  <connections>

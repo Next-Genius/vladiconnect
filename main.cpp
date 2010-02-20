@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
     app.setApplicationName("VladiConnect");
     app.setApplicationVersion("v 0.4800");
+    app.setWindowIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/icone.png"));
     FenPrincipale fenetre;
     fenetre.show();
 
