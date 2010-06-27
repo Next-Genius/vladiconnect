@@ -29,8 +29,8 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
     if( dom_racine.attribute("nom") != "configuration" )
         return -4;
 
-    QString Qversion = dom_racine.attribute("version");
-    double version = Qversion.toDouble();
+   // QString Qversion = dom_racine.attribute("version");
+    double version = dom_racine.attribute("version").toDouble();
     if(version > VERSION_LOGICIEL()) {
         QMessageBox::warning(this, "Importation d'une configuration",
                              "Le fichier de configuration est trop récent par"

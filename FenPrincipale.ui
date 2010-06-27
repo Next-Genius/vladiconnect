@@ -610,7 +610,7 @@ paramètres
       <height>73</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout_2">
+    <layout class="QFormLayout" name="_3">
      <property name="fieldGrowthPolicy">
       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
      </property>
@@ -699,6 +699,7 @@ paramètres
     <property name="title">
      <string>?</string>
     </property>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuOutils"/>
@@ -767,6 +768,16 @@ paramètres
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>

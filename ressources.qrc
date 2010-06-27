@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/delete.png</file>
+        <file>images/dialog-ok.png</file>
+        <file>images/document-edit.png</file>
+        <file>images/icone.png</file>
+        <file>images/network-offline.png</file>
+        <file>images/network-receive.png</file>
+        <file>images/network-transmit.png</file>
+        <file>images/network-transmit-receive.png</file>
+        <file>images/utilities-system-monitor.png</file>
+    </qresource>
+    <qresource prefix="/executables">
+        <file>wol.exe</file>
+    </qresource>
+</RCC>

@@ -13,7 +13,7 @@ int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste,
     }
 
     QString chemin_executable(
-            QCoreApplication::applicationDirPath()+"/rw.exe");
+            QCoreApplication::applicationDirPath()+"/wol.exe");
     QFile file(chemin_executable);
     if(!file.exists()) {
         QMessageBox::critical(this, "WOL",
@@ -35,6 +35,7 @@ int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste,
     mac.remove(QRegExp(":"));
 
     process->start(chemin_executable+" /m:"+mac+" ");
+    process->start(":/executables/wol.exe /m:"+mac+" ");
     process->setObjectName(QString::number(numero_ping));
     process->setProperty("parametre",parametre);
     process->setProperty("numero_m_liste", numero_m_liste);

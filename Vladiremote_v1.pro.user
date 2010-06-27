@@ -99,11 +99,12 @@
     <value type="QString">FP_NO_HOST_CHECK=NO</value>
     <value type="QString">HOMEDRIVE=C:</value>
     <value type="QString">HOMEPATH=\Users\vladiyork</value>
+    <value type="QString">KDEDIR=C:\KDE</value>
     <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -120,6 +121,7 @@
     <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
     <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
     <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
+    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
     <value type="QString">SESSIONNAME=Console</value>
     <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
     <value type="QString">SYSTEMDRIVE=C:</value>
@@ -161,11 +163,12 @@
     <value type="QString">FP_NO_HOST_CHECK=NO</value>
     <value type="QString">HOMEDRIVE=C:</value>
     <value type="QString">HOMEPATH=\Users\vladiyork</value>
+    <value type="QString">KDEDIR=C:\KDE</value>
     <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -182,6 +185,7 @@
     <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
     <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
     <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
+    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
     <value type="QString">SESSIONNAME=Console</value>
     <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
     <value type="QString">SYSTEMDRIVE=C:</value>

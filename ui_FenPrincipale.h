@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Sat 13. Feb 11:03:48 2010
+** Created: Sat 26. Jun 17:40:29 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,6 +46,8 @@ public:
     QAction *actionCharger_une_configuration;
     QAction *actionImprimer_la_configuration;
     QAction *actionOuvrir_Putty;
+    QAction *action;
+    QAction *actionAbout;
     QWidget *centralwidget;
     QGroupBox *groupBox;
     QWidget *verticalLayoutWidget_2;
@@ -105,7 +107,7 @@ public:
     QPlainTextEdit *console;
     QLabel *label_4;
     QWidget *formLayoutWidget;
-    QFormLayout *formLayout_2;
+    QFormLayout *_3;
     QLabel *label_5;
     QPlainTextEdit *serveur_commande;
     QPushButton *bouton_console;
@@ -142,6 +144,10 @@ public:
         actionOuvrir_Putty = new QAction(FenPrincipale);
         actionOuvrir_Putty->setObjectName(QString::fromUtf8("actionOuvrir_Putty"));
         actionOuvrir_Putty->setEnabled(false);
+        action = new QAction(FenPrincipale);
+        action->setObjectName(QString::fromUtf8("action"));
+        actionAbout = new QAction(FenPrincipale);
+        actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
         centralwidget = new QWidget(FenPrincipale);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setMinimumSize(QSize(700, 450));
@@ -446,19 +452,19 @@ public:
         formLayoutWidget = new QWidget(centralwidget);
         formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
         formLayoutWidget->setGeometry(QRect(190, 310, 361, 73));
-        formLayout_2 = new QFormLayout(formLayoutWidget);
-        formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
-        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        formLayout_2->setContentsMargins(0, 0, 0, 0);
+        _3 = new QFormLayout(formLayoutWidget);
+        _3->setObjectName(QString::fromUtf8("_3"));
+        _3->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        _3->setContentsMargins(0, 0, 0, 0);
         label_5 = new QLabel(formLayoutWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_5);
+        _3->setWidget(0, QFormLayout::LabelRole, label_5);
 
         serveur_commande = new QPlainTextEdit(formLayoutWidget);
         serveur_commande->setObjectName(QString::fromUtf8("serveur_commande"));
 
-        formLayout_2->setWidget(0, QFormLayout::FieldRole, serveur_commande);
+        _3->setWidget(0, QFormLayout::FieldRole, serveur_commande);
 
         bouton_console = new QPushButton(centralwidget);
         bouton_console->setObjectName(QString::fromUtf8("bouton_console"));
@@ -533,6 +539,7 @@ public:
         menuFichier->addSeparator();
         menuFichier->addAction(actionQuitter);
         menuOutils->addAction(actionOptions);
+        menu->addAction(actionAbout);
 
         retranslateUi(FenPrincipale);
         QObject::connect(serveur_ip, SIGNAL(lostFocus()), FenPrincipale, SLOT(miseAJourItem()));
@@ -563,6 +570,8 @@ public:
         actionImprimer_la_configuration->setShortcut(QApplication::translate("FenPrincipale", "Ctrl+I", 0, QApplication::UnicodeUTF8));
         actionOuvrir_Putty->setText(QApplication::translate("FenPrincipale", "Ouvrir Putty", 0, QApplication::UnicodeUTF8));
         actionOuvrir_Putty->setShortcut(QApplication::translate("FenPrincipale", "Ctrl+O", 0, QApplication::UnicodeUTF8));
+        action->setText(QApplication::translate("FenPrincipale", "About", 0, QApplication::UnicodeUTF8));
+        actionAbout->setText(QApplication::translate("FenPrincipale", "About", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("FenPrincipale", "Param\303\250tres d'arr\303\252t \303\240 distance", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("FenPrincipale", "Nom d'utilisateur", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("FenPrincipale", "Mot de passe", 0, QApplication::UnicodeUTF8));

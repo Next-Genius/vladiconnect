@@ -6,6 +6,10 @@ FenPrincipale::FenPrincipale() {
     setWindowTitle(QString(NOM_LOGICIEL())+" - v"+QString::number(VERSION_LOGICIEL()));
     actionQuitter->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
 
+    this->createTrayActions();
+    this->createTrayIcon();
+    trayIcon->show();
+
     //charger la liste des serveurs vers QList<serveur> + copie des noms dans QListString
     chargerConfiguration("defaut");
     activer_formulaire(false);
@@ -32,6 +36,9 @@ FenPrincipale::FenPrincipale() {
     QObject::connect(actionCharger_une_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_importer_clicked()));
     QObject::connect(actionSauver_la_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_exporter_clicked()));
     QObject::connect(actionQuitter, SIGNAL(triggered()), this, SLOT(close()));
+    connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
+
+    initialisation_executables();
 }
 
 
@@ -40,6 +47,24 @@ void FenPrincipale::maj_formulaire_action(QString titre, QString etat, int progr
     action_etat->setText(etat);
     action_progression->setValue(progression);
     action_etat_pixmap->setPixmap(QPixmap(icone));
+}
+void FenPrincipale::initialisation_executables() {
+    QMessageBox::critical(this, "vérification de l'intégrité du logiciel",
+         "Une erreur s'est produite lors du démarrage du logiciel.<br> "
+         "Certains fichiers nécessaires au logiciels sont absents :<br>"
+         "test.exe");
+    QString chemin_executable(
+            QCoreApplication::applicationDirPath()+"/wol.exe");
+    QFile file(chemin_executable);
+    if(!file.exists()) {
+        QMessageBox::critical(this, "WOL",
+                              "L'executable qui permet le démarrage"
+                             " à distance n'a pas été trouvé.\n Vérifiez la "
+                             "présence du fichier : \n"+chemin_executable+"\n"
+                             );
+        //return -2;
+    }
+
 }
 
 int FenPrincipale::miseAJour_QList_vers_formulaire(int numero_serveur) {
@@ -233,10 +258,10 @@ void FenPrincipale::on_liste_serveur_itemSelectionChanged() {
             }
         }
         if(retour != 0) {
-            QMessageBox::information(this, "Elément sélectionné",
+            /*QMessageBox::information(this, "Elément sélectionné",
                 "Le changement de sélection de serveur a rencontré une erreur"
                 " (l'item n'a pas été retrouvé).\nFermeture du programme");
-            qApp->exit(-2); //fin de l'appli : 1er code de retour d'appli
+            qApp->exit(-2); //fin de l'appli : 1er code de retour d'appli*/
         }
     }
 }
@@ -271,6 +296,13 @@ void FenPrincipale::activer_formulaire(bool activer) {
     serveur_mac->setEnabled(activer);
     serveur_sousReseau->setEnabled(activer);
     serveur_description->setEnabled(activer);
+    serveurActiverArret->setEnabled(activer);
+
+    //Paramètres d'arret à distance
+    serveur_os->setEnabled(activer);
+    serveur_utilisateur->setEnabled(activer);
+    serveur_mdp->setEnabled(activer);
+
     //serveur_activerArret->setEnabled(activer);
 
     //liste_serveur -> pas de modifications
@@ -315,14 +347,7 @@ void FenPrincipale::on_bouton_ouvrir_putty_clicked() {
 
     QString chemin_executable(QCoreApplication::applicationDirPath()+"/putty.exe");
     QFile file(chemin_executable);
-    if(!file.exists()) {
-        QMessageBox::warning(this, "Putty", "L'executable qui permet le "
-                             "démarrage à distance n'a pas été trouvé.\n"
-                             "Vérifiez la présence du fichier : \n"+chemin_executable+"\n" );
-        exit(0);
-    }
-
-
+    if(file.exists()) {
         maj_formulaire_action("Execution à distance", "Procédure lancée.", 10,
                               QCoreApplication::applicationDirPath()
                               + "/images/utilities-system-monitor.png");
@@ -330,5 +355,17 @@ void FenPrincipale::on_bouton_ouvrir_putty_clicked() {
         maj_formulaire_action("Lancement de Putty", "Putty est lancé.",
                               100, QCoreApplication::applicationDirPath()
                               + "/images/utilities-system-monitor.png");
-}
+    } else {
+        QMessageBox::warning(this, "Putty", "L'executable qui permet le "
+                             "démarrage à distance n'a pas été trouvé.\n"
+                             "Vérifiez la présence du fichier : \n"+chemin_executable+"\n" );
+    }
 
+
+        trayIcon->showMessage("Titre", "Message");
+}
+void FenPrincipale::about ()
+{
+    /*About *about = new About(ver, QVariant(QDate::currentDate().year()).toString());
+    about->show();*/
+}

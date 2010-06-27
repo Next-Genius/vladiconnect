@@ -3,6 +3,9 @@
 #include <QtGui>
 #include <QtNetwork>
 #include <QtXml>
+
+#include <QCloseEvent>
+
 #include "ui_FenPrincipale.h"
 #include "item_serveur.h"
 #include "serveur.h"
@@ -29,6 +32,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         int putty_commande(QString hote, QString utilisateur, QString mdp, int numero_m_liste, int parametre);
         void maj_formulaire_action(QString titre, QString etat, int progression, QString icone);
         void activer_formulaire(bool activer);
+        void initialisation_executables();
 
     public slots:
         void on_bouton_ping_clicked();
@@ -52,13 +56,38 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
         void sortie_processus_wol();
         void putty_retour();
         void putty_fin(int exitCode,QProcess::ExitStatus exitStatus);
+        void about ();
+
+        void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
+        void trayIconVisible(bool);
+        bool showTrayMessage(QString, QString);
+
+        void closeEvent(QCloseEvent* event);
 
 
 private:
+        void createTrayActions();
+        void createTrayIcon();
+
         QList<serveur> m_liste;
         QList<QProcess*> m_liste_processus;
-        QSystemTrayIcon *trayIcon;
-};
 
+        QAction *minimizeAction;
+        QAction *maximizeAction;
+        QAction *restoreAction;
+        QAction *quitAction;
+
+        QSystemTrayIcon *trayIcon;
+        QMenu *trayIconMenu;
+};
+/*
+class About : public QDialog, private Ui::About
+{
+    Q_OBJECT
+
+public:
+    About(QString, QString);
+};
+*/
 #endif // FENPRINCIPALE_H
 

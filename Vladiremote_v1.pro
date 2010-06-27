@@ -1,9 +1,6 @@
 TEMPLATE = app
 QT += network \
     xml
-TARGET = 
-DEPENDPATH += .
-INCLUDEPATH += .
 
 # Input
 SOURCES += main.cpp \
@@ -15,8 +12,10 @@ SOURCES += main.cpp \
     item_serveur.cpp \
     qlistewidget_serveur.cpp \
     FenPrincipale_putty.cpp \
-    putty.cpp
-FORMS += FenPrincipale.ui
+    putty.cpp \
+    FenPrincipale_systray.cpp
+FORMS += FenPrincipale.ui \
+    about.ui
 HEADERS += FenPrincipale.h \
     serveur.h \
     item_serveur.h \
@@ -26,3 +25,14 @@ OTHER_FILES += debug/rw.exe \
     debug/putty.exe \
     debug/plink.exe \
     debug/commande_putty.txt
+DESTDIR = ./
+win32 { 
+    # If not commented, the following line ensures that Synkron is compiled
+    # as a portable app. More info at portableapps.com
+    # DEFINES += PORTABLE_APP
+    OBJECTS_DIR = .build.win32/
+    MOC_DIR = .build.win32/
+    RCC_DIR = .build.win32/
+    RC_FILE = Vladiconnect.rc
+}
+RESOURCES += ressources.qrc
