@@ -12,5 +12,6 @@
     </qresource>
     <qresource prefix="/executables">
         <file>wol.exe</file>
+        <file>putty.exe</file>
     </qresource>
 </RCC>

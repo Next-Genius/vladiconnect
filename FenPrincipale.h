@@ -69,7 +69,6 @@ private:
         void createTrayActions();
         void createTrayIcon();
 
-        QList<serveur> m_liste;
         QList<QProcess*> m_liste_processus;
 
         QAction *minimizeAction;

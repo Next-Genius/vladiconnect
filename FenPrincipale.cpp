@@ -49,10 +49,10 @@ void FenPrincipale::maj_formulaire_action(QString titre, QString etat, int progr
     action_etat_pixmap->setPixmap(QPixmap(icone));
 }
 void FenPrincipale::initialisation_executables() {
-    QMessageBox::critical(this, "vérification de l'intégrité du logiciel",
+    /*QMessageBox::critical(this, "vérification de l'intégrité du logiciel",
          "Une erreur s'est produite lors du démarrage du logiciel.<br> "
          "Certains fichiers nécessaires au logiciels sont absents :<br>"
-         "test.exe");
+         "test.exe");*/
     QString chemin_executable(
             QCoreApplication::applicationDirPath()+"/wol.exe");
     QFile file(chemin_executable);
@@ -68,23 +68,25 @@ void FenPrincipale::initialisation_executables() {
 }
 
 int FenPrincipale::miseAJour_QList_vers_formulaire(int numero_serveur) {
-    serveur_nom->setText(m_liste[numero_serveur].getNom());
-    serveur_ip->setText(m_liste[numero_serveur].getIp());
-    serveur_mac->setText(m_liste[numero_serveur].getMac());
-    serveur_sousReseau->setText(m_liste[numero_serveur].getSousReseau());
-    serveur_description->setText(m_liste[numero_serveur].getDescription());
-    if(m_liste[numero_serveur].getOs() == "Windows 7") {
+int i;
+i = numero_serveur;
+    serveur_nom->setText(liste_serveur->item(i)->text());
+    serveur_ip->setText(liste_serveur->item(i)->data(100).toString());
+    serveur_mac->setText(liste_serveur->item(i)->data(200).toString());
+    serveur_sousReseau->setText(liste_serveur->item(i)->data(300).toString());
+    serveur_description->setText(liste_serveur->item(i)->data(400).toString());
+    if(liste_serveur->item(i)->data(600).toString() == "Windows 7") {
         serveur_os->setCurrentIndex(1);
-    } else if (m_liste[numero_serveur].getOs() == "Windows XP") {
+    } else if (liste_serveur->item(i)->data(600).toString() == "Windows XP") {
         serveur_os->setCurrentIndex(0);
-    } else if (m_liste[numero_serveur].getOs() == "Linux") {
+    } else if (liste_serveur->item(i)->data(600).toString() == "Linux") {
         serveur_os->setCurrentIndex(2);
     } else {    //Autre
         serveur_os->setCurrentIndex(3);
     }
 
-    serveur_utilisateur->setText(m_liste[numero_serveur].getUtilisateur());
-    serveur_mdp->setText(m_liste[numero_serveur].getMdp());
+    serveur_utilisateur->setText(liste_serveur->item(i)->data(700).toString());
+    serveur_mdp->setText(liste_serveur->item(i)->data(800).toString());
 /*
     if(m_liste[numero_serveur].getConnecte() == true) {
         //serveur connecté
@@ -103,23 +105,24 @@ int FenPrincipale::miseAJour_QList_vers_formulaire(int numero_serveur) {
 int FenPrincipale::miseAJour_formulaire_vers_QList(int numero_serveur) {
     //modifs du nom du serveur
     (liste_serveur->currentItem())->setText(serveur_nom->text());
-    m_liste[numero_serveur].setNom(serveur_nom->text());
+    liste_serveur->item(numero_serveur)->setText(serveur_nom->text());;
+    liste_serveur->item(numero_serveur)->setData(100, serveur_ip->text());
+    liste_serveur->item(numero_serveur)->setData(200, serveur_mac->text());
+    liste_serveur->item(numero_serveur)->setData(300, serveur_sousReseau->text());
+    liste_serveur->item(numero_serveur)->setData(400, serveur_description->toPlainText());
+    liste_serveur->item(numero_serveur)->setData(600, serveur_os->currentText());
+    liste_serveur->item(numero_serveur)->setData(700, serveur_utilisateur->text());
+    liste_serveur->item(numero_serveur)->setData(800, serveur_mdp->text());
 
-    m_liste[numero_serveur].setIp(serveur_ip->text());
-    m_liste[numero_serveur].setMac(serveur_mac->text());
-    m_liste[numero_serveur].setSousReseau(serveur_sousReseau->text());
-    m_liste[numero_serveur].setDescription(serveur_description->toPlainText());
-    m_liste[numero_serveur].setOs(serveur_os->currentText());
-    m_liste[numero_serveur].setUtilisateur(serveur_utilisateur->text());
-    m_liste[numero_serveur].setMdp(serveur_mdp->text());
-    ping(m_liste[numero_serveur].getIp(), liste_serveur->currentRow());
+    ping(liste_serveur->item(numero_serveur)->data(100).toString(), liste_serveur->currentRow());
+
     return 0;
 }
 
 void FenPrincipale::on_bouton_ping_clicked() {
     bouton_ping->setEnabled(false); //on désactive le ping temporairement
     maj_formulaire_action("Vérification de connexion", "Initialisation du ping", 10,
-                          QCoreApplication::applicationDirPath() + "/images/network-transmit.png");
+                          ":/images/network-transmit.png");
     ping(serveur_ip->text(), liste_serveur->currentRow(),1);
     action_etat->setText("Ping en cours");
 
@@ -129,12 +132,12 @@ void FenPrincipale::on_bouton_ping_clicked() {
 
 void FenPrincipale::on_bouton_arreter_clicked() {
     maj_formulaire_action("Arrêt à distance", "Initialisation. Connexion en cours.", 5,
-                          QCoreApplication::applicationDirPath() + "/images/network-transmit.png");
+                          ":/images/network-transmit.png");
 
     action_progression->setValue(50);
 }
 
-void FenPrincipale::on_bouton_ajouter_serveur_clicked() {   //verifié 1
+void FenPrincipale::on_bouton_ajouter_serveur_clicked() {
     QString nom;
     if((liste_serveur->findItems(QString("Nouveau serveur"),
                                  Qt::MatchExactly|Qt::MatchCaseSensitive)).size() != 0) {
@@ -149,9 +152,15 @@ void FenPrincipale::on_bouton_ajouter_serveur_clicked() {   //verifié 1
         nom = "Nouveau serveur";
     }
 
-    m_liste.append(serveur(nom, "192.168..", "", "192.168.1.255", "Windows 7", "", ""));
-    item_serveur *item2 = new item_serveur(liste_serveur, nom, "192.168..",
-                                           "", "192.168.1.255", "Windows 7", "", "");
+    QListWidgetItem *item2 = new QListWidgetItem(liste_serveur); /*, nom, "192.168..",
+                                           "", "192.168.1.255", "Windows 7", "", "");*/
+    item2->setText(nom);
+    item2->setData(100, QString("192.168.."));
+    item2->setData(200, QString(""));
+    item2->setData(300, QString("192.168.1.255"));
+    item2->setData(400, QString("Pas de description"));
+    item2->setData(500, false);
+    item2->setData(600, QString("1"));
     liste_serveur->addItem(item2);
 
     //modifie la sélection vers le nouvel élément + scroll vers le nouvel élément pour être sûr qu'il est visualisé
@@ -174,8 +183,6 @@ void FenPrincipale::on_bouton_supprimer_serveur_clicked() { //vérifié 1
              "du serveur sélectionné : la liste est vide !");
 
     } else {
-        //suppression dans Qlist
-        m_liste.removeAt(liste_serveur->currentRow());
 
         //pointeur vers l'item actuel
         QListWidgetItem *item_actuel;
@@ -218,6 +225,7 @@ void FenPrincipale::on_bouton_serveur_valider_modifications_clicked() {
 
     miseAJour_formulaire_vers_QList(liste_serveur->currentRow());
     enregistrerConfiguration("defaut");
+
 }
 
 void FenPrincipale::on_bouton_configuration_importer_clicked() {
@@ -243,31 +251,17 @@ void FenPrincipale::on_bouton_demarrer_clicked() {
 
 void FenPrincipale::on_liste_serveur_itemSelectionChanged() {
     liste_serveur->setEnabled(true);
-    if(!m_liste.isEmpty()) {
-        int retour = 1;
-        QString contenu((liste_serveur->currentItem())->text());
-        for(int i=0 ; i<m_liste.size() ; i++) {
-            if(m_liste[i].getNom() == contenu) {
-                ping(m_liste[i].getIp(), i, 3);
-                activer_formulaire(false);
+    if(liste_serveur->count() != 0) {
+        int i = liste_serveur->currentRow();
 
-                if(miseAJour_QList_vers_formulaire(i) == 0)
-                    retour = 0;
-
-                i = m_liste.size(); //fin de la boucle
-            }
-        }
-        if(retour != 0) {
-            /*QMessageBox::information(this, "Elément sélectionné",
-                "Le changement de sélection de serveur a rencontré une erreur"
-                " (l'item n'a pas été retrouvé).\nFermeture du programme");
-            qApp->exit(-2); //fin de l'appli : 1er code de retour d'appli*/
-        }
+        ping(liste_serveur->item(i)->data(100).toString(), i, 3);
+        activer_formulaire(false);
+        miseAJour_QList_vers_formulaire(i);
     }
 }
 
 int FenPrincipale::miseAJourItem() {    //vérifié 1
-    if(m_liste.isEmpty())
+    if(liste_serveur->count()!=0)
         return true;
 
     //si pas d'Item, inutile de MAJ
@@ -282,9 +276,10 @@ int FenPrincipale::miseAJourItem() {    //vérifié 1
 }
 
 void FenPrincipale::on_bouton_maj_auto_clicked() {
-    for (int i=0; i<m_liste.count(); i++) {
-        ping(m_liste[i].getIp(), i);
+    for (int i=0; i<liste_serveur->count(); i++) {
+        ping(liste_serveur->item(i)->data(100).toString(), i);
     }
+
     QMessageBox::information(this, "Mise à jour des serveur",
                              "Les états des serveurs ont été mis à jour !");
 }
@@ -297,20 +292,22 @@ void FenPrincipale::activer_formulaire(bool activer) {
     serveur_sousReseau->setEnabled(activer);
     serveur_description->setEnabled(activer);
     serveurActiverArret->setEnabled(activer);
+    if(serveurActiverArret->isEnabled()) {
+        //Paramètres d'arret à distance
+        serveur_os->setEnabled(activer);
+        serveur_utilisateur->setEnabled(activer);
+        serveur_mdp->setEnabled(activer);
+    } else {
+        serveur_os->setEnabled(false);
+        serveur_utilisateur->setEnabled(false);
+        serveur_mdp->setEnabled(false);
+    }
 
-    //Paramètres d'arret à distance
-    serveur_os->setEnabled(activer);
-    serveur_utilisateur->setEnabled(activer);
-    serveur_mdp->setEnabled(activer);
-
-    //serveur_activerArret->setEnabled(activer);
-
-    //liste_serveur -> pas de modifications
-
-    /*
-    bouton_demarrer->setEnabled(activer);
-    bouton_redemarrer->setEnabled(activer);
-    bouton_arreter->setEnabled(activer);*/
+    if(activer == false) {
+        bouton_demarrer->setEnabled(activer);
+        bouton_redemarrer->setEnabled(activer);
+        bouton_arreter->setEnabled(activer);
+    }
     //Ne pas modifier le bouton ping
 
     //Activation des boutons d'activation du formulaire
@@ -337,9 +334,12 @@ void FenPrincipale::on_serveurActiverArret_stateChanged(int state) {
 void FenPrincipale::on_bouton_console_clicked() {
     putty_commande("192.168.1.5","vladiyork","danton",liste_serveur->currentRow(),Putty::EXECUTER);
     QMessageBox::critical(this, "Test", "Sortie d'un elelement :\nnom="
-                          +liste_serveur->currentItem_serveur()->getNom()
-                          +"\nip="+liste_serveur->currentItem_serveur()->getIp()
-                          +"\nmac="+liste_serveur->currentItem_serveur()->getMac());
+                          +liste_serveur->currentItem()->text()
+                          +"\nip="+liste_serveur->currentItem()->data(100).toString()
+                          +"\nmac="+liste_serveur->currentItem()->data(200).toString()
+                          +"\nsousres="+liste_serveur->currentItem()->data(300).toString()
+                          +"\ndesc="+liste_serveur->currentItem()->data(400).toString()
+                          );
 }
 
 void FenPrincipale::on_bouton_ouvrir_putty_clicked() {
@@ -349,12 +349,10 @@ void FenPrincipale::on_bouton_ouvrir_putty_clicked() {
     QFile file(chemin_executable);
     if(file.exists()) {
         maj_formulaire_action("Execution à distance", "Procédure lancée.", 10,
-                              QCoreApplication::applicationDirPath()
-                              + "/images/utilities-system-monitor.png");
+                              ":/images/utilities-system-monitor.png");
         process->start(chemin_executable);
         maj_formulaire_action("Lancement de Putty", "Putty est lancé.",
-                              100, QCoreApplication::applicationDirPath()
-                              + "/images/utilities-system-monitor.png");
+                              100, ":/images/utilities-system-monitor.png");
     } else {
         QMessageBox::warning(this, "Putty", "L'executable qui permet le "
                              "démarrage à distance n'a pas été trouvé.\n"

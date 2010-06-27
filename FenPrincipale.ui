@@ -136,7 +136,7 @@ d'exploitation</string>
     </property>
     <layout class="QVBoxLayout" name="layout_liste_serveurs">
      <item>
-      <widget class="qlistewidget_serveur" name="liste_serveur"/>
+      <widget class="QListWidget" name="liste_serveur"/>
      </item>
      <item>
       <widget class="QPushButton" name="bouton_ajouter_serveur">
@@ -781,13 +781,6 @@ paramètres
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>qlistewidget_serveur</class>
-   <extends>QListWidget</extends>
-   <header>qlistewidget_serveur.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>serveur_nom</tabstop>
   <tabstop>serveur_ip</tabstop>

@@ -10,7 +10,7 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
     statusBar()->showMessage("Chargement de la configuration...", 2000);
 
     QFile file(chemin_fichier);
-    QDomDocument doc("Configuration" );
+    QDomDocument doc("Configuration");
 
     if( !file.open( QIODevice::ReadOnly ) )
         return -1;
@@ -29,7 +29,6 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
     if( dom_racine.attribute("nom") != "configuration" )
         return -4;
 
-   // QString Qversion = dom_racine.attribute("version");
     double version = dom_racine.attribute("version").toDouble();
     if(version > VERSION_LOGICIEL()) {
         QMessageBox::warning(this, "Importation d'une configuration",
@@ -38,58 +37,49 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
                              "Mettez à jour "+QString(NOM_LOGICIEL())+" vers la version "+version+" !");
     }
 
-    m_liste.clear(); //clear du Qlist donnees
     liste_serveur->clear(); //clear du widget
     QDomNode dom_serveur_Node = dom_racine.firstChild();
     while(!dom_serveur_Node.isNull()) {
         QDomElement dom_serveur_Element = dom_serveur_Node.toElement();
         if( !dom_serveur_Element.isNull() ) {
             if(dom_serveur_Element.tagName() == "serveur" ) {
-                QString nom = dom_serveur_Element.attribute("nom");
-                m_liste.append(serveur(nom, dom_serveur_Element.attribute("ip"),
-                                       dom_serveur_Element.attribute("mac"),
-                                       dom_serveur_Element.attribute("sousreseau"),
-                                       dom_serveur_Element.attribute("os"),
-                                       dom_serveur_Element.attribute("utilisateur"),
-                                       dom_serveur_Element.attribute("mdp")));
+                QListWidgetItem *item2 = new QListWidgetItem(liste_serveur);
+                item2->setText(dom_serveur_Element.attribute("nom"));
+                item2->setData(100, dom_serveur_Element.attribute("ip"));
+                item2->setData(200, dom_serveur_Element.attribute("mac"));
+                item2->setData(300, dom_serveur_Element.attribute("sousreseau"));
+                if(dom_serveur_Element.hasChildNodes()) {
+                    item2->setData(400, "A"+dom_serveur_Element.firstChildElement().toText().data());
+                } else {
+                    item2->setData(400, "Pas de description");
+                }
+
+                item2->setData(600, dom_serveur_Element.attribute("os"));
+                item2->setData(700, dom_serveur_Element.attribute("utilisateur"));
+                item2->setData(800, dom_serveur_Element.attribute("mdp"));
+
+                item2->setIcon(QIcon(":/images/network-offline.png"));
+                liste_serveur->addItem(item2);
+
+                int i;
+                i = liste_serveur->count();
+
+                //ping(liste_serveur->item(i)->data(100).toString(), i, 2);
+
             }
         }
 
         dom_serveur_Node = dom_serveur_Node.nextSibling();
     }
 
-    //Transfert de QList vers le widget Vue MVC
-    for(int i=0 ; i<m_liste.size() ; i++) {
-        //liste_serveur->addItem(m_liste[i].getNom());
-        //m_liste.append(serveur(nom, "192.168..", "", "192.168.1.255", "Windows 7", "", ""));
-        item_serveur *item2 = new item_serveur(liste_serveur,
-                                               m_liste[i].getNom(),
-                                               m_liste[i].getIp(),
-                                               m_liste[i].getMac(),
-                                               m_liste[i].getSousReseau(),
-                                               m_liste[i].getOs(),
-                                               m_liste[i].getUtilisateur(),
-                                               m_liste[i].getMdp());
-        item2->setIcon(QIcon(QCoreApplication::applicationDirPath() +
-                             "/images/network-offline.png"));
-        liste_serveur->addItem(item2);
-        ping(m_liste[i].getIp(), i, 2); //i au lieu de numero_m_liste
-    }
-/*
-    for(int i=0 ; i<liste_serveur->count() ; i++) {
-        //(*(liste_serveur->item(i))).setIcon();
-        ping(m_liste[i].getIp(), i, 2); //i au lieu de numero_m_liste
-    }*/
-
     liste_serveur->setCurrentRow(0); //sélectionne le 1er enregistrement
     return true;
 }
 
-
-int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {   //vérifié 1
+int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {
     if(chemin_fichier == "defaut") {
         chemin_fichier = QCoreApplication::applicationDirPath() + "/configuration.xml";
-        statusBar()->showMessage("Enregistrement automatique de la configuration...", 2000);
+        statusBar()->showMessage("Enregistrement de la configuration...", 2000);
     }
     /*QDomImplementation impl = QDomDocument().implementation();
     // document with document type
@@ -100,7 +90,6 @@ int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {   //vérifi
     QDomDocument doc("");
     //QDomDocument doc(impl.createDocumentType(name,publicId,systemId));
 
-    // add some XML comment at the beginning
     doc.appendChild(doc.createComment("Configuration "+QString(NOM_LOGICIEL())
                                       +" version "+QString::number(VERSION_LOGICIEL())+" \n "
                                       +"Créé le "+QDate::currentDate().toString()+"\n par "+NOM_AUTEUR()
@@ -113,20 +102,20 @@ int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {   //vérifi
     dom_racine.setAttribute("version",QString::number(VERSION_LOGICIEL()));
     doc.appendChild(dom_racine);
 
-    for(int i=0 ; i<m_liste.size() ; i++) {
+    for(int i=0 ; i<liste_serveur->count() ; i++) {
         // serveur node
         QDomElement dom_serveur = doc.createElement("serveur");
-        dom_serveur.setAttribute("nom",m_liste[i].getNom());
-        dom_serveur.setAttribute("ip",m_liste[i].getIp());
-        dom_serveur.setAttribute("mac",m_liste[i].getMac());
-        dom_serveur.setAttribute("sousReseau",m_liste[i].getSousReseau());
-        dom_serveur.setAttribute("os",m_liste[i].getOs());
-        dom_serveur.setAttribute("utilisateur",m_liste[i].getUtilisateur());
-        dom_serveur.setAttribute("mdp",m_liste[i].getMdp());
+        dom_serveur.setAttribute("nom",liste_serveur->item(i)->text());
+        dom_serveur.setAttribute("ip",liste_serveur->item(i)->data(100).toString());
+        dom_serveur.setAttribute("mac",liste_serveur->item(i)->data(200).toString());
+        dom_serveur.setAttribute("sousReseau",liste_serveur->item(i)->data(300).toString());
+        dom_serveur.setAttribute("os",liste_serveur->item(i)->data(600).toString());
+        dom_serveur.setAttribute("utilisateur",liste_serveur->item(i)->data(700).toString());
+        dom_serveur.setAttribute("mdp",liste_serveur->item(i)->data(800).toString());
 
         // decription node
         QDomElement dom_description = doc.createElement("decription");
-        dom_description.appendChild(doc.createTextNode(m_liste[i].getDescription()));
+        dom_description.appendChild(doc.createTextNode(liste_serveur->item(i)->data(400).toString()));
         dom_serveur.appendChild(dom_description);
         dom_racine.appendChild(dom_serveur);
     }

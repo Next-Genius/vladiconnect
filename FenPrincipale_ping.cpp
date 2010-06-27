@@ -52,7 +52,7 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
         int numero_m_liste = monProcessus->property("numero_m_liste").toInt();
         int parametre = monProcessus->property("parametre").toInt();
         if(exitCode == 0) {
-            m_liste[numero_m_liste].setConnecte(true);
+            liste_serveur->item(numero_m_liste)->setData(5, true);
 
             //mise en forme dans le QListWidget
             liste_serveur->item(numero_m_liste)->setIcon(QIcon(
@@ -67,7 +67,7 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
             } else if(parametre == 2 && numero_m_liste !=0) {
 
             } else if(parametre == 3 && numero_m_liste !=0) {
-                m_liste[numero_m_liste].setConnecte(true);
+
                 action_etat->setText("Connecté");
                 action_nom->setText("Vérification de connexion");
                 action_etat_pixmap->setPixmap(
@@ -80,7 +80,7 @@ void FenPrincipale::fin_processus(int exitCode,QProcess::ExitStatus exitStatus) 
             }
 
         } else {
-            m_liste[numero_m_liste].setConnecte(false);
+            //liste_serveur->item(numero_m_liste)->setData(5, false);
 
             //mise en forme dans le QListWidget
             liste_serveur->item(numero_m_liste)->setIcon(QIcon(

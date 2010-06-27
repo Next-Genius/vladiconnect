@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Sat 26. Jun 17:40:29 2010
+** Created: Sun 27. Jun 16:31:37 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -23,6 +23,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
+#include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
@@ -33,7 +34,6 @@
 #include <QtGui/QTextEdit>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
-#include "qlistewidget_serveur.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -61,7 +61,7 @@ public:
     QLabel *label_8;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *layout_liste_serveurs;
-    qlistewidget_serveur *liste_serveur;
+    QListWidget *liste_serveur;
     QPushButton *bouton_ajouter_serveur;
     QPushButton *bouton_supprimer_serveur2;
     QPushButton *bouton_trier_serveur;
@@ -204,7 +204,7 @@ public:
         layout_liste_serveurs = new QVBoxLayout(verticalLayoutWidget);
         layout_liste_serveurs->setObjectName(QString::fromUtf8("layout_liste_serveurs"));
         layout_liste_serveurs->setContentsMargins(0, 0, 0, 0);
-        liste_serveur = new qlistewidget_serveur(verticalLayoutWidget);
+        liste_serveur = new QListWidget(verticalLayoutWidget);
         liste_serveur->setObjectName(QString::fromUtf8("liste_serveur"));
 
         layout_liste_serveurs->addWidget(liste_serveur);
