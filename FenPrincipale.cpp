@@ -1,15 +1,31 @@
 #include "FenPrincipale.h"
 
-FenPrincipale::FenPrincipale() {
+FenPrincipale::FenPrincipale(QSettings * s) {
     setupUi(this);
-    setWindowIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/icone.png"));
+    setWindowIcon(QIcon(":/images/icone.png"));
     setWindowTitle(QString(NOM_LOGICIEL())+" - v"+QString::number(VERSION_LOGICIEL()));
     actionQuitter->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
+
+    f_ver = VERSION_LOGICIEL();
+    ver = VERSION_LOGICIEL();
+
+    if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
+
+#ifdef Q_WS_MAC
+    actionBrushedMetalStyle = new QAction(tr("Use the brushed metal style"), this);
+    actionBrushedMetalStyle->setStatusTip(tr("Use the brushed metal style"));
+    actionBrushedMetalStyle->setCheckable(true);
+    menuOptions->addAction(actionBrushedMetalStyle);
+
+    actionQuit->setMenuRole(QAction::QuitRole);
+    actionAbout->setMenuRole(QAction::AboutRole);
+#endif
 
     this->createTrayActions();
     this->createTrayIcon();
     trayIcon->show();
 
+        run_hidden = false;
     //charger la liste des serveurs vers QList<serveur> + copie des noms dans QListString
     chargerConfiguration("defaut");
     activer_formulaire(false);
@@ -19,24 +35,26 @@ FenPrincipale::FenPrincipale() {
     statusBar()->addWidget(progression);
 
     QSize taille_icone(30,30);
-    bouton_editer->setIcon(QIcon(QCoreApplication::applicationDirPath()
-                                 + "/images/document-edit.png"));
+    bouton_editer->setIcon(QIcon(":/images/document-edit.png"));
     bouton_editer->setIconSize(taille_icone);
 
     //QSystemTrayIcon *trayIcon = new QSystemTrayIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/document-edit.png"));
-    //trayIcon->showMessage("Titre", "Message");
+    trayIcon->showMessage("Vladiconnect", "Vladiconnect est démarré");
 
 
-    bouton_serveur_valider_modifications->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/dialog-ok.png"));
+    bouton_serveur_valider_modifications->setIcon(QIcon(":/images/dialog-ok.png"));
     bouton_serveur_valider_modifications->setIconSize(taille_icone);
 
-    bouton_supprimer_serveur->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/delete.png"));
+    bouton_supprimer_serveur->setIcon(QIcon(":/images/delete.png"));
     bouton_supprimer_serveur->setIconSize(taille_icone);
 
     QObject::connect(actionCharger_une_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_importer_clicked()));
     QObject::connect(actionSauver_la_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_exporter_clicked()));
     QObject::connect(actionQuitter, SIGNAL(triggered()), this, SLOT(close()));
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
+
+    sync_settings = s;
+    readSettings();
 
     initialisation_executables();
 }
@@ -167,7 +185,7 @@ void FenPrincipale::on_bouton_ajouter_serveur_clicked() {
     int ligne = liste_serveur->count();
     ligne--;
     liste_serveur->setCurrentRow((ligne));
-    liste_serveur->item(ligne)->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/images/network-offline.png"));
+    liste_serveur->item(ligne)->setIcon(QIcon(":/images/network-offline.png"));
     QObject::connect(bouton_ajouter_serveur, SIGNAL(clicked()), liste_serveur, SLOT(scrollToBottom()));
 
     //active les boutons de suppression au cas où ils auraient été désactivé dans le cas où plus de serveur.
@@ -244,8 +262,7 @@ void FenPrincipale::on_bouton_configuration_exporter_clicked() {
 
 void FenPrincipale::on_bouton_demarrer_clicked() {
     maj_formulaire_action("Démarrage à distance", "Lancement de la procédure.",
-                          5, QCoreApplication::applicationDirPath() +
-                          "/images/network-offline.png");
+                          5, ":/images/network-offline.png");
     wol(serveur_sousReseau->text(), serveur_mac->text(), liste_serveur->currentRow());
 }
 
@@ -261,10 +278,10 @@ void FenPrincipale::on_liste_serveur_itemSelectionChanged() {
 }
 
 int FenPrincipale::miseAJourItem() {    //vérifié 1
-    if(liste_serveur->count()!=0)
+    if(liste_serveur->count()!=0) //si pas d'Item, inutile de MAJ
         return true;
 
-    //si pas d'Item, inutile de MAJ
+    //si pas de sélection, inutile aussi
     if((liste_serveur->selectedItems()).size() == 0)
         return true;
 
@@ -285,7 +302,7 @@ void FenPrincipale::on_bouton_maj_auto_clicked() {
 }
 
 void FenPrincipale::activer_formulaire(bool activer) {
-    //1ère partie du formaulaire
+    //1ère partie du formulaire
     serveur_nom->setEnabled(activer);
     serveur_ip->setEnabled(activer);
     serveur_mac->setEnabled(activer);
@@ -362,8 +379,11 @@ void FenPrincipale::on_bouton_ouvrir_putty_clicked() {
 
         trayIcon->showMessage("Titre", "Message");
 }
+
+
+
 void FenPrincipale::about ()
 {
-    /*About *about = new About(ver, QVariant(QDate::currentDate().year()).toString());
-    about->show();*/
+    About *about = new About(ver, QVariant(QDate::currentDate().year()).toString());
+    about->show();
 }

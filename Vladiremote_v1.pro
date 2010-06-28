@@ -8,15 +8,17 @@ SOURCES += main.cpp \
     FenPrincipale_wol.cpp \
     FenPrincipale_ping.cpp \
     FenPrincipale_configuration.cpp \
-    item_serveur.cpp \
     FenPrincipale_putty.cpp \
     putty.cpp \
-    FenPrincipale_systray.cpp
+    FenPrincipale_systray.cpp \
+    FenPrincipale_settings.cpp \
+    about.cpp \
+    FenPrincipale_autre.cpp
 FORMS += FenPrincipale.ui \
     about.ui
 HEADERS += FenPrincipale.h \
-    item_serveur.h \
-    putty.h
+    putty.h \
+    about.h
 OTHER_FILES += debug/rw.exe \
     debug/putty.exe \
     debug/plink.exe \

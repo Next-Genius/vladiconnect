@@ -13,12 +13,12 @@ int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste,
     }
 
     QString chemin_executable(
-            QCoreApplication::applicationDirPath()+"/wol.exe");
+            QCoreApplication::applicationDirPath()+":/executable/wol.exe");
     QFile file(chemin_executable);
     if(!file.exists()) {
         QMessageBox::critical(this, "WOL",
                               "L'executable qui permet le démarrage"
-                             " à distance n'a pas été trouvé.\n Vérifiez la "
+                             " à distance n'a pas été trouvé.\nVérifiez la "
                              "présence du fichier : \n"+chemin_executable+"\n"
                              );
         return -2;
@@ -92,8 +92,7 @@ void FenPrincipale::sortie_processus_wol() {
                                 "est bien réveillée. \n Si dans 4 minutes, "
                "la machine ne répond pas, cela signifie qu'elle "
                "est peut être débranchée, mal configurée ou mal arrêtée.\n"
-               "Vous pouvez vérifier dans la console le retour du programme "
-               "pour déceler les éventuelles erreurs.");
+               "Vérifiez également que le programme a les droits administrateurs.");
     }
 }
 

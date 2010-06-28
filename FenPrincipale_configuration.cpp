@@ -49,11 +49,15 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
                 item2->setData(200, dom_serveur_Element.attribute("mac"));
                 item2->setData(300, dom_serveur_Element.attribute("sousreseau"));
                 if(dom_serveur_Element.hasChildNodes()) {
-                    item2->setData(400, "A"+dom_serveur_Element.firstChildElement().toText().data());
+                    item2->setData(400, dom_serveur_Element.firstChild().toElement().text());
                 } else {
                     item2->setData(400, "Pas de description");
                 }
-
+                if(dom_serveur_Element.attribute("arret_distant") == "oui") {
+                    item2->setData(500, true);
+                } else {
+                    item2->setData(500, false);
+                }
                 item2->setData(600, dom_serveur_Element.attribute("os"));
                 item2->setData(700, dom_serveur_Element.attribute("utilisateur"));
                 item2->setData(800, dom_serveur_Element.attribute("mdp"));
@@ -61,9 +65,8 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
                 item2->setIcon(QIcon(":/images/network-offline.png"));
                 liste_serveur->addItem(item2);
 
-                int i;
-                i = liste_serveur->count();
-
+                //int i;
+                //i = liste_serveur->count();
                 //ping(liste_serveur->item(i)->data(100).toString(), i, 2);
 
             }
@@ -73,6 +76,7 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
     }
 
     liste_serveur->setCurrentRow(0); //sélectionne le 1er enregistrement
+
     return true;
 }
 
@@ -81,14 +85,8 @@ int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {
         chemin_fichier = QCoreApplication::applicationDirPath() + "/configuration.xml";
         statusBar()->showMessage("Enregistrement de la configuration...", 2000);
     }
-    /*QDomImplementation impl = QDomDocument().implementation();
-    // document with document type
-    QString name = "Configuration";
-    QString publicId = "-//XADECK//DTD Stone 1.0 //EN";
-    QString systemId = "http://www-imagis.imag.fr/DTD/stone1.dtd";*/
-    //QDomDocument doc("Configuration_vladiconnect");
+
     QDomDocument doc("");
-    //QDomDocument doc(impl.createDocumentType(name,publicId,systemId));
 
     doc.appendChild(doc.createComment("Configuration "+QString(NOM_LOGICIEL())
                                       +" version "+QString::number(VERSION_LOGICIEL())+" \n "
@@ -109,12 +107,17 @@ int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {
         dom_serveur.setAttribute("ip",liste_serveur->item(i)->data(100).toString());
         dom_serveur.setAttribute("mac",liste_serveur->item(i)->data(200).toString());
         dom_serveur.setAttribute("sousReseau",liste_serveur->item(i)->data(300).toString());
+        if(liste_serveur->item(i)->data(400).toBool() == true) {
+            dom_serveur.setAttribute("arret_distant","oui");
+        } else {
+            dom_serveur.setAttribute("arret_distant","non");
+        }
         dom_serveur.setAttribute("os",liste_serveur->item(i)->data(600).toString());
         dom_serveur.setAttribute("utilisateur",liste_serveur->item(i)->data(700).toString());
         dom_serveur.setAttribute("mdp",liste_serveur->item(i)->data(800).toString());
 
         // decription node
-        QDomElement dom_description = doc.createElement("decription");
+        QDomElement dom_description = doc.createElement("description");
         dom_description.appendChild(doc.createTextNode(liste_serveur->item(i)->data(400).toString()));
         dom_serveur.appendChild(dom_description);
         dom_racine.appendChild(dom_serveur);

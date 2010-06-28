@@ -13,28 +13,12 @@
  GNU General Public Licence for more details.
 
  You should have received a copy of the GNU General Public Licence
- along with Synkron; if not, write to the Free Software Foundation,
+ along with VladiConnect; if not, write to the Free Software Foundation,
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 #include "FenPrincipale.h"
 // +++ Tray icon +++
 
-
-
-void FenPrincipale::createTrayActions()
-{
-    minimizeAction = new QAction(tr("Mi&nimiser"), this);
-    connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
-
-    maximizeAction = new QAction(tr("Ma&ximiser"), this);
-    connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
-
-    restoreAction = new QAction(tr("&Restorer"), this);
-    connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
-
-    quitAction = new QAction(tr("&Quitter"), this);
-    connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
-}
 
 void FenPrincipale::createTrayIcon()
 {
@@ -72,6 +56,7 @@ void FenPrincipale::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
                         this->show();
                 }
                 else {
+                        this->showTrayMessage("Reduction de Vladiconnect", "NOM_LOGICIEL() a été réduit. Il continue toutefois de travailler en arrruère plan.");
                         this->hide();
                 }
                 break;
@@ -85,15 +70,15 @@ void FenPrincipale::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 
 bool FenPrincipale::showTrayMessage(QString title, QString message)
 {
-        /*if (!actionDisable_tray_messages->isChecked()) {*/
+        if (!actionDisable_tray_messages->isChecked()) {
                 trayIcon->showMessage(title, message);
                 return true;
-        //} else return false;
+        } else return false;
 }
 
 void FenPrincipale::closeEvent(QCloseEvent* event)
 {
-   /* if (skip_close_event) {
+    if (skip_close_event) {
         trayIcon->hide();
         event->accept();
         return;
@@ -104,29 +89,45 @@ void FenPrincipale::closeEvent(QCloseEvent* event)
         this->hide();
         return;
 #else
-        if (!closeDialogue()) {*/
+        if (!closeDialogue()) {
             event->ignore();
-           /* return;
+            return;
         }
 #endif
-    }*/
+    }
     this->hide();
 }
 
 
-/*
+
 void FenPrincipale::showEvent(QShowEvent *)
 {
     shown_manually = true;
     trayIconVisible(true);
 }
-/*
+
 void FenPrincipale::hideEvent(QHideEvent *)
 {
     saveSettings();
     trayIconVisible(false);
 }
 
+void FenPrincipale::createTrayActions()
+{
+    minimizeAction = new QAction(tr("Cacher"), this);
+    connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
+
+    maximizeAction = new QAction(tr("Montrer"), this);
+    connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
+
+    restoreAction = new QAction(tr("&Restorer"), this);
+    connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
+
+    quitAction = new QAction(tr("&Quitter"), this);
+    connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
+}
+
+/*
 void FenPrincipale::createActions()
 {
      minimizeAction = new QAction(tr("&Hide"), this);
