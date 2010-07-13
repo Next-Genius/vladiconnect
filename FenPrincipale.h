@@ -7,10 +7,11 @@
 #include <QCloseEvent>
 #include "ui_FenPrincipale.h"
 #include "putty.h"
+#include "cryptage.h"
 #include "about.h"
 #define NOM_AUTEUR() "Vladiyork"
 #define NOM_LOGICIEL() "VladiConnect"
-#define VERSION_LOGICIEL() 0.493
+#define VERSION_LOGICIEL() 0.511
 #define ENVIRONNEMENT 1
 //Environnement : 1 = Win ; 2 Linux
 
@@ -43,6 +44,7 @@ private slots:
     bool closeDialogue();
     void closeApp() { no_closedialogue = true; this->close(); }
     void changeTemp();
+    void setRunHidden(bool b) { run_hidden = b; }
 
     void on_bouton_ping_clicked();
     void on_bouton_arreter_clicked();
@@ -58,7 +60,9 @@ private slots:
     void on_liste_serveur_itemSelectionChanged();
     void on_bouton_demarrer_clicked();
     void on_bouton_maj_auto_clicked();
-    void on_bouton_ouvrir_putty_clicked();
+    void on_bouton_open_putty_clicked();
+    void on_bouton_close_putty_clicked();
+    void on_bouton_winsent_clicked();
     void on_serveurActiverArret_stateChanged(int state);
     int miseAJourItem();
     void fin_processus(int exitCode,QProcess::ExitStatus statut);
@@ -71,6 +75,10 @@ private slots:
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
     void trayIconVisible(bool);
     bool showTrayMessage(QString, QString);
+
+    //Demarrage automatique
+    void demarrage_automatique_activer ();
+    void demarrage_automatique_desactiver ();
 
     void closeEvent(QCloseEvent* event);
 
@@ -93,6 +101,8 @@ private:
     QAction *maximizeAction;
     QAction *restoreAction;
     QAction *quitAction;
+
+    QProcess *putty_process;
 
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;

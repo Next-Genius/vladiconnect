@@ -22,7 +22,7 @@
 void FenPrincipale::saveSettings() {
     //QSettings sync_settings (QSettings::IniFormat, QSettings::UserScope, "Louis VICAINNE", "Vladiconnect");
 
-    QString lang = sync_settings->value("lang", "Français").toString();
+    QString lang = sync_settings->value("lang", "English").toString();
     bool dont_ask_on_quit = sync_settings->value("dont_ask_on_quit").toBool();
     bool minimise_on_quit = sync_settings->value("minimise_on_quit").toBool();
     sync_settings->clear();
@@ -31,14 +31,26 @@ void FenPrincipale::saveSettings() {
     sync_settings->setValue("minimise_on_quit", minimise_on_quit);
     sync_settings->setValue("disable_tray_messages", actionDisable_tray_messages->isChecked());
     sync_settings->setValue("run_hidden", run_hidden);
+    //sync_settings->setValue("temp_path", raw_temp_path);
+    sync_settings->setValue("pos", this->pos());
+    sync_settings->setValue("size", this->size());
+    sync_settings->setValue("ver", QVariant(f_ver).toString());
+#ifdef Q_WS_MAC
+    sync_settings->setValue("macx_brushedmetalstyle", actionBrushedMetalStyle->isChecked());
+#endif
 }
 
 void FenPrincipale::readSettings() {
     QSettings settings ("Louis VICAINNE", "Vladiconnect");
+#ifdef Q_WS_MAC
+    actionBrushedMetalStyle->setChecked(sync_settings->value("macx_brushedmetalstyle", settings.value("macx_brushedmetalstyle", false)).toBool());
+    if (actionBrushedMetalStyle->isChecked()) this->setAttribute(Qt::WA_MacBrushedMetal);
+    this->setUnifiedTitleAndToolBarOnMac(!actionBrushedMetalStyle->isChecked());
+#endif
 
     actionDisable_tray_messages->setChecked(sync_settings->value("disable_tray_messages").toBool());
     run_hidden = sync_settings->value("run_hidden", false).toBool();
-
+    //temp_path = dir.absolutePath();
     this->move(sync_settings->value("pos", (settings.value("pos", this->pos()))).toPoint());
     this->resize(sync_settings->value("size", (settings.value("size", this->size()))).toSize());
     actionRun_hidden->setChecked(run_hidden);

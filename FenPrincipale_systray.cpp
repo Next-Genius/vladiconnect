@@ -17,6 +17,8 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 #include "FenPrincipale.h"
+
+
 // +++ Tray icon +++
 
 
@@ -114,50 +116,26 @@ void FenPrincipale::hideEvent(QHideEvent *)
 
 void FenPrincipale::createTrayActions()
 {
-    minimizeAction = new QAction(tr("Cacher"), this);
-    connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
-
-    maximizeAction = new QAction(tr("Montrer"), this);
-    connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
-
-    restoreAction = new QAction(tr("&Restorer"), this);
-    connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
-
-    quitAction = new QAction(tr("&Quitter"), this);
-    connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
-}
-
-/*
-void FenPrincipale::createActions()
-{
      minimizeAction = new QAction(tr("&Hide"), this);
      connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
      //connect(minimizeAction, SIGNAL(triggered()), this, SLOT(minimizeTrayIcon()));
+     minimizeAction = new QAction(tr("Cacher"), this);
+     connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
 
+     maximizeAction = new QAction(tr("Montrer"), this);
+     connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
+
+     restoreAction = new QAction(tr("&Restore"), this);
+     connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
      maximizeAction = new QAction(tr("S&how"), this);
      connect(maximizeAction, SIGNAL(triggered()), this, SLOT(show()));
      //connect(maximizeAction, SIGNAL(triggered()), this, SLOT(maximizeTrayIcon()));
 
-     syncAction = new QAction(tr("Sync &current tab"), this);
-     connect(syncAction, SIGNAL(triggered()), this, SLOT(sync()));
-
-     syncAllAction = new QAction(tr("Sync &all tabs"), this);
-     connect(syncAllAction, SIGNAL(triggered()), this, SLOT(syncAll()));
 
      quitAction = new QAction(tr("&Quit"), this);
      connect(quitAction, SIGNAL(triggered()), this, SLOT(closeApp()));
 
-     checkRestoreItemAction = new QAction(tr("&Check/Uncheck"), this);
-         connect(checkRestoreItemAction, SIGNAL(triggered()), this, SLOT(checkRestoreItem()));
 
-     restoreAction = new QAction(tr("&Restore"), this);
-     connect(restoreAction, SIGNAL(triggered()), this, SLOT(restoreCurrentItem()));
-
-         deleteRestoreItemAction = new QAction(tr("&Remove"), this);
-         connect(deleteRestoreItemAction, SIGNAL(triggered()), this, SLOT(deleteRestoreItem()));
-
-         blacklistRestoreItemAction = new QAction(tr("Add to &blacklist"), this);
-         connect(blacklistRestoreItemAction, SIGNAL(triggered()), this, SLOT(blacklistRestoreItem()));
-}*/
+}
 
 // --- Tray icon ---

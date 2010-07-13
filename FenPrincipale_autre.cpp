@@ -72,6 +72,7 @@ bool FenPrincipale::closeDialogue()
         case 0: // Minimise
             sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
             sync_settings->setValue("minimise_on_quit", true);
+            this->showTrayMessage(tr("Réduction de VladiConnect"),tr("VladiConnect continue toutefois de fonctionner"));
             minimizeAction->trigger();
             return false;
             break;

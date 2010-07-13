@@ -1,13 +1,30 @@
+/*******************************************************************
+ This file is part of Vladiconnect
+ Copyright (C) 2009-2010 Louis VICAINNE (louis.vicainne@gmail.com)
+
+ Vladiconnect is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public Licence
+ as published by the Free Software Foundation; either version 2
+ of the Licence, or (at your option) any later version.
+
+ Vladiconnect is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public Licence for more details.
+
+ You should have received a copy of the GNU General Public Licence
+ along with VladiConnect; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+********************************************************************/
 #include "FenPrincipale.h"
 
 FenPrincipale::FenPrincipale(QSettings * s) {
     setupUi(this);
     setWindowIcon(QIcon(":/images/icone.png"));
     setWindowTitle(QString(NOM_LOGICIEL())+" - v"+QString::number(VERSION_LOGICIEL()));
-    actionQuitter->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
 
     f_ver = VERSION_LOGICIEL();
-    ver = VERSION_LOGICIEL();
+    ver = "0.511";
 
     if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
 
@@ -48,10 +65,11 @@ FenPrincipale::FenPrincipale(QSettings * s) {
     bouton_supprimer_serveur->setIcon(QIcon(":/images/delete.png"));
     bouton_supprimer_serveur->setIconSize(taille_icone);
 
-    QObject::connect(actionCharger_une_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_importer_clicked()));
-    QObject::connect(actionSauver_la_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_exporter_clicked()));
-    QObject::connect(actionQuitter, SIGNAL(triggered()), this, SLOT(close()));
+    connect(actionCharger_une_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_importer_clicked()));
+    connect(actionSauver_la_configuration, SIGNAL(triggered()), this, SLOT(on_bouton_configuration_exporter_clicked()));
+    connect(actionQuitter, SIGNAL(triggered()), this, SLOT(close()));
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
+    connect(actionRun_hidden, SIGNAL(toggled(bool)), this, SLOT(setRunHidden(bool)));
 
     sync_settings = s;
     readSettings();
@@ -65,6 +83,7 @@ void FenPrincipale::maj_formulaire_action(QString titre, QString etat, int progr
     action_etat->setText(etat);
     action_progression->setValue(progression);
     action_etat_pixmap->setPixmap(QPixmap(icone));
+    trayIcon->showMessage(titre, etat);
 }
 void FenPrincipale::initialisation_executables() {
     /*QMessageBox::critical(this, "vérification de l'intégrité du logiciel",
@@ -359,27 +378,63 @@ void FenPrincipale::on_bouton_console_clicked() {
                           );
 }
 
-void FenPrincipale::on_bouton_ouvrir_putty_clicked() {
-    QProcess *process = new QProcess;
+void FenPrincipale::on_bouton_open_putty_clicked() {
+    QProcess *putty_process = new QProcess;
 
     QString chemin_executable(QCoreApplication::applicationDirPath()+"/putty.exe");
     QFile file(chemin_executable);
     if(file.exists()) {
-        maj_formulaire_action("Execution à distance", "Procédure lancée.", 10,
+        maj_formulaire_action("Putty", "Lancement de Putty en cours.", 10,
                               ":/images/utilities-system-monitor.png");
-        process->start(chemin_executable);
+        putty_process->start(chemin_executable);
         maj_formulaire_action("Lancement de Putty", "Putty est lancé.",
                               100, ":/images/utilities-system-monitor.png");
     } else {
-        QMessageBox::warning(this, "Putty", "L'executable qui permet le "
-                             "démarrage à distance n'a pas été trouvé.\n"
+        QMessageBox::warning(this, "Putty", "L'executable n'a pas été trouvé.\n"
                              "Vérifiez la présence du fichier : \n"+chemin_executable+"\n" );
     }
-
-
-        trayIcon->showMessage("Titre", "Message");
+        trayIcon->showMessage("Putty", tr("Putty est lancé !"));
 }
 
+void FenPrincipale::on_bouton_close_putty_clicked() {
+    if(putty_process->state() == QProcess::NotRunning) {
+        QMessageBox::warning(this, "Putty", tr("Putty était déjà arrêté.\n"));
+    } else {
+        putty_process->kill();
+        maj_formulaire_action("Putty", "Putty a été arrêté.", 10,
+                              ":/images/utilities-system-monitor.png");
+    }
+}
+
+void FenPrincipale::on_bouton_winsent_clicked() {
+    QString test4;
+
+    test4 = cryptage::crypte(serveur_mdp->text(),"Cle");
+    test4 = cryptage::decrypte(test4, "Cle");
+    QMessageBox::warning(this, "Putty", "CODE"+test4+"\n" );
+    /*
+    QProcess *process = new QProcess;
+
+    QString chemin_executable(":/executables/winnosent/winnosent.exe");
+    QFile file(chemin_executable);
+    if(file.exists()) {
+        maj_formulaire_action("WinSent", "Lancement de WinSent en cours.", 10,
+                              ":/images/utilities-system-monitor.png");
+        process->start(chemin_executable);
+        if(process->state() == 1) {
+            QMessageBox::warning(this, "WinSent", "1"
+                                 ""+chemin_executable+"\n" );
+        } else if(process->state() == 2) {
+            QMessageBox::warning(this, "WinSent", "2"
+                                 ""+chemin_executable+"\n" );
+        }
+        maj_formulaire_action("WinSent", "WinSent est lancé...",
+                              100, ":/images/utilities-system-monitor.png");
+    } else {
+        QMessageBox::warning(this, "WinSent", "L'executable n'a pas été trouvé.\n"
+                             "Vérifiez la présence du fichier : \n"+chemin_executable+"\n" );
+    }*/
+}
 
 
 void FenPrincipale::about ()
@@ -387,3 +442,16 @@ void FenPrincipale::about ()
     About *about = new About(ver, QVariant(QDate::currentDate().year()).toString());
     about->show();
 }
+
+void FenPrincipale::demarrage_automatique_activer ()
+{
+QSettings setting("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+setting.setValue(QString(NOM_LOGICIEL()), '"'+ QDir::convertSeparators(QCoreApplication::applicationFilePath()) +'"');
+}
+void FenPrincipale::demarrage_automatique_desactiver ()
+{
+QSettings setting("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+setting.remove(QString(NOM_LOGICIEL()));
+}
+
+

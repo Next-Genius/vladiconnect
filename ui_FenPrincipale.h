@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'FenPrincipale.ui'
 **
-** Created: Mon 28. Jun 21:07:36 2010
+** Created: Thu 1. Jul 08:56:31 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -50,9 +50,11 @@ public:
     QAction *actionRun_hidden;
     QAction *actionDisable_tray_messages;
     QAction *actionChanger_de_langue;
-    QAction *actionChanger_l_emplacement_di_dossier_temporaire;
+    QAction *actionReduire_fermeture_fenetre;
     QAction *actionV_rifier_les_mises_jour;
     QAction *actionAide;
+    QAction *actionLancer_WinSent_au_d_marrage_du_logiciel;
+    QAction *actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QVBoxLayout *layout_liste_serveurs;
@@ -80,6 +82,14 @@ public:
     QPushButton *bouton_editer;
     QPushButton *bouton_serveur_valider_modifications;
     QPushButton *bouton_supprimer_serveur;
+    QGridLayout *gridLayout_9;
+    QLabel *label_5;
+    QPlainTextEdit *serveur_commande;
+    QPushButton *bouton_console;
+    QPushButton *pushButton_2;
+    QLabel *label_4;
+    QPushButton *pushButton;
+    QPlainTextEdit *console;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_4;
     QComboBox *serveur_os;
@@ -102,15 +112,11 @@ public:
     QPushButton *bouton_arreter;
     QPushButton *bouton_redemarrer;
     QPushButton *bouton_ping;
-    QPushButton *bouton_ouvrir_putty;
-    QGridLayout *gridLayout_9;
-    QLabel *label_4;
-    QLabel *label_5;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPlainTextEdit *serveur_commande;
-    QPushButton *bouton_console;
-    QPlainTextEdit *console;
+    QGroupBox *groupBox_5;
+    QVBoxLayout *verticalLayout;
+    QPushButton *bouton_winsent;
+    QPushButton *bouton_open_putty;
+    QPushButton *bouton_close_putty;
     QMenuBar *menubar;
     QMenu *menuFichier;
     QMenu *menuOutils;
@@ -123,7 +129,7 @@ public:
         if (FenPrincipale->objectName().isEmpty())
             FenPrincipale->setObjectName(QString::fromUtf8("FenPrincipale"));
         FenPrincipale->setEnabled(true);
-        FenPrincipale->resize(700, 541);
+        FenPrincipale->resize(700, 683);
         QIcon icon;
         icon.addFile(QString::fromUtf8("../icone.png"), QSize(), QIcon::Normal, QIcon::Off);
         FenPrincipale->setWindowIcon(icon);
@@ -155,13 +161,20 @@ public:
         actionDisable_tray_messages->setCheckable(true);
         actionChanger_de_langue = new QAction(FenPrincipale);
         actionChanger_de_langue->setObjectName(QString::fromUtf8("actionChanger_de_langue"));
-        actionChanger_l_emplacement_di_dossier_temporaire = new QAction(FenPrincipale);
-        actionChanger_l_emplacement_di_dossier_temporaire->setObjectName(QString::fromUtf8("actionChanger_l_emplacement_di_dossier_temporaire"));
-        actionChanger_l_emplacement_di_dossier_temporaire->setCheckable(true);
+        actionReduire_fermeture_fenetre = new QAction(FenPrincipale);
+        actionReduire_fermeture_fenetre->setObjectName(QString::fromUtf8("actionReduire_fermeture_fenetre"));
+        actionReduire_fermeture_fenetre->setCheckable(true);
         actionV_rifier_les_mises_jour = new QAction(FenPrincipale);
         actionV_rifier_les_mises_jour->setObjectName(QString::fromUtf8("actionV_rifier_les_mises_jour"));
         actionAide = new QAction(FenPrincipale);
         actionAide->setObjectName(QString::fromUtf8("actionAide"));
+        actionLancer_WinSent_au_d_marrage_du_logiciel = new QAction(FenPrincipale);
+        actionLancer_WinSent_au_d_marrage_du_logiciel->setObjectName(QString::fromUtf8("actionLancer_WinSent_au_d_marrage_du_logiciel"));
+        actionLancer_WinSent_au_d_marrage_du_logiciel->setCheckable(true);
+        actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur = new QAction(FenPrincipale);
+        actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur->setObjectName(QString::fromUtf8("actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur"));
+        actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur->setCheckable(true);
+        actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur->setChecked(true);
         centralwidget = new QWidget(FenPrincipale);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -317,15 +330,66 @@ public:
         gridLayout_3->addLayout(verticalLayout_3, 0, 3, 5, 1);
 
 
-        gridLayout->addWidget(groupBox_2, 0, 2, 1, 2);
+        gridLayout->addWidget(groupBox_2, 0, 3, 2, 3);
+
+        gridLayout_9 = new QGridLayout();
+        gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
+        label_5->setSizePolicy(sizePolicy1);
+
+        gridLayout_9->addWidget(label_5, 0, 0, 1, 1);
+
+        serveur_commande = new QPlainTextEdit(centralwidget);
+        serveur_commande->setObjectName(QString::fromUtf8("serveur_commande"));
+        serveur_commande->setMaximumSize(QSize(16777215, 40));
+
+        gridLayout_9->addWidget(serveur_commande, 0, 1, 2, 1);
+
+        bouton_console = new QPushButton(centralwidget);
+        bouton_console->setObjectName(QString::fromUtf8("bouton_console"));
+
+        gridLayout_9->addWidget(bouton_console, 0, 2, 2, 1);
+
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+
+        gridLayout_9->addWidget(pushButton_2, 0, 3, 1, 1);
+
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
+        label_4->setSizePolicy(sizePolicy1);
+
+        gridLayout_9->addWidget(label_4, 1, 0, 1, 1);
+
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        gridLayout_9->addWidget(pushButton, 1, 3, 1, 1);
+
+        console = new QPlainTextEdit(centralwidget);
+        console->setObjectName(QString::fromUtf8("console"));
+        sizePolicy.setHeightForWidth(console->sizePolicy().hasHeightForWidth());
+        console->setSizePolicy(sizePolicy);
+        console->setStyleSheet(QString::fromUtf8("font: 8pt \"Courier New\";"));
+
+        gridLayout_9->addWidget(console, 2, 0, 1, 4);
+
+
+        gridLayout->addLayout(gridLayout_9, 3, 0, 1, 6);
 
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
-        groupBox->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy2);
         gridLayout_4 = new QGridLayout(groupBox);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
         serveur_os = new QComboBox(groupBox);
@@ -360,15 +424,15 @@ public:
         gridLayout_4->addWidget(serveur_mdp, 2, 2, 1, 1);
 
 
-        gridLayout->addWidget(groupBox, 1, 2, 1, 1);
+        gridLayout->addWidget(groupBox, 2, 0, 1, 3);
 
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
-        groupBox_4->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
+        groupBox_4->setSizePolicy(sizePolicy3);
         gridLayout_6 = new QGridLayout(groupBox_4);
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         horizontalLayout = new QHBoxLayout();
@@ -412,12 +476,12 @@ public:
         gridLayout_6->addLayout(horizontalLayout, 0, 0, 1, 1);
 
 
-        gridLayout->addWidget(groupBox_4, 1, 3, 1, 1);
+        gridLayout->addWidget(groupBox_4, 2, 3, 1, 1);
 
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        sizePolicy1.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
-        groupBox_3->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
+        groupBox_3->setSizePolicy(sizePolicy2);
         verticalLayout_4 = new QVBoxLayout(groupBox_3);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         bouton_demarrer = new QPushButton(groupBox_3);
@@ -441,62 +505,31 @@ public:
 
         verticalLayout_4->addWidget(bouton_ping);
 
-        bouton_ouvrir_putty = new QPushButton(groupBox_3);
-        bouton_ouvrir_putty->setObjectName(QString::fromUtf8("bouton_ouvrir_putty"));
 
-        verticalLayout_4->addWidget(bouton_ouvrir_putty);
+        gridLayout->addWidget(groupBox_3, 0, 2, 1, 1);
 
+        groupBox_5 = new QGroupBox(centralwidget);
+        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        groupBox_5->setMaximumSize(QSize(16777215, 125));
+        verticalLayout = new QVBoxLayout(groupBox_5);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        bouton_winsent = new QPushButton(groupBox_5);
+        bouton_winsent->setObjectName(QString::fromUtf8("bouton_winsent"));
 
-        gridLayout->addWidget(groupBox_3, 2, 0, 2, 1);
+        verticalLayout->addWidget(bouton_winsent);
 
-        gridLayout_9 = new QGridLayout();
-        gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
-        label_4 = new QLabel(centralwidget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
-        label_4->setSizePolicy(sizePolicy3);
+        bouton_open_putty = new QPushButton(groupBox_5);
+        bouton_open_putty->setObjectName(QString::fromUtf8("bouton_open_putty"));
 
-        gridLayout_9->addWidget(label_4, 1, 0, 1, 1);
+        verticalLayout->addWidget(bouton_open_putty);
 
-        label_5 = new QLabel(centralwidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        sizePolicy3.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy3);
+        bouton_close_putty = new QPushButton(groupBox_5);
+        bouton_close_putty->setObjectName(QString::fromUtf8("bouton_close_putty"));
 
-        gridLayout_9->addWidget(label_5, 0, 0, 1, 1);
-
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        gridLayout_9->addWidget(pushButton, 1, 3, 1, 1);
-
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-
-        gridLayout_9->addWidget(pushButton_2, 0, 3, 1, 1);
-
-        serveur_commande = new QPlainTextEdit(centralwidget);
-        serveur_commande->setObjectName(QString::fromUtf8("serveur_commande"));
-        serveur_commande->setMaximumSize(QSize(16777215, 40));
-
-        gridLayout_9->addWidget(serveur_commande, 0, 1, 2, 1);
-
-        bouton_console = new QPushButton(centralwidget);
-        bouton_console->setObjectName(QString::fromUtf8("bouton_console"));
-
-        gridLayout_9->addWidget(bouton_console, 0, 2, 2, 1);
+        verticalLayout->addWidget(bouton_close_putty);
 
 
-        gridLayout->addLayout(gridLayout_9, 2, 1, 1, 3);
-
-        console = new QPlainTextEdit(centralwidget);
-        console->setObjectName(QString::fromUtf8("console"));
-        console->setStyleSheet(QString::fromUtf8("font: 8pt \"Courier New\";"));
-
-        gridLayout->addWidget(console, 3, 1, 1, 3);
+        gridLayout->addWidget(groupBox_5, 1, 2, 1, 1);
 
         FenPrincipale->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FenPrincipale);
@@ -547,17 +580,15 @@ public:
         menu->addAction(actionAbout);
         menuOptions->addAction(actionRun_hidden);
         menuOptions->addAction(actionDisable_tray_messages);
-        menuOptions->addAction(actionChanger_l_emplacement_di_dossier_temporaire);
+        menuOptions->addAction(actionReduire_fermeture_fenetre);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur);
+        menuOptions->addAction(actionLancer_WinSent_au_d_marrage_du_logiciel);
         menuOptions->addSeparator();
         menuOptions->addAction(actionChanger_de_langue);
 
         retranslateUi(FenPrincipale);
-        QObject::connect(serveur_ip, SIGNAL(lostFocus()), FenPrincipale, SLOT(miseAJourItem()));
-        QObject::connect(serveur_nom, SIGNAL(lostFocus()), FenPrincipale, SLOT(miseAJourItem()));
-        QObject::connect(serveur_mac, SIGNAL(lostFocus()), FenPrincipale, SLOT(miseAJourItem()));
-        QObject::connect(serveur_sousReseau, SIGNAL(lostFocus()), FenPrincipale, SLOT(miseAJourItem()));
         QObject::connect(pushButton, SIGNAL(clicked()), console, SLOT(clear()));
-        QObject::connect(actionOuvrir_Putty, SIGNAL(activated()), FenPrincipale, SLOT(lower()));
 
         QMetaObject::connectSlotsByName(FenPrincipale);
     } // setupUi
@@ -585,10 +616,12 @@ public:
         actionRun_hidden->setText(QApplication::translate("FenPrincipale", "Lancer cach\303\251", 0, QApplication::UnicodeUTF8));
         actionDisable_tray_messages->setText(QApplication::translate("FenPrincipale", "D\303\251sactiver les messages de la barre d'\303\251tat", 0, QApplication::UnicodeUTF8));
         actionChanger_de_langue->setText(QApplication::translate("FenPrincipale", "Changer de langue", 0, QApplication::UnicodeUTF8));
-        actionChanger_l_emplacement_di_dossier_temporaire->setText(QApplication::translate("FenPrincipale", "Changer l'emplacement du dossier temporaire", 0, QApplication::UnicodeUTF8));
+        actionReduire_fermeture_fenetre->setText(QApplication::translate("FenPrincipale", "R\303\251duire lorsque je ferme la fen\303\252tre", 0, QApplication::UnicodeUTF8));
         actionV_rifier_les_mises_jour->setText(QApplication::translate("FenPrincipale", "V\303\251rifier les mises \303\240 jour", 0, QApplication::UnicodeUTF8));
         actionAide->setText(QApplication::translate("FenPrincipale", "Aide", 0, QApplication::UnicodeUTF8));
         actionAide->setShortcut(QApplication::translate("FenPrincipale", "F1", 0, QApplication::UnicodeUTF8));
+        actionLancer_WinSent_au_d_marrage_du_logiciel->setText(QApplication::translate("FenPrincipale", "Lancer WinSent au d\303\251marrage du logiciel", 0, QApplication::UnicodeUTF8));
+        actionLancer_VladiConnect_au_d_marrage_de_l_ordinateur->setText(QApplication::translate("FenPrincipale", "Lancer VladiConnect au d\303\251marrage de l'ordinateur", 0, QApplication::UnicodeUTF8));
         bouton_ajouter_serveur->setText(QApplication::translate("FenPrincipale", "Ajouter un serveur", 0, QApplication::UnicodeUTF8));
         bouton_supprimer_serveur2->setText(QApplication::translate("FenPrincipale", "Supprimer le serveur", 0, QApplication::UnicodeUTF8));
         bouton_trier_serveur->setText(QApplication::translate("FenPrincipale", "Trier les serveurs", 0, QApplication::UnicodeUTF8));
@@ -617,6 +650,14 @@ public:
 " du serveur", 0, QApplication::UnicodeUTF8));
         bouton_supprimer_serveur->setText(QApplication::translate("FenPrincipale", "Supprimer \n"
 " le serveur", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("FenPrincipale", "Commande :", 0, QApplication::UnicodeUTF8));
+        bouton_console->setText(QApplication::translate("FenPrincipale", "Executer\n"
+" la commande \n"
+" \303\240 distance", 0, QApplication::UnicodeUTF8));
+        pushButton_2->setText(QApplication::translate("FenPrincipale", "Bouton", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("FenPrincipale", "Console :", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("FenPrincipale", "Vider l'\303\251cran", 0, QApplication::UnicodeUTF8));
+        console->setPlainText(QString());
         groupBox->setTitle(QApplication::translate("FenPrincipale", "Param\303\250tres d'arr\303\252t \303\240 distance", 0, QApplication::UnicodeUTF8));
         serveur_os->clear();
         serveur_os->insertItems(0, QStringList()
@@ -641,15 +682,13 @@ public:
         bouton_redemarrer->setText(QApplication::translate("FenPrincipale", "Red\303\251marrer", 0, QApplication::UnicodeUTF8));
         bouton_ping->setText(QApplication::translate("FenPrincipale", "Tester le ping", 0, QApplication::UnicodeUTF8));
         bouton_ping->setShortcut(QApplication::translate("FenPrincipale", "Ctrl+P", 0, QApplication::UnicodeUTF8));
-        bouton_ouvrir_putty->setText(QApplication::translate("FenPrincipale", "Ouvrir Putty", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("FenPrincipale", "Console :", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("FenPrincipale", "Commande :", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("FenPrincipale", "Vider l'\303\251cran", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("FenPrincipale", "Bouton", 0, QApplication::UnicodeUTF8));
-        bouton_console->setText(QApplication::translate("FenPrincipale", "Executer\n"
-" la commande \n"
-" \303\240 distance", 0, QApplication::UnicodeUTF8));
-        console->setPlainText(QString());
+        groupBox_5->setTitle(QApplication::translate("FenPrincipale", "Actions locales", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_WHATSTHIS
+        bouton_winsent->setWhatsThis(QApplication::translate("FenPrincipale", "Le lancement de WinSent permet de recevoir des messages qui transietent par le r\303\251seau en temps r\303\251\303\251l.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_WHATSTHIS
+        bouton_winsent->setText(QApplication::translate("FenPrincipale", "Lancer WinSent", 0, QApplication::UnicodeUTF8));
+        bouton_open_putty->setText(QApplication::translate("FenPrincipale", "Open Putty", 0, QApplication::UnicodeUTF8));
+        bouton_close_putty->setText(QApplication::translate("FenPrincipale", "Close Putty", 0, QApplication::UnicodeUTF8));
         menuFichier->setTitle(QApplication::translate("FenPrincipale", "Fichier", 0, QApplication::UnicodeUTF8));
         menuOutils->setTitle(QApplication::translate("FenPrincipale", "Outils", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("FenPrincipale", "Aide", 0, QApplication::UnicodeUTF8));

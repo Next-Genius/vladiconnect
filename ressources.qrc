@@ -13,5 +13,11 @@
     <qresource prefix="/executables">
         <file>wol.exe</file>
         <file>putty.exe</file>
+        <file>winnosent/language/english.lng</file>
+        <file>winnosent/language/francais.lng</file>
+        <file>winnosent.exe</file>
+    </qresource>
+    <qresource prefix="/lang">
+        <file>vladiconnect_fr.qm</file>
     </qresource>
 </RCC>

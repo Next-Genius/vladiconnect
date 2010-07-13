@@ -104,7 +104,7 @@
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;C:\KDE\bin</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\MiKTeX 2.8\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -169,7 +169,7 @@
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;C:\KDE\bin</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\MiKTeX 2.8\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -326,6 +326,7 @@
     <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
     <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
     <value type="QString">WINDIR=C:\Windows</value>
+    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1/Vladiremote_v1.pro</value>
@@ -391,6 +392,7 @@
     <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
     <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
     <value type="QString">WINDIR=C:\Windows</value>
+    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">

@@ -1,3 +1,21 @@
+/*******************************************************************
+ This file is part of Vladiconnect
+ Copyright (C) 2009-2010 Louis VICAINNE (louis.vicainne@gmail.com)
+
+ Vladiconnect is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public Licence
+ as published by the Free Software Foundation; either version 2
+ of the Licence, or (at your option) any later version.
+
+ Vladiconnect is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public Licence for more details.
+
+ You should have received a copy of the GNU General Public Licence
+ along with VladiConnect; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+********************************************************************/
 #include "FenPrincipale.h"
 //Tout le code pour gérer l'import/export de la configuration
 
@@ -60,14 +78,14 @@ int FenPrincipale::chargerConfiguration(QString chemin_fichier) {
                 }
                 item2->setData(600, dom_serveur_Element.attribute("os"));
                 item2->setData(700, dom_serveur_Element.attribute("utilisateur"));
-                item2->setData(800, dom_serveur_Element.attribute("mdp"));
+                item2->setData(800, cryptage::decrypte(dom_serveur_Element.attribute("mdp"), "Cle")); //décryptage
 
                 item2->setIcon(QIcon(":/images/network-offline.png"));
                 liste_serveur->addItem(item2);
 
-                //int i;
-                //i = liste_serveur->count();
-                //ping(liste_serveur->item(i)->data(100).toString(), i, 2);
+                int i;
+                i = liste_serveur->count();
+                ping(liste_serveur->item(i-1)->data(100).toString(), i-1, 2);
 
             }
         }
@@ -114,7 +132,8 @@ int FenPrincipale::enregistrerConfiguration(QString chemin_fichier) {
         }
         dom_serveur.setAttribute("os",liste_serveur->item(i)->data(600).toString());
         dom_serveur.setAttribute("utilisateur",liste_serveur->item(i)->data(700).toString());
-        dom_serveur.setAttribute("mdp",liste_serveur->item(i)->data(800).toString());
+        dom_serveur.setAttribute("mdp",cryptage::crypte(liste_serveur->item(i)->data(800).toString(),"Cle")); //enregistrement avec cryptage clé : Cle
+
 
         // decription node
         QDomElement dom_description = doc.createElement("description");

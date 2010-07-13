@@ -23,10 +23,9 @@
 #include "FenPrincipale.h"
 
 /*
-Clic sur ping -> appartition fenetre juste retour de ping
 Barre d'état : se modifie et donne + d'infos lorsque on pointe un bouton
-
-
+Crypter mot de passe
+déplacer déclaration qprocess putty
 */
 
 int main(int argc, char *argv[])
@@ -34,7 +33,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setOrganizationName("Louis VICAINNE");
     app.setApplicationName("VladiConnect");
-    app.setApplicationVersion("v 0.4900");
+    app.setApplicationVersion("v 0.511");
     app.setWindowIcon(QIcon(":/images/icone.png"));
 
     QFileInfo file_info (app.arguments().at(0));
@@ -57,10 +56,9 @@ int main(int argc, char *argv[])
     if (lang == "C") { lang = "English"; sync_settings->setValue("lang", lang); }
     if (lang != "English") {
         QTranslator * translator = new QTranslator;
-
-        //translator->load(QString(":/i18n/Synkron-%1.qm").arg(lang.replace(" ", "_")));
-
-        translator->load(QString("qt_") + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+        QString locale = QLocale::system().name().section('_', 0, 0);
+        translator->load(QString(":/lang/vladiconnect_") + locale);
+        //translator->load(QString(":/lang/vladiconnect_%1.qm").arg(lang.replace(" ", "_")));
         app.installTranslator(translator);
     }
 
