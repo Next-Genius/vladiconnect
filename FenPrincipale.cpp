@@ -279,9 +279,14 @@ void FenPrincipale::on_bouton_configuration_exporter_clicked() {
     enregistrerConfiguration();
 }
 
+void FenPrincipale::setValueAction(int value) {
+    action_progression->setValue(value);
+}
+
 void FenPrincipale::on_bouton_demarrer_clicked() {
     maj_formulaire_action("Démarrage à distance", "Lancement de la procédure.",
                           5, ":/images/network-offline.png");
+    //wol::wol(serveur_mac->text(), liste_serveur->currentRow());
     wol(serveur_sousReseau->text(), serveur_mac->text(), liste_serveur->currentRow());
 }
 
@@ -408,9 +413,7 @@ void FenPrincipale::on_bouton_close_putty_clicked() {
 
 void FenPrincipale::on_bouton_winsent_clicked() {
     QString test4;
-
-    test4 = cryptage::crypte(serveur_mdp->text(),"Cle");
-    test4 = cryptage::decrypte(test4, "Cle");
+    wol::send_wol("00:30:BD:B4:BF:37");
     QMessageBox::warning(this, "Putty", "CODE"+test4+"\n" );
     /*
     QProcess *process = new QProcess;

@@ -14,13 +14,15 @@ SOURCES += main.cpp \
     FenPrincipale_settings.cpp \
     about.cpp \
     FenPrincipale_autre.cpp \
-    cryptage.cpp
+    cryptage.cpp \
+    wol.cpp
 FORMS += FenPrincipale.ui \
     about.ui
 HEADERS += FenPrincipale.h \
     putty.h \
     about.h \
-    cryptage.h
+    cryptage.h \
+    wol.h
 OTHER_FILES += debug/rw.exe \
     debug/putty.exe \
     debug/plink.exe \
@@ -35,6 +37,7 @@ win32 {
     RCC_DIR = .build.win32/
     RC_FILE = Vladiconnect.rc
 }
+LIBS += C:\Qt\2009.05\mingw\lib\libws2_32.a #lien direct vers la lib (ici pour Windows)
 RESOURCES += ressources.qrc
 TRANSLATIONS = vladiconnect_English.ts \
     vladiconnect_French.ts

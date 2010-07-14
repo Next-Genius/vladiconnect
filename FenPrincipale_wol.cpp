@@ -23,6 +23,7 @@ int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste,
     maj_formulaire_action("Démarrage à distance", "Procédure lancée.", 30,
                           QCoreApplication::applicationDirPath()
                           + "/images/utilities-system-monitor.png");
+    /*
     static int numero_ping = 0;
     QProcess *process = new QProcess;
 
@@ -68,9 +69,35 @@ int FenPrincipale::wol(QString sousReseau, QString mac, int numero_m_liste,
                           "Signal de démarrage envoyé. Attente d'une réponse.",
                           50, QCoreApplication::applicationDirPath()
                           + "/images/utilities-system-monitor.png");
-    numero_ping++;
+    numero_ping++;*/
+
+    /*attendre thread;// On crée un thread
+    thread.setPriority(QThread::LowestPriority);
+    thread.start(QThread::LowestPriority);
+*/
+    for (int i=0 ; i<100 ; i++) {
+        // action_progression->setValue(action_progression->value()+1);
+        QMessageBox::warning(0, "WOL", QObject::tr("MAJ"));
+        setValueAction(i);
+        //QThread::msleep(100);
+    }
+
+    wol::send_wol(serveur_mac->text());
+
+   // thread.exit(0); //fin du thread car WOL terminé
+    // Attend la fin du thread créé
+
+
+
     return 0;
 }
+/*
+void FenPrincipale::attendre(int secondes) {
+    for (int i=0 ; i<100 ; i++) {
+    action_progression->setValue(action_progression->value()+1);
+    QThread::msleep(100);
+}
+}*/
 
 void FenPrincipale::sortie_processus_wol() {
     QObject *monObjet = sender();

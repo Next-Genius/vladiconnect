@@ -9,6 +9,8 @@
 #include "putty.h"
 #include "cryptage.h"
 #include "about.h"
+#include "wol.h"
+
 #define NOM_AUTEUR() "Vladiyork"
 #define NOM_LOGICIEL() "VladiConnect"
 #define VERSION_LOGICIEL() 0.511
@@ -21,7 +23,7 @@ class FenPrincipale : public QMainWindow, private Ui::FenPrincipale
 
 public:
     FenPrincipale(QSettings *);
-
+    void setValueAction(int value);
     int enregistrerConfiguration(QString chemin_fichier=QFileDialog::getSaveFileName(0, "Enregistrer", QString("configuration"), "Fichier de configuration xml (*.xml"));
     int chargerConfiguration(QString chemin_fichier =QFileDialog::getOpenFileName(0, "Ouvrir un fichier de configuration", QString(), "Fichier de configuration xml (*.xml)"));
     int miseAJour_QList_vers_formulaire(int numero_serveur);
@@ -83,6 +85,8 @@ private slots:
     void closeEvent(QCloseEvent* event);
 
 
+
+
 private:
     float f_ver;
     QString ver;
@@ -94,7 +98,7 @@ private:
     void createTrayIcon();
     void saveSettings();
     void readSettings();
-
+    //void attendre(int secondes);
     QList<QProcess*> m_liste_processus;
 
     QAction *minimizeAction;
