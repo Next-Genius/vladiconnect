@@ -1,31 +1,63 @@
 #ifndef PUTTY_H
 #define PUTTY_H
-#include <QtGui>
 
-class Putty
+#include <QCoreApplication>
+#include<QObject>
+#include<QProcess>
+#include<QFile>
+#include<QQueue>
+#include<QDebug>
+#include"process.h"
+//#include"server.h"
+
+class Putty : public QObject
 {
-    public:
-    enum ParametrePutty {
-        REDEMARRER,
-        ARRETER,
-        EXECUTER
-    };
+	Q_OBJECT
 
-    enum Os {
-        WINDOWS_XP,
-        WINDOWS_7,
-        LINUX
-    };
-    Putty(QString hote, QString utilisateur, QString mdp, int numero_m_liste, int os);
-static int commande(QString hote, QString utilisateur, QString mdp, int numero_m_liste, int os, int parametre);
-int commande_windows(QString hote, QString utilisateur, QString mdp, int numero_m_liste, int parametre);
-static void ouvrir_putty();
+	public:
 
+	enum Os {
+		WINDOWS,
+		WINDOWS_XP,
+		WINDOWS_7,
+		LINUX
+	};
+
+	Putty(QString hote, QString utilisateur, QString mdp, Os os);
+	~Putty();
+
+	void run();
+
+	bool isValid();
+
+	void setHost(QString);
+	void setUser(QString);
+	void setPassword(QString);
+	void setPath(QString);
+	void addCommand(QString);
+	void stopMachine();
+	void rebootMachine();
+
+private slots:
+	void outputProcess(QString);
+	void sendCommand(QProcess::ProcessState);
+	void finished(Process::EndState);
+signals:
+	void error(QString);
+	void output(QString);
+	void finished();
 protected:
-    QString m_hote;
-    QString m_utilisateur;
-    QString m_mdp;
-    int m_os;
+	int windows_arreter();
+
+	QString host;
+	QString user;
+	QString password;
+	QString path;
+	QQueue<QString> commands;
+	Process* process;
+
+	Os os;
+
 };
 
 

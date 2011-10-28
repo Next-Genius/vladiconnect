@@ -57,7 +57,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
@@ -67,7 +67,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
@@ -77,7 +77,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">svncode</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
@@ -87,64 +87,49 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
-    <value type="QString">APPDATA=C:\Users\vladiyork\AppData\Roaming</value>
-    <value type="QString">APR_ICONV_PATH=C:\Program Files (x86)\Subversion\iconv</value>
-    <value type="QString">CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMW6432=C:\Program Files\Common Files</value>
-    <value type="QString">COMPUTERNAME=LOUIS</value>
-    <value type="QString">COMSPEC=C:\Windows\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Users\vladiyork</value>
-    <value type="QString">KDEDIR=C:\KDE</value>
-    <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\LOUIS</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\MiKTeX 2.8\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 23 Stepping 6, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=1706</value>
-    <value type="QString">PROGRAMDATA=C:\ProgramData</value>
-    <value type="QString">PROGRAMFILES=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMFILES(X86)=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMW6432=C:\Program Files</value>
-    <value type="QString">PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
-    <value type="QString">PUBLIC=C:\Users\Public</value>
-    <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
-    <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
-    <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
-    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\Windows</value>
-    <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">TMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">ULTRAMON_LANGDIR=C:\Program Files\UltraMon\Resources\en</value>
-    <value type="QString">USERDOMAIN=louis</value>
-    <value type="QString">USERNAME=vladiyork</value>
-    <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
-    <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
-    <value type="QString">WINDIR=C:\Windows</value>
-    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-jN8CRerykf,guid=a10bef6658d86d1d7816cc194ea6b0dd</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">DVDCSS_CACHE=/home/isen/.dvdcss/</value>
+    <value type="QString">DVDCSS_METHOD=key</value>
+    <value type="QString">DVDCSS_RAW_DEVICE=/dev/rdvd</value>
+    <value type="QString">DVDCSS_VERBOSE=0</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-WbqGlD</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-ePTLbC/S.gpg-agent:2135:1</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/isen</value>
+    <value type="QString">LANG=fr_FR.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
+    <value type="QString">LOGNAME=isen</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-isen</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/isen</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/hp-laptop:@/tmp/.ICE-unix/2082,unix/hp-laptop:/tmp/.ICE-unix/2082</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=2134</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-WbqGlD/ssh</value>
+    <value type="QString">USER=isen</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=e0a004777e18b1801e2010934d3ee513-1319547100.167274-2109733150</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1/Vladiremote_v1.pro</value>
+    <value type="QString">/mnt/data/Louis VICAINNE/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1/Vladiremote_v1.pro</value>
     <value type="QString">-spec</value>
-    <value type="QString">win32-g++</value>
+    <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
+    <value type="QString">CONFIG+=debug</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">c:/qt/2009.05/qt/bin/qmake.exe</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/mnt/data/Louis VICAINNE/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
   </valuemap>
  </data>
  <data>
@@ -152,66 +137,47 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
-    <value type="QString">APPDATA=C:\Users\vladiyork\AppData\Roaming</value>
-    <value type="QString">APR_ICONV_PATH=C:\Program Files (x86)\Subversion\iconv</value>
-    <value type="QString">CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMW6432=C:\Program Files\Common Files</value>
-    <value type="QString">COMPUTERNAME=LOUIS</value>
-    <value type="QString">COMSPEC=C:\Windows\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Users\vladiyork</value>
-    <value type="QString">KDEDIR=C:\KDE</value>
-    <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\LOUIS</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\MiKTeX 2.8\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 23 Stepping 6, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=1706</value>
-    <value type="QString">PROGRAMDATA=C:\ProgramData</value>
-    <value type="QString">PROGRAMFILES=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMFILES(X86)=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMW6432=C:\Program Files</value>
-    <value type="QString">PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
-    <value type="QString">PUBLIC=C:\Users\Public</value>
-    <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
-    <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
-    <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
-    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\Windows</value>
-    <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">TMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">ULTRAMON_LANGDIR=C:\Program Files\UltraMon\Resources\en</value>
-    <value type="QString">USERDOMAIN=louis</value>
-    <value type="QString">USERNAME=vladiyork</value>
-    <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
-    <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
-    <value type="QString">WINDIR=C:\Windows</value>
-    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-jN8CRerykf,guid=a10bef6658d86d1d7816cc194ea6b0dd</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">DVDCSS_CACHE=/home/isen/.dvdcss/</value>
+    <value type="QString">DVDCSS_METHOD=key</value>
+    <value type="QString">DVDCSS_RAW_DEVICE=/dev/rdvd</value>
+    <value type="QString">DVDCSS_VERBOSE=0</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-WbqGlD</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-ePTLbC/S.gpg-agent:2135:1</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/isen</value>
+    <value type="QString">LANG=fr_FR.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
+    <value type="QString">LOGNAME=isen</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-isen</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/isen</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/hp-laptop:@/tmp/.ICE-unix/2082,unix/hp-laptop:/tmp/.ICE-unix/2082</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=2134</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-WbqGlD/ssh</value>
+    <value type="QString">USER=isen</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=e0a004777e18b1801e2010934d3ee513-1319547100.167274-2109733150</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">-lws2_32</value>
     <value type="QString">-w</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">C:/Qt/2009.05/mingw/bin/mingw32-make.exe</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
-   <valuelist key="makeargs" type="QVariantList">
-    <value type="QString">-lws2_32</value>
-   </valuelist>
+   <value key="abstractProcess.workingDirectory" type="QString">/mnt/data/Louis VICAINNE/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
+   <valuelist key="makeargs" type="QVariantList"/>
   </valuemap>
  </data>
  <data>
@@ -221,6 +187,7 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
     <value type="QString">APPDATA=C:\Users\vladiyork\AppData\Roaming</value>
+    <value type="QString">APR_ICONV_PATH=C:\Program Files (x86)\Subversion\iconv</value>
     <value type="QString">CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
     <value type="QString">COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
     <value type="QString">COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
@@ -230,11 +197,12 @@
     <value type="QString">FP_NO_HOST_CHECK=NO</value>
     <value type="QString">HOMEDRIVE=C:</value>
     <value type="QString">HOMEPATH=\Users\vladiyork</value>
+    <value type="QString">KDEDIR=C:\KDE</value>
     <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
     <value type="QString">LOGONSERVER=\\LOUIS</value>
     <value type="QString">NUMBER_OF_PROCESSORS=2</value>
     <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\</value>
+    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;C:\Program Files (x86)\MiKTeX 2.8\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\KDE\bin</value>
     <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
     <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
@@ -249,16 +217,22 @@
     <value type="QString">PUBLIC=C:\Users\Public</value>
     <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
     <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
+    <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
+    <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
+    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
     <value type="QString">SESSIONNAME=Console</value>
+    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
     <value type="QString">SYSTEMDRIVE=C:</value>
     <value type="QString">SYSTEMROOT=C:\Windows</value>
     <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
     <value type="QString">TMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
+    <value type="QString">ULTRAMON_LANGDIR=C:\Program Files\UltraMon\Resources\en</value>
     <value type="QString">USERDOMAIN=louis</value>
     <value type="QString">USERNAME=vladiyork</value>
     <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
     <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
     <value type="QString">WINDIR=C:\Windows</value>
+    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -279,65 +253,48 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
-    <value type="QString">APPDATA=C:\Users\vladiyork\AppData\Roaming</value>
-    <value type="QString">APR_ICONV_PATH=C:\Program Files (x86)\Subversion\iconv</value>
-    <value type="QString">CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMW6432=C:\Program Files\Common Files</value>
-    <value type="QString">COMPUTERNAME=LOUIS</value>
-    <value type="QString">COMSPEC=C:\Windows\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Users\vladiyork</value>
-    <value type="QString">KDEDIR=C:\KDE</value>
-    <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\LOUIS</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;C:\KDE\bin</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 23 Stepping 6, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=1706</value>
-    <value type="QString">PROGRAMDATA=C:\ProgramData</value>
-    <value type="QString">PROGRAMFILES=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMFILES(X86)=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMW6432=C:\Program Files</value>
-    <value type="QString">PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
-    <value type="QString">PUBLIC=C:\Users\Public</value>
-    <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
-    <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
-    <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
-    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\Windows</value>
-    <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">TMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">ULTRAMON_LANGDIR=C:\Program Files\UltraMon\Resources\en</value>
-    <value type="QString">USERDOMAIN=louis</value>
-    <value type="QString">USERNAME=vladiyork</value>
-    <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
-    <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
-    <value type="QString">WINDIR=C:\Windows</value>
-    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-jN8CRerykf,guid=a10bef6658d86d1d7816cc194ea6b0dd</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">DVDCSS_CACHE=/home/isen/.dvdcss/</value>
+    <value type="QString">DVDCSS_METHOD=key</value>
+    <value type="QString">DVDCSS_RAW_DEVICE=/dev/rdvd</value>
+    <value type="QString">DVDCSS_VERBOSE=0</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-WbqGlD</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-ePTLbC/S.gpg-agent:2135:1</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/isen</value>
+    <value type="QString">LANG=fr_FR.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
+    <value type="QString">LOGNAME=isen</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-isen</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/isen</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/hp-laptop:@/tmp/.ICE-unix/2082,unix/hp-laptop:/tmp/.ICE-unix/2082</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=2134</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-WbqGlD/ssh</value>
+    <value type="QString">USER=isen</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=e0a004777e18b1801e2010934d3ee513-1319547100.167274-2109733150</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1/Vladiremote_v1.pro</value>
+    <value type="QString">/mnt/data/Louis VICAINNE/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1/Vladiremote_v1.pro</value>
     <value type="QString">-spec</value>
-    <value type="QString">win32-g++</value>
+    <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
-    <value type="QString">CONFIG+=release</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">c:/qt/2009.05/qt/bin/qmake.exe</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/mnt/data/Louis VICAINNE/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
   </valuemap>
  </data>
  <data>
@@ -345,62 +302,46 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
-    <value type="QString">APPDATA=C:\Users\vladiyork\AppData\Roaming</value>
-    <value type="QString">APR_ICONV_PATH=C:\Program Files (x86)\Subversion\iconv</value>
-    <value type="QString">CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
-    <value type="QString">COMMONPROGRAMW6432=C:\Program Files\Common Files</value>
-    <value type="QString">COMPUTERNAME=LOUIS</value>
-    <value type="QString">COMSPEC=C:\Windows\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Users\vladiyork</value>
-    <value type="QString">KDEDIR=C:\KDE</value>
-    <value type="QString">LOCALAPPDATA=C:\Users\vladiyork\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\LOUIS</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2009.05\mingw\bin;C:\Qt\2009.05\qt\bin;%CommonProgramFiles%\Microsoft Shared\Windows Live;C:\Program Files (x86)\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Subversion\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Subversion\bin;C:\wamp\bin\apache\Apache2.2.11\bin;C:\KDE\bin</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_ARCHITEW6432=AMD64</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 23 Stepping 6, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=1706</value>
-    <value type="QString">PROGRAMDATA=C:\ProgramData</value>
-    <value type="QString">PROGRAMFILES=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMFILES(X86)=C:\Program Files (x86)</value>
-    <value type="QString">PROGRAMW6432=C:\Program Files</value>
-    <value type="QString">PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
-    <value type="QString">PUBLIC=C:\Users\Public</value>
-    <value type="QString">QTDIR=C:/Qt/2009.05/qt</value>
-    <value type="QString">QTJAVA=C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">RGSC=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club\1_0_0_0</value>
-    <value type="QString">RGSCLAUNCHER=C:\Program Files (x86)\Rockstar Games\Rockstar Games Social Club</value>
-    <value type="QString">SAN_DIR=C:\Program Files\SiSoftware\SiSoftware Sandra Lite 2010.SP1d</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SVN_EDITOR=C:\WINDOWS\notepad.exe</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\Windows</value>
-    <value type="QString">TEMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">TMP=C:\Users\VLADIY~1\AppData\Local\Temp</value>
-    <value type="QString">ULTRAMON_LANGDIR=C:\Program Files\UltraMon\Resources\en</value>
-    <value type="QString">USERDOMAIN=louis</value>
-    <value type="QString">USERNAME=vladiyork</value>
-    <value type="QString">USERPROFILE=C:\Users\vladiyork</value>
-    <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
-    <value type="QString">WINDIR=C:\Windows</value>
-    <value type="QString">__COMPAT_LAYER=ElevateCreateProcess</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-jN8CRerykf,guid=a10bef6658d86d1d7816cc194ea6b0dd</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">DVDCSS_CACHE=/home/isen/.dvdcss/</value>
+    <value type="QString">DVDCSS_METHOD=key</value>
+    <value type="QString">DVDCSS_RAW_DEVICE=/dev/rdvd</value>
+    <value type="QString">DVDCSS_VERBOSE=0</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-WbqGlD</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-ePTLbC/S.gpg-agent:2135:1</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/isen</value>
+    <value type="QString">LANG=fr_FR.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
+    <value type="QString">LOGNAME=isen</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-isen</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/isen</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/hp-laptop:@/tmp/.ICE-unix/2082,unix/hp-laptop:/tmp/.ICE-unix/2082</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=2134</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-WbqGlD/ssh</value>
+    <value type="QString">USER=isen</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=e0a004777e18b1801e2010934d3ee513-1319547100.167274-2109733150</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">-w</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">C:/Qt/2009.05/mingw/bin/mingw32-make.exe</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">D:/Users/vladiyork/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/mnt/data/Louis VICAINNE/Documents/Programmation/Projet_SERVEUR_programme/Vladiremote_v1</value>
   </valuemap>
  </data>
  <data>

@@ -45,7 +45,7 @@ bool FenPrincipale::closeDialogue()
     QDialog * cl_dialogue = new QDialog (this, Qt::Dialog);
     cl_dialogue->setWindowModality(Qt::WindowModal);
     //cl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
-    cl_dialogue->setWindowTitle(tr("Quit Synkron"));
+    cl_dialogue->setWindowTitle(tr("Quit VladiConnect"));
     QGridLayout * cl_glayout = new QGridLayout (cl_dialogue);
     cl_glayout->setMargin(4); cl_glayout->setSpacing(10);
     QLabel * cl_label = new QLabel (cl_dialogue);
