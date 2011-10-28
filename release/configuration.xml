@@ -1,0 +1,15 @@
+<!--Configuration VladiConnect version 0.485 
+ Créé le lun. juin 14 2010
+ par Vladiyork
+ Ce document est au format "xml". -->
+<racine version="0.485" nom="configuration">
+ <serveur sousReseau="..." mdp="" os="Windows XP" utilisateur="dgdfg" nom="nomtest" ip="192.5.." mac="AC:::::">
+  <decription></decription>
+ </serveur>
+ <serveur sousReseau="..." mdp="" os="Windows XP" utilisateur="aaa" nom="Nouveau serveur" ip="192.168.1.3" mac="00:30:BD:B4:BF:37">
+  <decription></decription>
+ </serveur>
+ <serveur sousReseau="..." mdp="" os="Windows XP" utilisateur="1azeaz" nom="Nouveau serveur (1)" ip="192.168.." mac="AE:45:24:72:54:05">
+  <decription></decription>
+ </serveur>
+</racine>
