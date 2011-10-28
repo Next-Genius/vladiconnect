@@ -9,13 +9,12 @@
         <file>images/network-transmit.png</file>
         <file>images/network-transmit-receive.png</file>
         <file>images/utilities-system-monitor.png</file>
+        <file>images/restart.png</file>
+        <file>images/start.png</file>
+        <file>images/stop.png</file>
     </qresource>
     <qresource prefix="/executables">
-        <file>wol.exe</file>
         <file>putty.exe</file>
-        <file>winnosent/language/english.lng</file>
-        <file>winnosent/language/francais.lng</file>
-        <file>winnosent.exe</file>
     </qresource>
     <qresource prefix="/lang">
         <file>vladiconnect_fr.qm</file>

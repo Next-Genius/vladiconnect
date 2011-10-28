@@ -16,6 +16,7 @@
  along with VladiConnect; if not, write to the Free Software Foundation,
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
+
 #include <QApplication>
 #include <QTranslator>
 #include <QLocale>
@@ -23,9 +24,8 @@
 #include "FenPrincipale.h"
 
 /*
-Barre d'état : se modifie et donne + d'infos lorsque on pointe un bouton
-Crypter mot de passe
-déplacer déclaration qprocess putty
+Barre d'Ã©tat : se modifie et donne + d'infos lorsque on pointe un bouton
+
 */
 
 int main(int argc, char *argv[])
@@ -38,33 +38,49 @@ int main(int argc, char *argv[])
 
     QFileInfo file_info (app.arguments().at(0));
     QDir dir (file_info.dir()); QSettings * sync_settings;
-#ifdef PORTABLE_APP
-    dir.cdUp(); dir.cdUp();
-    dir.cd("Data"); dir.cd("settings");
-#endif
+
+    #ifdef PORTABLE_APP
+        dir.cdUp(); dir.cdUp();
+        dir.cd("Data"); dir.cd("settings");
+    #endif
 
     if (dir.exists("Vladiconnect.ini")) {
         sync_settings = new QSettings (dir.absoluteFilePath("Vladiconnect.ini"), QSettings::IniFormat);
     } else {
         sync_settings = new QSettings (QSettings::IniFormat, QSettings::UserScope, "Louis VICAINNE", "Vladiconnect");
     }
+
     QString lang = sync_settings->value("lang").toString();
     if (lang.isEmpty()) {
         lang = QLocale::languageToString(QLocale::system().language());
         sync_settings->setValue("lang", lang);
     }
-    if (lang == "C") { lang = "English"; sync_settings->setValue("lang", lang); }
-    if (lang != "English") {
-        QTranslator * translator = new QTranslator;
-        QString locale = QLocale::system().name().section('_', 0, 0);
-        translator->load(QString(":/lang/vladiconnect_") + locale);
-        //translator->load(QString(":/lang/vladiconnect_%1.qm").arg(lang.replace(" ", "_")));
-        app.installTranslator(translator);
+
+    if (lang == "C") {
+        lang = "English";
+        sync_settings->setValue("lang", lang);
     }
 
-    FenPrincipale *fenetre = new FenPrincipale(sync_settings);
-    if (fenetre->runHidden() && app.arguments().count() <= 1) fenetre->hide();
-    else fenetre->show();
+	if (lang != "English") {
+		QTranslator * translator = new QTranslator;
+		QString locale = QLocale::system().name().section('_', 0, 0);
+
+		if(translator->load(QString(":/lang/vladiconnect_") + locale + ".qm")) {
+
+
+		} else {
+			//Le pack de langue n'a pu Ãªtre chargÃ© !
+			return -2;
+		}
+        //translator->load(QString(":/lang/vladiconnect_%1.qm").arg(lang.replace(" ", "_")));
+		app.installTranslator(translator);
+	}
+
+	FenPrincipale *fenetre = new FenPrincipale(sync_settings, &app);
+    if (fenetre->runHidden() && app.arguments().count() <= 1)
+        fenetre->hide();
+    else
+        fenetre->show();
 
     return app.exec();
 }

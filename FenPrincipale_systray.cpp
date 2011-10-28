@@ -38,7 +38,8 @@ void FenPrincipale::createTrayIcon()
      trayIcon->setIcon(QIcon(QString::fromUtf8(":/images/icone.png")));
      trayIcon->setToolTip("Vladiconnect");
      trayIcon->setContextMenu(trayIconMenu);
-     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
+     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 void FenPrincipale::trayIconVisible(bool visible)
@@ -58,7 +59,7 @@ void FenPrincipale::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
                         this->show();
                 }
                 else {
-                        this->showTrayMessage("Reduction de Vladiconnect", "NOM_LOGICIEL() a été réduit. Il continue toutefois de travailler en arrruère plan.");
+                    this->showTrayMessage("Reduction de Vladiconnect", QString::fromLatin1(NOM_LOGICIEL())+" a Ã©tÃ© rÃ©duit. Il continue toutefois de travailler en arriÃ¨re plan.");
                         this->hide();
                 }
                 break;
@@ -119,10 +120,8 @@ void FenPrincipale::createTrayActions()
      minimizeAction = new QAction(tr("&Hide"), this);
      connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
      //connect(minimizeAction, SIGNAL(triggered()), this, SLOT(minimizeTrayIcon()));
-     minimizeAction = new QAction(tr("Cacher"), this);
-     connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
 
-     maximizeAction = new QAction(tr("Montrer"), this);
+	 maximizeAction = new QAction(tr("S&how"), this);
      connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
 
      restoreAction = new QAction(tr("&Restore"), this);
@@ -131,11 +130,13 @@ void FenPrincipale::createTrayActions()
      connect(maximizeAction, SIGNAL(triggered()), this, SLOT(show()));
      //connect(maximizeAction, SIGNAL(triggered()), this, SLOT(maximizeTrayIcon()));
 
-
      quitAction = new QAction(tr("&Quit"), this);
      connect(quitAction, SIGNAL(triggered()), this, SLOT(closeApp()));
+}
 
-
+void FenPrincipale::printMessage(QString myMessage, QString title) {
+	this->showTrayMessage(title, myMessage); //Pop up
+	this->statusBar()->showMessage(myMessage, 2000); //Barre d'Ã©tat
 }
 
 // --- Tray icon ---
